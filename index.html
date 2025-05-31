@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Browser is a Marvelous Thing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow: hidden;
+            color: white;
+        }
+
+        .presentation-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100px);
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 6vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+
+        .feature-desc {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(0,0,0,0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .demo-placeholder {
+            width: 80%;
+            height: 300px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+            border: 2px dashed rgba(255,255,255,0.5);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .big-number {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(255,215,0,0.5);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ffd700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .code-snippet {
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+            padding: 1.5rem;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 1.1rem;
+            text-align: left;
+            margin: 2rem 0;
+            border-left: 4px solid #ffd700;
+            max-width: 600px;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1000px;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .timeline-number {
+            background: #ffd700;
+            color: #333;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        .final-slide {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">15</span>
+        </div>
+
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <h1 class="floating">The Browser is a Marvelous Thing</h1>
+            <p class="subtitle">Discover the hidden features that will transform your web projects</p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">New Features</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">45</span>
+                    <span class="stat-label">Minutes</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Possibilities</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Hook -->
+        <div class="slide">
+            <div class="big-number">2024</div>
+            <h2>Your browser gained <span class="highlight">superpowers</span></h2>
+            <p class="subtitle">And most developers don't even know they exist</p>
+            <div class="demo-placeholder">
+                🎬 VIEW TRANSITIONS DEMO VIDEO
+            </div>
+        </div>
+
+        <!-- Slide 3: Act I Intro -->
+        <div class="slide">
+            <h2>Act I</h2>
+            <h3>CSS is Having a Renaissance</h3>
+            <p class="subtitle">"CSS got scary good"</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div>Container Queries</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div>:has() Selector</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div>Cascade Layers</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div>CSS Nesting</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div>Subgrid</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Container Queries -->
+        <div class="slide">
+            <h2>Container Queries</h2>
+            <h3>"Responsive components, not just pages"</h3>
+            <div class="demo-placeholder">
+                🎬 CONTAINER QUERIES DEMO VIDEO
+            </div>
+            <div class="code-snippet">
+@container (min-width: 400px) {
+  .card { flex-direction: row; }
+}</div>
+        </div>
+
+        <!-- Slide 5: :has() Selector -->
+        <div class="slide">
+            <h2>CSS :has() - The Parent Selector</h2>
+            <h3>"CSS can finally look up the tree"</h3>
+            <div class="demo-placeholder">
+                🎬 :HAS() SELECTOR DEMO VIDEO
+            </div>
+            <div class="code-snippet">
+form:has(.error) {
+  border: 2px solid red;
+}</div>
+        </div>
+
+        <!-- Slide 6: Quick CSS Features -->
+        <div class="slide">
+            <h2>More CSS Superpowers</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">Cascade Layers</div>
+                    <div class="feature-desc">Specificity wars are over</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🪆</div>
+                    <div class="feature-title">CSS Nesting</div>
+                    <div class="feature-desc">Sass built into browsers</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🕸️</div>
+                    <div class="feature-title">Subgrid</div>
+                    <div class="feature-desc">Grids all the way down</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Act II Intro -->
+        <div class="slide">
+            <h2>Act II</h2>
+            <h3>HTML Elements You've Been Reinventing</h3>
+            <p class="subtitle">"Stop building what's already there"</p>
+        </div>
+
+        <!-- Slide 8: Dialog Element -->
+        <div class="slide">
+            <h2>&lt;dialog&gt;</h2>
+            <h3>"Native modals with a11y built-in"</h3>
+            <div class="demo-placeholder">
+                🎬 DIALOG ELEMENT DEMO VIDEO
+            </div>
+            <p class="subtitle">200 lines of modal code → 5 lines</p>
+        </div>
+
+        <!-- Slide 9: Other HTML Elements -->
+        <div class="slide">
+            <h2>More Hidden HTML Gems</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <div class="feature-title">&lt;details&gt;</div>
+                    <div class="feature-desc">Accordions without JavaScript</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-title">&lt;datalist&gt;</div>
+                    <div class="feature-desc">Autocomplete for free</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">&lt;progress&gt;</div>
+                    <div class="feature-desc">Native progress bars</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Act III Intro -->
+        <div class="slide">
+            <h2>Act III</h2>
+            <h3>Web APIs That Feel Like Cheating</h3>
+            <p class="subtitle">"Your browser is a supercomputer"</p>
+        </div>
+
+        <!-- Slide 11: File System Access -->
+        <div class="slide">
+            <h2>File System Access API</h2>
+            <h3>"Read/write files like a desktop app"</h3>
+            <div class="demo-placeholder">
+                🎬 FILE SYSTEM API DEMO VIDEO
+            </div>
+        </div>
+
+        <!-- Slide 12: View Transitions -->
+        <div class="slide">
+            <h2>View Transitions API</h2>
+            <h3>"Movie-quality page transitions"</h3>
+            <div class="demo-placeholder">
+                🎬 VIEW TRANSITIONS DEMO VIDEO
+            </div>
+        </div>
+
+        <!-- Slide 13: More Web APIs -->
+        <div class="slide">
+            <h2>Even More Browser Magic</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <div class="feature-title">Intersection Observer</div>
+                    <div class="feature-desc">Scroll effects without listeners</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Web Locks API</div>
+                    <div class="feature-desc">Coordinate between tabs</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📡</div>
+                    <div class="feature-title">Broadcast Channel</div>
+                    <div class="feature-desc">Tabs talking to tabs</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: DevTools -->
+        <div class="slide">
+            <h2>DevTools Superpowers</h2>
+            <h3>"Your browser is your best debugging friend"</h3>
+            <div class="demo-placeholder">
+                🎬 DEVTOOLS DEMO VIDEO
+            </div>
+        </div>
+
+        <!-- Slide 15: Grand Finale -->
+        <div class="slide final-slide">
+            <h2>The Future is Now</h2>
+            <h3>The browser as a platform rivaling native apps</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">Challenge</div>
+                    <div class="feature-desc">Pick one feature and use it this week</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-title">Call to Action</div>
+                    <div class="feature-desc">Stop polyfilling what browsers already do</div>
+                </div>
+            </div>
+            <p class="subtitle">Thank you! Questions?</p>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="previousSlide()">← Previous</button>
+            <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'prev');
+                if (i === index) {
+                    slide.classList.add('active');
+                } else if (i < index) {
+                    slide.classList.add('prev');
+                }
+            });
+            
+            document.getElementById('currentSlide').textContent = index + 1;
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+
+        // Fullscreen on F11 or double-click
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F11') {
+                e.preventDefault();
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+        });
+
+        document.addEventListener('dblclick', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
