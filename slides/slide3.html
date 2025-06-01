@@ -1,26 +1,29 @@
-<!-- Slide 3: Act I Intro -->
-<h2>Act I</h2>
-<h3>CSS is Having a Renaissance</h3>
-<p class="subtitle">"CSS got scary good"</p>
-<div class="timeline">
-    <div class="timeline-item">
-        <div class="timeline-number">1</div>
-        <div>Container Queries</div>
-    </div>
-    <div class="timeline-item">
-        <div class="timeline-number">2</div>
-        <div>:has() Selector</div>
-    </div>
-    <div class="timeline-item">
-        <div class="timeline-number">3</div>
-        <div>Cascade Layers</div>
-    </div>
-    <div class="timeline-item">
-        <div class="timeline-number">4</div>
-        <div>CSS Nesting</div>
-    </div>
-    <div class="timeline-item">
-        <div class="timeline-number">5</div>
-        <div>Subgrid</div>
+<!-- Slide 3: Hook -->
+<div class="big-number">2024</div>
+<h2>Your browser gained <span class="highlight">superpowers</span></h2>
+<p class="subtitle">And most developers don't even know they exist</p>
+<div class="demo-container">
+    <div class="code-panel">
+        // View Transitions API
+        document.startViewTransition(() => {
+        // Update the DOM
+        updateContent();
+        });
+
+        /* CSS */
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+        animation-duration: 0.5s;
+        }</div>
+    <div class="result-panel">
+        <div class="transition-demo">
+            <div class="transition-card"
+                onclick="this.style.background='linear-gradient(45deg, #ff6b6b, #ee5a24)'">Card 1</div>
+            <div class="transition-card"
+                onclick="this.style.background='linear-gradient(45deg, #4ecdc4, #44a08d)'">Card 2</div>
+            <div class="transition-card"
+                onclick="this.style.background='linear-gradient(45deg, #45b7d1, #96c93d)'">Card 3</div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Click cards to see transitions</p>
     </div>
 </div>

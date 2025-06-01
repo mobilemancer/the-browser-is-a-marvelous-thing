@@ -1,52 +1,47 @@
-<!-- Slide 14: DevTools -->
-<h2>DevTools Superpowers</h2>
-<h3>"Your browser is your best debugging friend"</h3>
+<!-- Slide 14: More Web APIs -->
+<h2>Even More Browser Magic</h2>
 <div class="demo-container">
     <div class="code-panel">
-        /* Console tricks */
-        console.table(data);
-        console.time('operation');
-        console.timeEnd('operation');
-
-        /* CSS Grid debugging */
-        .grid {
-        display: grid;
-        /* Firefox/Chrome show grid lines */
+        /* Intersection Observer */
+        const observer = new IntersectionObserver(
+        (entries) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
         }
+        });
+        }
+        );
 
-        /* Performance monitoring */
-        performance.mark('start');
-        // ... do work ...
-        performance.mark('end');
-        performance.measure('work', 'start', 'end');
+        observer.observe(element);
 
-        /* Memory usage */
-        console.log(performance.memory);
+        /* Web Locks API */
+        await navigator.locks.request('my-lock',
+        async () => {
+        // Critical section
+        await doImportantWork();
+        }
+        );
 
-        /* Container queries debugging */
-        @container (min-width: 300px) {
-        /* Inspect shows container boundaries */
-        }</div>
+        /* Broadcast Channel */
+        const channel = new BroadcastChannel('tab-sync');
+        channel.postMessage({type: 'update'});
+        channel.onmessage = (event) => {
+        console.log('Message from another tab:',
+        event.data);
+        };</div>
     <div class="result-panel">
-        <div style="text-align: center;">
-            <div
-                style="background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">
-                <h4>🔧 DevTools Features</h4>
-                <div
-                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; font-size: 0.9rem;">
-                    <div>✅ CSS Grid Inspector</div>
-                    <div>✅ Container Query Debug</div>
-                    <div>✅ Performance Profiling</div>
-                    <div>✅ Memory Leak Detection</div>
-                    <div>✅ Lighthouse Integration</div>
-                    <div>✅ Remote Debugging</div>
-                </div>
+        <div>
+            <h4 style="margin-bottom: 1rem;">Intersection Observer Demo</h4>
+            <div class="intersection-demo">
+                <div class="scroll-item">Scroll item 1</div>
+                <div class="scroll-item">Scroll item 2</div>
+                <div class="scroll-item">Scroll item 3</div>
+                <div class="scroll-item">Scroll item 4</div>
+                <div class="scroll-item">Scroll item 5</div>
             </div>
-            <button class="demo-button" onclick="demoDevTools()">
-                Open DevTools & Try
-            </button>
             <p style="font-size: 0.9rem; margin-top: 1rem;">
-                Press F12 and check the Console!
+                Scroll to see items fade in when visible
             </p>
         </div>
     </div>

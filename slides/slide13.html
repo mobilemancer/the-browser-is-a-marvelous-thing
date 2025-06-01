@@ -1,47 +1,47 @@
-<!-- Slide 13: More Web APIs -->
-<h2>Even More Browser Magic</h2>
+<!-- Slide 13: View Transitions -->
+<h2>View Transitions API</h2>
+<h3>"Movie-quality page transitions"</h3>
 <div class="demo-container">
     <div class="code-panel">
-        /* Intersection Observer */
-        const observer = new IntersectionObserver(
-        (entries) => {
-        entries.forEach(entry => {
-        if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        }
+        /* View Transitions API */
+        function updatePage() {
+        document.startViewTransition(() => {
+        // Update your DOM here
+        document.querySelector('.content')
+        .innerHTML = newContent;
         });
         }
-        );
 
-        observer.observe(element);
-
-        /* Web Locks API */
-        await navigator.locks.request('my-lock',
-        async () => {
-        // Critical section
-        await doImportantWork();
+        /* CSS */
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+        animation-duration: 0.8s;
         }
-        );
 
-        /* Broadcast Channel */
-        const channel = new BroadcastChannel('tab-sync');
-        channel.postMessage({type: 'update'});
-        channel.onmessage = (event) => {
-        console.log('Message from another tab:',
-        event.data);
-        };</div>
+        /* Named transitions */
+        .hero {
+        view-transition-name: hero-image;
+        }
+
+        ::view-transition-old(hero-image) {
+        transform: translateX(-100%);
+        }
+
+        ::view-transition-new(hero-image) {
+        transform: translateX(100%);
+        }</div>
     <div class="result-panel">
-        <div>
-            <h4 style="margin-bottom: 1rem;">Intersection Observer Demo</h4>
-            <div class="intersection-demo">
-                <div class="scroll-item">Scroll item 1</div>
-                <div class="scroll-item">Scroll item 2</div>
-                <div class="scroll-item">Scroll item 3</div>
-                <div class="scroll-item">Scroll item 4</div>
-                <div class="scroll-item">Scroll item 5</div>
+        <div style="text-align: center;">
+            <div id="transitionContent"
+                style="background: linear-gradient(45deg, #4facfe, #00f2fe); padding: 2rem; border-radius: 15px; margin: 1rem 0;">
+                <h4>Content Block</h4>
+                <p>Click button to see smooth transition</p>
             </div>
+            <button class="demo-button" onclick="demoViewTransition()" style="margin-top: 1rem;">
+                Trigger View Transition
+            </button>
             <p style="font-size: 0.9rem; margin-top: 1rem;">
-                Scroll to see items fade in when visible
+                Smooth morphing animations between DOM states
             </p>
         </div>
     </div>

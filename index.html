@@ -1,14 +1,3 @@
-<!-- // Demo functions -->
-<!-- function demoFileAPI() {
-            alert('In a real environment, this would open a native file picker!\n\nThe File System Access API lets web apps:\n• Read files from your computer\n• Save files directly to folders\n• Edit files in place\n• Work like desktop applications');
-        }
-
-        function demoViewTransition() {
-            const content = document.getElementById('transitionContent');
-            const colors = [
-                'linear-gradient(45deg, #4facfe, #00f2fe)',
-                'linear-gradient(45deg, #ff6b6 -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -520,21 +509,145 @@
 
         .floating {
             animation: float 3s ease-in-out infinite;
-        }
-
-        .highlight {
+        }        .highlight {
             background: linear-gradient(45deg, #ffd700, #ffed4e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 900;
         }
+
+        /* Presenter slide styles */
+        .presenter-slide {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .presenter-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            max-width: 1200px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .presenter-image {
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+
+        .presenter-info {
+            text-align: left;
+        }
+
+        .presenter-name {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .presenter-title {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .presenter-badges {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge.aurelia {
+            background: linear-gradient(45deg, rgba(237, 20, 61, 0.2), rgba(255, 107, 107, 0.2));
+            border-color: rgba(237, 20, 61, 0.3);
+        }
+
+        .badge.mvp {
+            background: linear-gradient(45deg, rgba(0, 120, 215, 0.2), rgba(70, 130, 255, 0.2));
+            border-color: rgba(0, 120, 215, 0.3);
+        }
+
+        .badge-icon {
+            font-size: 1.2rem;
+        }
+
+        .badge-text {
+            font-weight: 600;
+        }
+
+        .presenter-bio {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .presenter-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .presenter-info {
+                text-align: center;
+            }
+
+            .profile-pic {
+                width: 200px;
+                height: 200px;
+            }
+
+            .presenter-name {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 
 <body>    <div class="presentation-container">
         <div class="slide-counter">
-            <span id="currentSlide">1</span> / <span id="totalSlides">15</span>
+            <span id="currentSlide">1</span> / <span id="totalSlides">16</span>
         </div>
 
         <!-- Dynamic slide container -->
@@ -549,9 +662,8 @@
     </div>
 
     <script src="demo-functions.js"></script>
-    <script>
-        let currentSlideIndex = 0;
-        const totalSlides = 15;
+    <script>        let currentSlideIndex = 0;
+        const totalSlides = 16;
         const slideContainer = document.getElementById('slideContainer');
 
         document.getElementById('totalSlides').textContent = totalSlides;
@@ -590,9 +702,8 @@
             try {
                 const slideContent = await loadSlide(slideNumber);
                 slideContainer.innerHTML = slideContent;
-                
-                // Apply special class for final slide
-                if (slideNumber === 15) {
+                  // Apply special class for final slide
+                if (slideNumber === 16) {
                     slideContainer.classList.add('final-slide');
                 } else {
                     slideContainer.classList.remove('final-slide');

@@ -1,16 +1,53 @@
-<!-- Slide 15: Grand Finale -->
-<h2>The Future is Now</h2>
-<h3>The browser as a platform rivaling native apps</h3>
-<div class="feature-grid">
-    <div class="feature-card">
-        <div class="feature-icon">🎯</div>
-        <div class="feature-title">Challenge</div>
-        <div class="feature-desc">Pick one feature and use it this week</div>
-    </div>
-    <div class="feature-card">
-        <div class="feature-icon">🚀</div>
-        <div class="feature-title">Call to Action</div>
-        <div class="feature-desc">Stop polyfilling what browsers already do</div>
+<!-- Slide 15: DevTools -->
+<h2>DevTools Superpowers</h2>
+<h3>"Your browser is your best debugging friend"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        /* Console tricks */
+        console.table(data);
+        console.time('operation');
+        console.timeEnd('operation');
+
+        /* CSS Grid debugging */
+        .grid {
+        display: grid;
+        /* Firefox/Chrome show grid lines */
+        }
+
+        /* Performance monitoring */
+        performance.mark('start');
+        // ... do work ...
+        performance.mark('end');
+        performance.measure('work', 'start', 'end');
+
+        /* Memory usage */
+        console.log(performance.memory);
+
+        /* Container queries debugging */
+        @container (min-width: 300px) {
+        /* Inspect shows container boundaries */
+        }</div>
+    <div class="result-panel">
+        <div style="text-align: center;">
+            <div
+                style="background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">
+                <h4>🔧 DevTools Features</h4>
+                <div
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; font-size: 0.9rem;">
+                    <div>✅ CSS Grid Inspector</div>
+                    <div>✅ Container Query Debug</div>
+                    <div>✅ Performance Profiling</div>
+                    <div>✅ Memory Leak Detection</div>
+                    <div>✅ Lighthouse Integration</div>
+                    <div>✅ Remote Debugging</div>
+                </div>
+            </div>
+            <button class="demo-button" onclick="demoDevTools()">
+                Open DevTools & Try
+            </button>
+            <p style="font-size: 0.9rem; margin-top: 1rem;">
+                Press F12 and check the Console!
+            </p>
+        </div>
     </div>
 </div>
-<p class="subtitle">Thank you! Questions?</p>

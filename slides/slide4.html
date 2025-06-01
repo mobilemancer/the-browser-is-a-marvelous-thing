@@ -1,34 +1,26 @@
-<!-- Slide 4: Container Queries -->
-<h2>Container Queries</h2>
-<h3>"Responsive components, not just pages"</h3>
-<div class="demo-container">
-    <div class="code-panel">
-        /* CSS Container Queries */
-        .container {
-        container-type: inline-size;
-        }
-
-        .card {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        background: gold;
-        }
-
-        @container (min-width: 300px) {
-        .card {
-        flex-direction: row;
-        background: purple;
-        }
-        }</div>
-    <div class="result-panel">
-        <div class="container-query-demo">
-            <div class="responsive-card">
-                <div>Card Content</div>
-                <div>More Content</div>
-            </div>
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">Drag the corner to resize →</p>
+<!-- Slide 4: Act I Intro -->
+<h2>Act I</h2>
+<h3>CSS is Having a Renaissance</h3>
+<p class="subtitle">"CSS got scary good"</p>
+<div class="timeline">
+    <div class="timeline-item">
+        <div class="timeline-number">1</div>
+        <div>Container Queries</div>
+    </div>
+    <div class="timeline-item">
+        <div class="timeline-number">2</div>
+        <div>:has() Selector</div>
+    </div>
+    <div class="timeline-item">
+        <div class="timeline-number">3</div>
+        <div>Cascade Layers</div>
+    </div>
+    <div class="timeline-item">
+        <div class="timeline-number">4</div>
+        <div>CSS Nesting</div>
+    </div>
+    <div class="timeline-item">
+        <div class="timeline-number">5</div>
+        <div>Subgrid</div>
     </div>
 </div>
