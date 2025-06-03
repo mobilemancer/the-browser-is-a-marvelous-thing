@@ -52,13 +52,6 @@
                 return manifest;
             } catch (error) {
                 console.error('Error loading manifest:', error);
-                // Fallback to old system if manifest fails
-                enabledSlides = Array.from({ length: 16 }, (_, i) => ({
-                    id: `slide${i + 1}`,
-                    file: `slide${i + 1}.html`,
-                    title: `Slide ${i + 1}`
-                }));
-                document.getElementById('totalSlides').textContent = 16;
                 return null;
             }
         }

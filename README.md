@@ -55,6 +55,7 @@ The `slides/manifest.json` file controls the entire presentation:
   "presentation": {
     "title": "The Browser is a Marvelous Thing!",
     "author": "Andreas Wänqvist",
+    "github": "mobilemancer",
     "version": "1.0.0"
   },
   "slides": [
@@ -129,10 +130,6 @@ Organize slides into logical groups by setting the `section` property and defini
 
 ## 🚀 Technical Implementation
 
-### Backward Compatibility
-
-The system includes fallback logic to the old numeric system if the manifest fails to load, ensuring reliability.
-
 ### Caching System
 
 Slides are cached after first load for optimal performance during navigation.
@@ -141,31 +138,16 @@ Slides are cached after first load for optimal performance during navigation.
 
 Comprehensive error handling with user-friendly error messages for missing slides or network issues.
 
-## 📊 Migration Benefits
-
-### Before (Numeric System)
-- ❌ Adding slide 5.5 requires renaming slides 6-16
-- ❌ Hardcoded total slide count
-- ❌ No metadata or organization
-- ❌ Difficult to maintain
-
-### After (Manifest System)
-- ✅ Insert slides anywhere without renumbering
-- ✅ Dynamic slide counting
-- ✅ Rich metadata and sections
-- ✅ Easy to maintain and extend
-
 ## 🎨 Customization
 
 ### Themes
-Modify CSS variables in `index.html` to customize the presentation theme.
 
-### Transitions
-Slide transitions can be customized per slide in the manifest (future enhancement).
+Modify CSS variables in `styles.css` to customize the presentation theme.
 
 ### Sections
+
 Add visual indicators and navigation by section using the sections configuration.
 
 ---
 
-**Built with ❤️ for the web development community**
+**Built with ❤️ & 🤖 for the web development community**
