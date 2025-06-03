@@ -1,0 +1,48 @@
+<!-- Slide 14: More Web APIs -->
+<h2>Even More Browser Magic</h2>
+<div class="demo-container">
+    <div class="code-panel">
+        /* Intersection Observer */
+        const observer = new IntersectionObserver(
+        (entries) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        }
+        });
+        }
+        );
+
+        observer.observe(element);
+
+        /* Web Locks API */
+        await navigator.locks.request('my-lock',
+        async () => {
+        // Critical section
+        await doImportantWork();
+        }
+        );
+
+        /* Broadcast Channel */
+        const channel = new BroadcastChannel('tab-sync');
+        channel.postMessage({type: 'update'});
+        channel.onmessage = (event) => {
+        console.log('Message from another tab:',
+        event.data);
+        };</div>
+    <div class="result-panel">
+        <div>
+            <h4 style="margin-bottom: 1rem;">Intersection Observer Demo</h4>
+            <div class="intersection-demo">
+                <div class="scroll-item">Scroll item 1</div>
+                <div class="scroll-item">Scroll item 2</div>
+                <div class="scroll-item">Scroll item 3</div>
+                <div class="scroll-item">Scroll item 4</div>
+                <div class="scroll-item">Scroll item 5</div>
+            </div>
+            <p style="font-size: 0.9rem; margin-top: 1rem;">
+                Scroll to see items fade in when visible
+            </p>
+        </div>
+    </div>
+</div>

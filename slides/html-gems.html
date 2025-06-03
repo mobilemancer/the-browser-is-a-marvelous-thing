@@ -1,0 +1,47 @@
+<!-- Slide 10: Other HTML Elements -->
+<h2>More Hidden HTML Gems</h2>
+<div class="demo-container">
+    <div class="code-panel">
+        /* Details & Summary */
+        &lt;details&gt;
+        &lt;summary&gt;Click to expand&lt;/summary&gt;
+        &lt;p&gt;Hidden content here!&lt;/p&gt;
+        &lt;/details&gt;
+
+        /* Datalist */
+        &lt;input list="browsers"&gt;
+        &lt;datalist id="browsers"&gt;
+        &lt;option value="Chrome"&gt;
+        &lt;option value="Firefox"&gt;
+        &lt;option value="Safari"&gt;
+        &lt;/datalist&gt;
+
+        /* Progress */
+        &lt;progress value="70" max="100"&gt;
+        70%
+        &lt;/progress&gt;</div>
+    <div class="result-panel">
+        <div class="details-demo">
+            <details>
+                <summary>🎯 Accordion without JavaScript</summary>
+                <p>This content was hidden and now it's visible! No JavaScript needed.</p>
+            </details>
+            <details>
+                <summary>🔍 Another expandable section</summary>
+                <p>Perfect for FAQs, settings panels, or any collapsible content.</p>
+            </details>
+            <br>
+            <input list="frameworks" placeholder="Type a framework..."
+                style="padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc; width: 200px;">
+            <datalist id="frameworks">
+                <option value="React">
+                <option value="Vue">
+                <option value="Angular">
+                <option value="Svelte">
+            </datalist>
+            <br><br>
+            <progress value="75" max="100" style="width: 200px; height: 20px;">75%</progress>
+            <br><small>Native progress bar</small>
+        </div>
+    </div>
+</div>

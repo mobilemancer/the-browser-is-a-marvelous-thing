@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Manager - Manifest System Demo</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .demo-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .slide-list {
+            display: grid;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .slide-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap: 1rem;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .slide-number {
+            background: #ffd700;
+            color: #333;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .slide-info {
+            flex: 1;
+        }
+        .slide-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .slide-meta {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .slide-section {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .section-introduction { background: #4facfe; }
+        .section-css-features { background: #ffd700; color: #333; }
+        .section-html-elements { background: #ff6b6b; }
+        .section-web-apis { background: #4ecdc4; }
+        .section-development { background: #45b7d1; }
+        .section-conclusion { background: #96ceb4; }
+        .toggle-btn {
+            background: #4ecdc4;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .toggle-btn.disabled {
+            background: #ff6b6b;
+        }
+        .toggle-btn:hover {
+            transform: translateY(-2px);
+        }
+        .demo-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .demo-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .demo-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ffd700;
+            display: block;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎛️ Slide Manager</h1>
+        <p style="text-align: center; font-size: 1.2rem; opacity: 0.9; margin-bottom: 3rem;">
+            Demonstrating the power of manifest-based slide management
+        </p>
+
+        <div class="demo-section">
+            <h2>📊 Presentation Statistics</h2>
+            <div class="stats" id="stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalSlides">-</span>
+                    <span class="stat-label">Total Slides</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="enabledSlides">-</span>
+                    <span class="stat-label">Enabled Slides</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="totalSections">-</span>
+                    <span class="stat-label">Sections</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="estimatedTime">-</span>
+                    <span class="stat-label">Est. Duration</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎯 Demo Actions</h2>
+            <div class="demo-buttons">
+                <button class="demo-btn" onclick="toggleSlide('hook')">Toggle Hook Slide</button>
+                <button class="demo-btn" onclick="insertSlide()">Simulate Insert Slide</button>
+                <button class="demo-btn" onclick="reorderSlides()">Simulate Reorder</button>
+                <button class="demo-btn" onclick="refreshView()">Refresh View</button>
+            </div>
+            <p style="text-align: center; opacity: 0.8; margin-top: 1rem;">
+                These buttons demonstrate how easy it is to manage slides with the manifest system
+            </p>
+        </div>
+
+        <div class="demo-section">
+            <h2>📋 Slide Overview</h2>
+            <div id="slideList" class="slide-list">
+                Loading slides...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let manifest = null;
+        let currentSlides = [];
+
+        async function loadManifest() {
+            try {
+                const response = await fetch('slides/manifest.json');
+                manifest = await response.json();
+                currentSlides = [...manifest.slides];
+                updateView();
+            } catch (error) {
+                console.error('Error loading manifest:', error);
+                document.getElementById('slideList').innerHTML = 
+                    '<p style="color: #ff6b6b;">Error loading manifest. Please check the console.</p>';
+            }
+        }
+
+        function updateView() {
+            updateStats();
+            updateSlideList();
+        }
+
+        function updateStats() {
+            const enabledSlides = currentSlides.filter(slide => slide.enabled);
+            document.getElementById('totalSlides').textContent = currentSlides.length;
+            document.getElementById('enabledSlides').textContent = enabledSlides.length;
+            document.getElementById('totalSections').textContent = manifest.sections ? manifest.sections.length : 0;
+            document.getElementById('estimatedTime').textContent = Math.ceil(enabledSlides.length * 2.5) + 'min';
+        }
+
+        function updateSlideList() {
+            const slideList = document.getElementById('slideList');
+            const enabledSlides = currentSlides.filter(slide => slide.enabled);
+            
+            slideList.innerHTML = enabledSlides.map((slide, index) => `
+                <div class="slide-item">
+                    <div class="slide-number">${index + 1}</div>
+                    <div class="slide-info">
+                        <div class="slide-title">${slide.title}</div>
+                        <div class="slide-meta">
+                            ${slide.id} • ${slide.file}
+                            ${slide.description ? ' • ' + slide.description : ''}
+                        </div>
+                    </div>
+                    <div class="slide-section section-${slide.section}">${slide.section}</div>
+                    <button class="toggle-btn ${slide.enabled ? '' : 'disabled'}" 
+                            onclick="toggleSlide('${slide.id}')">
+                        ${slide.enabled ? 'Enabled' : 'Disabled'}
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function toggleSlide(slideId) {
+            const slide = currentSlides.find(s => s.id === slideId);
+            if (slide) {
+                slide.enabled = !slide.enabled;
+                updateView();
+                
+                // Show notification
+                const action = slide.enabled ? 'enabled' : 'disabled';
+                showNotification(`Slide "${slide.title}" ${action}!`);
+            }
+        }
+
+        function insertSlide() {
+            const newSlide = {
+                id: `demo-slide-${Date.now()}`,
+                title: "🆕 Demo Inserted Slide",
+                file: "demo-slide.html",
+                enabled: true,
+                section: "introduction",
+                description: "This slide was inserted dynamically"
+            };
+            
+            // Insert after the hook slide
+            const hookIndex = currentSlides.findIndex(s => s.id === 'hook');
+            currentSlides.splice(hookIndex + 1, 0, newSlide);
+            
+            updateView();
+            showNotification(`New slide "${newSlide.title}" inserted!`);
+        }
+
+        function reorderSlides() {
+            // Simulate reordering by moving the last slide to position 2
+            if (currentSlides.length > 3) {
+                const lastSlide = currentSlides.pop();
+                currentSlides.splice(2, 0, lastSlide);
+                updateView();
+                showNotification(`Slide "${lastSlide.title}" moved to position 3!`);
+            }
+        }
+
+        function refreshView() {
+            loadManifest();
+            showNotification('View refreshed from manifest!');
+        }
+
+        function showNotification(message) {
+            // Simple notification system
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 2rem;
+                right: 2rem;
+                background: #4ecdc4;
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize
+        loadManifest();
+    </script>
+</body>
+</html>

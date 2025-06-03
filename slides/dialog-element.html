@@ -1,0 +1,43 @@
+<!-- Slide 9: Dialog Element -->
+<h2>&lt;dialog&gt;</h2>
+<h3>"Native modals with a11y built-in"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        /* HTML */
+        &lt;dialog id="myDialog"&gt;
+        &lt;h2&gt;Native Dialog&lt;/h2&gt;
+        &lt;p&gt;Built-in accessibility!&lt;/p&gt;
+        &lt;button onclick="closeDialog()"&gt;
+        Close
+        &lt;/button&gt;
+        &lt;/dialog&gt;
+
+        &lt;button onclick="showDialog()"&gt;
+        Open Dialog
+        &lt;/button&gt;
+
+        /* JavaScript */
+        function showDialog() {
+        document.getElementById('myDialog')
+        .showModal();
+        }</div>
+    <div class="result-panel">
+        <div class="dialog-demo">
+            <button class="demo-button" onclick="document.getElementById('demoDialog').showModal()">
+                Open Native Dialog
+            </button>
+            <dialog id="demoDialog">
+                <h3>🎉 Native Dialog!</h3>
+                <p>✅ Automatic focus management<br>
+                    ✅ Keyboard navigation<br>
+                    ✅ Screen reader support<br>
+                    ✅ Backdrop click to close</p>
+                <button class="demo-button"
+                    onclick="document.getElementById('demoDialog').close()">Close</button>
+            </dialog>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                200 lines of modal code → 5 lines
+            </p>
+        </div>
+    </div>
+</div>
