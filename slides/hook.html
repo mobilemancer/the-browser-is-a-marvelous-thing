@@ -4,26 +4,30 @@
 <p class="subtitle">And most developers don't even know they exist</p>
 <div class="demo-container">
     <div class="code-panel">
-        // View Transitions API
-        document.startViewTransition(() => {
-        // Update the DOM
-        updateContent();
-        });
-
-        /* CSS */
-        ::view-transition-old(root),
-        ::view-transition-new(root) {
-        animation-duration: 0.5s;
-        }</div>
+        <div class="code-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="comment">// View Transitions API</span>
+<span class="object">document</span>.<span class="method">startViewTransition</span>(<span class="function">() =></span> {
+    <span class="comment">// Update the DOM</span>
+    <span class="function">updateContent</span>();
+});</code></pre>
+        <div class="code-header css-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="selector">::view-transition-old(root)</span>,
+<span class="selector">::view-transition-new(root)</span> {
+    <span class="property">animation-duration</span>: <span class="value">0.5s</span>;
+}</code></pre>
+    </div>
     <div class="result-panel">
         <div class="transition-demo">
-            <div class="transition-card"
-                onclick="this.style.background='linear-gradient(45deg, #ff6b6b, #ee5a24)'">Card 1</div>
-            <div class="transition-card"
-                onclick="this.style.background='linear-gradient(45deg, #4ecdc4, #44a08d)'">Card 2</div>
-            <div class="transition-card"
-                onclick="this.style.background='linear-gradient(45deg, #45b7d1, #96c93d)'">Card 3</div>
+            <div class="transition-card" data-card="1" onclick="transitionCard(this)">Card 1</div>
+            <div class="transition-card" data-card="2" onclick="transitionCard(this)">Card 2</div>
+            <div class="transition-card" data-card="3" onclick="transitionCard(this)">Card 3</div>
         </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">Click cards to see transitions</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Click cards to see View Transitions!</p>
     </div>
 </div>
