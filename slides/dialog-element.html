@@ -3,24 +3,26 @@
 <h3>"Native modals with a11y built-in"</h3>
 <div class="demo-container">
     <div class="code-panel">
-        /* HTML */
-        &lt;dialog id="myDialog"&gt;
-        &lt;h2&gt;Native Dialog&lt;/h2&gt;
-        &lt;p&gt;Built-in accessibility!&lt;/p&gt;
-        &lt;button onclick="closeDialog()"&gt;
-        Close
-        &lt;/button&gt;
-        &lt;/dialog&gt;
+        <div class="code-header">
+            <span class="code-language">HTML</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="selector">&lt;dialog id="myDialog"&gt;</span>
+    <span class="selector">&lt;h2&gt;Native Dialog&lt;/h2&gt;</span>
+    <span class="selector">&lt;p&gt;Built-in accessibility!&lt;/p&gt;</span>
+    <span class="selector">&lt;button onclick="closeDialog()"&gt;Close&lt;/button&gt;</span>
+<span class="selector">&lt;/dialog&gt;</span>
 
-        &lt;button onclick="showDialog()"&gt;
-        Open Dialog
-        &lt;/button&gt;
-
-        /* JavaScript */
-        function showDialog() {
-        document.getElementById('myDialog')
-        .showModal();
-        }</div>
+<span class="selector">&lt;button onclick="showDialog()"&gt;Open Dialog&lt;/button&gt;</span></code></pre>
+        <div class="code-header css-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="function">function showDialog</span>() {
+    <span class="object">document</span>.<span class="method">getElementById</span>(<span class="value">'myDialog'</span>)
+        .<span class="method">showModal</span>();
+}</code></pre>
+    </div>
     <div class="result-panel">
         <div class="dialog-demo">
             <button class="demo-button" onclick="document.getElementById('demoDialog').showModal()">
@@ -32,8 +34,7 @@
                     ✅ Keyboard navigation<br>
                     ✅ Screen reader support<br>
                     ✅ Backdrop click to close</p>
-                <button class="demo-button"
-                    onclick="document.getElementById('demoDialog').close()">Close</button>
+                <button class="demo-button" onclick="document.getElementById('demoDialog').close()">Close</button>
             </dialog>
             <p style="margin-top: 1rem; font-size: 0.9rem;">
                 200 lines of modal code → 5 lines

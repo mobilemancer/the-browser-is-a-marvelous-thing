@@ -2,34 +2,39 @@
 <h2>View Transitions API</h2>
 <h3>"Movie-quality page transitions"</h3>
 <div class="demo-container">
-    <code class="code-panel">
-        /* View Transitions API */
-        function updatePage() {
-        document.startViewTransition(() => {
-        // Update your DOM here
-        document.querySelector('.content')
-        .innerHTML = newContent;
-        });
-        }
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="function">function updatePage</span>() {
+    <span class="object">document</span>.<span class="method">startViewTransition</span>(<span class="function">() =></span> {
+        <span class="comment">// Update your DOM here</span>
+        <span class="object">document</span>.<span class="method">querySelector</span>(<span class="value">'.content'</span>)
+            .<span class="property">innerHTML</span> = newContent;
+    });
+}</code></pre>
+        <div class="code-header css-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="selector">::view-transition-old(root)</span>,
+<span class="selector">::view-transition-new(root)</span> {
+    <span class="property">animation-duration</span>: <span class="value">0.8s</span>;
+}
 
-        /* CSS */
-        ::view-transition-old(root),
-        ::view-transition-new(root) {
-        animation-duration: 0.8s;
-        }
+<span class="selector">.hero</span> {
+    <span class="property">view-transition-name</span>: <span class="value">hero-image</span>;
+}
 
-        /* Named transitions */
-        .hero {
-        view-transition-name: hero-image;
-        }
+<span class="selector">::view-transition-old(hero-image)</span> {
+    <span class="property">transform</span>: <span class="value">translateX(-100%)</span>;
+}
 
-        ::view-transition-old(hero-image) {
-        transform: translateX(-100%);
-        }
-
-        ::view-transition-new(hero-image) {
-        transform: translateX(100%);
-        }</code>
+<span class="selector">::view-transition-new(hero-image)</span> {
+    <span class="property">transform</span>: <span class="value">translateX(100%)</span>;
+}</code></pre>
+    </div>
     <div class="result-panel">
         <div style="text-align: center;">
             <div id="transitionContent"

@@ -2,34 +2,38 @@
 <h2>Even More Browser Magic</h2>
 <div class="demo-container">
     <div class="code-panel">
-        /* Intersection Observer */
-        const observer = new IntersectionObserver(
-        (entries) => {
-        entries.forEach(entry => {
-        if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        }
+        <div class="code-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="comment">// Intersection Observer</span>
+<span class="function">const</span> observer = <span class="function">new</span> <span class="object">IntersectionObserver</span>(
+    (entries) => {
+        entries.<span class="method">forEach</span>(entry => {
+            <span class="function">if</span> (entry.<span class="property">isIntersecting</span>) {
+                entry.<span class="property">target</span>.<span class="property">classList</span>.<span class="method">add</span>(<span class="value">'visible'</span>);
+            }
         });
-        }
-        );
+    }
+);
 
-        observer.observe(element);
+observer.<span class="method">observe</span>(element);
 
-        /* Web Locks API */
-        await navigator.locks.request('my-lock',
-        async () => {
-        // Critical section
-        await doImportantWork();
-        }
-        );
+<span class="comment">// Web Locks API</span>
+<span class="function">await</span> <span class="object">navigator</span>.<span class="property">locks</span>.<span class="method">request</span>(<span class="value">'my-lock'</span>,
+    <span class="function">async</span> () => {
+        <span class="comment">// Critical section</span>
+        <span class="function">await</span> <span class="function">doImportantWork</span>();
+    }
+);
 
-        /* Broadcast Channel */
-        const channel = new BroadcastChannel('tab-sync');
-        channel.postMessage({type: 'update'});
-        channel.onmessage = (event) => {
-        console.log('Message from another tab:',
-        event.data);
-        };</div>
+<span class="comment">// Broadcast Channel</span>
+<span class="function">const</span> channel = <span class="function">new</span> <span class="object">BroadcastChannel</span>(<span class="value">'tab-sync'</span>);
+channel.<span class="method">postMessage</span>({<span class="property">type</span>: <span class="value">'update'</span>});
+channel.<span class="property">onmessage</span> = (event) => {
+    <span class="object">console</span>.<span class="method">log</span>(<span class="value">'Message from another tab:'</span>, event.<span class="property">data</span>);
+};</code></pre>
+    </div>
     <div class="result-panel">
         <div>
             <h4 style="margin-bottom: 1rem;">Intersection Observer Demo</h4>

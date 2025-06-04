@@ -3,25 +3,29 @@
 <h3>"Responsive components, not just pages"</h3>
 <div class="demo-container">
     <div class="code-panel">
-        /* CSS Container Queries */
-        .container {
-        container-type: inline-size;
-        }
+        <div class="code-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="selector">.container</span> {
+    <span class="property">container-type</span>: <span class="value">inline-size</span>;
+}
 
-        .card {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        background: gold;
-        }
+<span class="selector">.card</span> {
+    <span class="property">display</span>: <span class="value">flex</span>;
+    <span class="property">flex-direction</span>: <span class="value">column</span>;
+    <span class="property">gap</span>: <span class="value">1rem</span>;
+    <span class="property">padding</span>: <span class="value">1rem</span>;
+    <span class="property">background</span>: <span class="value">gold</span>;
+}
 
-        @container (min-width: 300px) {
-        .card {
-        flex-direction: row;
-        background: purple;
-        }
-        }</div>
+<span class="selector">@container (min-width: 300px)</span> {
+    <span class="selector">.card</span> {
+        <span class="property">flex-direction</span>: <span class="value">row</span>;
+        <span class="property">background</span>: <span class="value">purple</span>;
+    }
+}</code></pre>
+    </div>
     <div class="result-panel">
         <div class="container-query-demo">
             <div class="responsive-card">

@@ -3,23 +3,29 @@
 <h3>"CSS can finally look up the tree"</h3>
 <div class="demo-container">
     <div class="code-panel">
-        /* CSS :has() Selector */
-        form:has(input:invalid) {
-        background: rgba(255, 71, 87, 0.1);
-        border: 2px solid #ff4757;
-        padding: 1rem;
-        border-radius: 10px;
-        }
+        <div class="code-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="selector">form:has(input:invalid)</span> {
+    <span class="property">background</span>: <span class="value">rgba(255, 71, 87, 0.1)</span>;
+    <span class="property">border</span>: <span class="value">2px solid #ff4757</span>;
+    <span class="property">padding</span>: <span class="value">1rem</span>;
+    <span class="property">border-radius</span>: <span class="value">10px</span>;
+}
 
-        input:invalid {
-        border-color: #ff4757;
-        }
-
-        /* HTML */
-        &lt;form&gt;
-        &lt;input type="email" required&gt;
-        &lt;input type="tel" pattern="[0-9]+"&gt;
-        &lt;/form&gt;</div>
+<span class="selector">input:invalid</span> {
+    <span class="property">border-color</span>: <span class="value">#ff4757</span>;
+}</code></pre>
+        <div class="code-header css-header">
+            <span class="code-language">HTML</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="selector">&lt;form&gt;</span>
+    <span class="selector">&lt;input type="email" required&gt;</span>
+    <span class="selector">&lt;input type="tel" pattern="[0-9]+"&gt;</span>
+<span class="selector">&lt;/form&gt;</span></code></pre>
+    </div>
     <div class="result-panel">
         <form class="has-demo-form">
             <input type="email" placeholder="Enter email" required>

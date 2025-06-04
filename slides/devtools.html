@@ -3,34 +3,40 @@
 <h3>"Your browser is your best debugging friend"</h3>
 <div class="demo-container">
     <div class="code-panel">
-        /* Console tricks */
-        console.table(data);
-        console.time('operation');
-        console.timeEnd('operation');
+        <div class="code-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre
+            class="code-content"><code><span class="comment">// Console tricks</span>
+<span class="object">console</span>.<span class="method">table</span>(data);
+<span class="object">console</span>.<span class="method">time</span>(<span class="value">'operation'</span>);
+<span class="object">console</span>.<span class="method">timeEnd</span>(<span class="value">'operation'</span>);
 
-        /* CSS Grid debugging */
-        .grid {
-        display: grid;
-        /* Firefox/Chrome show grid lines */
-        }
+<span class="comment">// Performance monitoring</span>
+<span class="object">performance</span>.<span class="method">mark</span>(<span class="value">'start'</span>);
+<span class="comment">// ... do work ...</span>
+<span class="object">performance</span>.<span class="method">mark</span>(<span class="value">'end'</span>);
+<span class="object">performance</span>.<span class="method">measure</span>(<span class="value">'work'</span>, <span class="value">'start'</span>, <span class="value">'end'</span>);
 
-        /* Performance monitoring */
-        performance.mark('start');
-        // ... do work ...
-        performance.mark('end');
-        performance.measure('work', 'start', 'end');
+<span class="comment">// Memory usage</span>
+<span class="object">console</span>.<span class="method">log</span>(<span class="object">performance</span>.<span class="property">memory</span>);</code></pre>
+        <div class="code-header css-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="selector">.grid</span> {
+    <span class="property">display</span>: <span class="value">grid</span>;
+    <span class="comment">/* Firefox/Chrome show grid lines */</span>
+}
 
-        /* Memory usage */
-        console.log(performance.memory);
-
-        /* Container queries debugging */
-        @container (min-width: 300px) {
-        /* Inspect shows container boundaries */
-        }</div>
+<span class="selector">@container (min-width: 300px)</span> {
+    <span class="comment">/* Inspect shows container boundaries */</span>
+}</code></pre>
+    </div>
     <div class="result-panel">
         <div style="text-align: center;">
-            <div
-                style="background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">
+            <div style="background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">
                 <h4>🔧 DevTools Features</h4>
                 <div
                     style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; font-size: 0.9rem;">
