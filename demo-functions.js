@@ -54,6 +54,25 @@ window.demoFunctions = {
         }
     },
 
+    // Toggle CSS layers demo - highlight utility layer
+    toggleLayerHighlight: function () {
+        const demoCard = document.getElementById('demoCard');
+        const layerButton = document.getElementById('layerButton');
+
+        if (demoCard && layerButton) {
+            // Toggle the highlight class to show utility layer priority
+            demoCard.classList.toggle('highlight-box');
+            layerButton.classList.toggle('highlight-box');
+
+            // Update button text to reflect current state
+            if (layerButton.classList.contains('highlight-box')) {
+                layerButton.textContent = 'Utilities Layer Override!';
+            } else {
+                layerButton.textContent = 'Components Layer Button';
+            }
+        }
+    },
+
     demoDevTools: function () {
         console.log('🔧 DevTools Demo Functions:');
         console.table([
@@ -106,4 +125,6 @@ window.demoFileAPI = window.demoFunctions.demoFileAPI;
 window.demoViewTransition = window.demoFunctions.demoViewTransition;
 window.demoDevTools = window.demoFunctions.demoDevTools;
 window.transitionCard = window.demoFunctions.transitionCard;
+window.toggleLayerHighlight = window.demoFunctions.toggleLayerHighlight;
+window.resetLayerDemo = window.demoFunctions.resetLayerDemo;
 window.copyCodeToClipboard = copyCodeToClipboard;

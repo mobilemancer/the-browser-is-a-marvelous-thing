@@ -55,12 +55,28 @@
       "description": "Parent selector and form validation with :has()"
     },
     {
-      "id": "css-superpowers",
-      "title": "More CSS Superpowers",
-      "file": "css-superpowers.html",
+      "id": "cascade-layers",
+      "title": "CSS Cascade Layers",
+      "file": "css-cascade-layers.html",
       "enabled": true,
       "section": "css-features",
-      "description": "Cascade layers, CSS nesting, and subgrid"
+      "description": "Finally, control over specificity!"
+    },
+    {
+      "id": "css-nesting",
+      "title": "CSS Nesting",
+      "file": "css-nesting.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Sass is now built into browsers"
+    },
+    {
+      "id": "css-subgrid",
+      "title": "CSS Subgrid",
+      "file": "css-subgrid.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Grids all the way down"
     },
     {
       "id": "act2-intro",

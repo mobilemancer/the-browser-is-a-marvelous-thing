@@ -1,0 +1,74 @@
+<!-- Slide 7: Cascade Layers -->
+<h2>CSS Cascade Layers</h2>
+<h3>"Finally, control over specificity!"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="comment">/* Define layer order */</span>
+<span class="selector">@layer background, components, utilities;</span>
+<span class="comment">/* Background layer - lowest priority */</span>
+<span class="selector">@layer background</span> {
+    <span class="selector">.demo-card</span> {
+        <span class="property">background</span>: <span class="value">#e3f2fd</span>;
+        <span class="property">border</span>: <span class="value">2px solid #90caf9</span>;
+        <span class="property">padding</span>: <span class="value">2rem</span>;
+        <span class="property">border-radius</span>: <span class="value">12px</span>;
+    }
+}
+<span class="comment">/* Components layer - higher priority */</span>
+<span class="selector">@layer components</span> {
+    <span class="selector">.layer-button</span> {
+        <span class="property">background</span>: <span class="value">#4caf50</span>;
+        <span class="property">color</span>: <span class="value">white</span>;
+        <span class="property">border</span>: <span class="value">none</span>;
+        <span class="property">padding</span>: <span class="value">1rem 2rem</span>;
+        <span class="property">border-radius</span>: <span class="value">8px</span>;
+        <span class="property">cursor</span>: <span class="value">pointer</span>;
+    }
+}
+<span class="comment">/* Utilities layer - highest priority */</span>
+<span class="selector">@layer utilities</span> {
+    <span class="selector">.highlight</span> {
+        <span class="property">background</span>: <span class="value">#ff5722</span> <span class="comment">!important</span>;
+        <span class="property">transform</span>: <span class="value">scale(1.05)</span>;
+    }
+}</code></pre>
+    </div>
+    <div class="result-panel">
+        <div style="text-align: center;">
+            <h4 style="margin-bottom: 1rem;">🎯 Layer Priority Demo</h4>
+
+            <!-- Demo Card with Button -->
+            <div class="layer-demo-card" id="demoCard">
+                <h5 style="margin-bottom: 1rem; color: #333;">Background Layer Card</h5>
+                <p style="color: #666; margin-bottom: 1.5rem; font-size: 0.9rem;">
+                    This card belongs to the "background" layer
+                </p>
+                <button class="layer-button" id="layerButton">
+                    Components Layer Button
+                </button>
+            </div>
+
+            <!-- Controls -->
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button onclick="toggleLayerHighlight()" class="demo-button"
+                    style="font-size: 0.9rem; padding: 0.7rem 1.2rem;">
+                    🔄 Toggle Utility Layer
+                </button>
+            </div>
+
+            <!-- Explanation -->
+            <div
+                style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-top: 1rem; font-size: 0.85rem; text-align: left;">
+                <strong>🚀 Layer Priority in Action:</strong><br>
+                🔸 <strong>Background Layer:</strong> Card styling (light blue)<br>
+                🔸 <strong>Components Layer:</strong> Button styling (green)<br>
+                🔸 <strong>Utilities Layer:</strong> Highlight override (orange)<br>
+                <em>Higher layers always win, regardless of specificity!</em>
+            </div>
+        </div>
+    </div>
+</div>

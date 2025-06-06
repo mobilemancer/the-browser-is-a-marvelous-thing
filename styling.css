@@ -531,6 +531,75 @@
             }
         }
 
+        /* CSS Superpowers demo styles */
+        .layer-demo-btn {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-width: 200px;
+        }
+
+        .layer-demo-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* CSS Cascade Layers Demo - Define layer order */
+        @layer background, components, utilities;
+
+        /* Background layer - lowest priority */
+        @layer background {
+            .layer-demo-card {
+                background: #e3f2fd;
+                border: 2px solid #90caf9;
+                padding: 2rem;
+                border-radius: 12px;
+                max-width: 300px;
+                margin: 0 auto;
+                transition: all 0.3s ease;
+            }
+        }
+
+        /* Components layer - higher priority */
+        @layer components {
+            .layer-button {
+                background: #4caf50;
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                cursor: pointer;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            .layer-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+            }
+        }
+
+        /* Utilities layer - highest priority */
+        @layer utilities {
+            .highlight-box {
+                background: #ff5722;
+                transform: scale(1.05);
+                box-shadow: 0 8px 24px rgba(255, 87, 34, 0.4);
+            }
+        }
+
+        .nesting-demo-card {
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive nesting demo */
+        @media (max-width: 768px) {
+            .nesting-demo-card {
+                padding: 0.5rem !important;
+            }
+
+            .nesting-demo-card .title {
+                font-size: 1.2rem !important;
+            }
+        }
+
         .intersection-demo {
             height: 150px;
             overflow-y: scroll;
