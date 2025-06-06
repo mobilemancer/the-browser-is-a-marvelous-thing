@@ -1,0 +1,99 @@
+<!-- Details & Summary Elements -->
+<h2>🎯 Details & Summary</h2>
+<p class="slide-subtitle">Native accordions without JavaScript</p>
+
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">HTML</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre
+            class="code-content"><code><span class="comment">&lt;!-- Basic Details & Summary --&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">details</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">summary</span><span class="html-tag">&gt;</span><span class="html-text">Click to expand</span><span class="html-tag">&lt;/</span><span class="html-tag-name">summary</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">p</span><span class="html-tag">&gt;</span><span class="html-text">Hidden content here!</span><span class="html-tag">&lt;/</span><span class="html-tag-name">p</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;/</span><span class="html-tag-name">details</span><span class="html-tag">&gt;</span>
+
+<span class="comment">&lt;!-- Open by default --&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">details</span> <span class="html-attribute">open</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">summary</span><span class="html-tag">&gt;</span><span class="html-text">Already expanded</span><span class="html-tag">&lt;/</span><span class="html-tag-name">summary</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">p</span><span class="html-tag">&gt;</span><span class="html-text">This starts open!</span><span class="html-tag">&lt;/</span><span class="html-tag-name">p</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;/</span><span class="html-tag-name">details</span><span class="html-tag">&gt;</span></code></pre>
+    </div>
+    <div class="result-panel">
+        <div class="details-demo">
+            <details class="demo-details">
+                <summary>🎯 FAQ: What is this element?</summary>
+                <p>The <code>&lt;details&gt;</code> element creates a disclosure widget where information is visible
+                    only when toggled. Perfect for FAQs, settings panels, or any collapsible content.</p>
+            </details>
+
+            <details class="demo-details">
+                <summary>🔍 FAQ: Browser support?</summary>
+                <p>Excellent! Supported in all modern browsers since 2020. Works with keyboard navigation and screen
+                    readers out of the box.</p>
+            </details>
+
+            <details class="demo-details" open>
+                <summary>⚡ FAQ: Why use this?</summary>
+                <p>No JavaScript required, built-in accessibility, semantic HTML, and you can style it with CSS. It's
+                    the perfect replacement for custom accordion components!</p>
+            </details>
+
+            <details class="demo-details">
+                <summary>🎨 FAQ: Can I style it?</summary>
+                <div style="margin-top: 1rem;">
+                    <p>Absolutely! You can style the summary marker, add animations, and create beautiful accordions:
+                    </p>
+                    <ul style="text-align: left; margin-top: 0.5rem;">
+                        <li>Custom summary markers with CSS</li>
+                        <li>Smooth animations with CSS transitions</li>
+                        <li>Custom colors and spacing</li>
+                        <li>Icons and interactive elements</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </div>
+</div>
+
+<style>
+    .demo-details {
+        margin: 1rem 0;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
+
+    .demo-details summary {
+        padding: 1rem;
+        cursor: pointer;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+    }
+
+    .demo-details summary:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .demo-details[open] summary {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px 8px 0 0;
+    }
+
+    .demo-details p,
+    .demo-details ul {
+        padding: 1rem;
+        margin: 0;
+    }
+
+    .demo-details code {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-family: 'Fira Code', monospace;
+    }
+</style>

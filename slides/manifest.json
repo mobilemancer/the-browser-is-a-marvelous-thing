@@ -95,12 +95,28 @@
       "description": "Native modals with built-in accessibility"
     },
     {
-      "id": "html-gems",
-      "title": "More Hidden HTML Gems",
-      "file": "html-gems.html",
+      "id": "details-summary",
+      "title": "Details & Summary",
+      "file": "details-summary.html",
       "enabled": true,
       "section": "html-elements",
-      "description": "Details/summary, datalist, and progress elements"
+      "description": "Native accordions without JavaScript"
+    },
+    {
+      "id": "datalist",
+      "title": "Datalist",
+      "file": "datalist.html",
+      "enabled": true,
+      "section": "html-elements",
+      "description": "Native autocomplete without libraries"
+    },
+    {
+      "id": "progress",
+      "title": "Progress",
+      "file": "progress.html",
+      "enabled": true,
+      "section": "html-elements",
+      "description": "Native progress bars with semantic meaning"
     },
     {
       "id": "act3-intro",
