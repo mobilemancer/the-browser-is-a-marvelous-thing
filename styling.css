@@ -282,6 +282,27 @@
             color: #ce9178;
         }
 
+        /* Enhanced HTML syntax highlighting */
+        .html-tag {
+            color: #569cd6;
+        }
+
+        .html-tag-name {
+            color: #4fc1ff;
+        }
+
+        .html-attribute {
+            color: #92c5f7;
+        }
+
+        .html-attribute-value {
+            color: #ce9178;
+        }
+
+        .html-text {
+            color: #d4d4d4;
+        }
+
         .result-panel {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
