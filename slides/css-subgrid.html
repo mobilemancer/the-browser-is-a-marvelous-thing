@@ -1,76 +1,108 @@
 <!-- Slide 7c: CSS Subgrid -->
 <h2>CSS Subgrid</h2>
-<h3>"Grids all the way down!"</h3>
+<h3>"Inherit parent grid lines for perfect alignment!"</h3>
 <div class="demo-container">
     <div class="code-panel">
         <div class="code-header">
             <span class="code-language">CSS</span>
             <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
         </div>
-        <pre class="code-content"><code><span class="comment">/* Parent grid */</span>
-<span class="selector">.product-grid</span> {
+        <pre
+            class="code-content"><code><span class="comment">/* Parent: 3×2 grid */</span>
+<span class="selector">.main-grid</span> {
     <span class="property">display</span>: <span class="value">grid</span>;
-    <span class="property">grid-template-columns</span>: <span class="value">repeat(3, 1fr)</span>;
+    <span class="property">grid-template-columns</span>: <span class="value">2fr 1fr 1fr</span>;
+    <span class="property">grid-template-rows</span>: <span class="value">1fr 1fr</span>;
     <span class="property">gap</span>: <span class="value">1rem</span>;
+    <span class="property">height</span>: <span class="value">300px</span>;
 }
 
-<span class="comment">/* Child inherits parent grid */</span>
-<span class="selector">.product-card</span> {
+<span class="comment">/* Sidebar spans both rows & becomes subgrid */</span>
+<span class="selector">.sidebar</span> {
+    <span class="property">grid-column</span>: <span class="value">1</span>;
+    <span class="property">grid-row</span>: <span class="value">1 / 3</span>; <span class="comment">/* span both rows */</span>
     <span class="property">display</span>: <span class="value">grid</span>;
-    <span class="property">grid-template-rows</span>: <span class="value">subgrid</span>;
-    <span class="property">grid-row</span>: <span class="value">span 4</span>;
-    
-    <span class="comment">/* Child elements align across all cards */</span>
-    <span class="selector">& .image</span> { <span class="property">grid-row</span>: <span class="value">1</span>; }
-    <span class="selector">& .title</span> { <span class="property">grid-row</span>: <span class="value">2</span>; }
-    <span class="selector">& .description</span> { <span class="property">grid-row</span>: <span class="value">3</span>; }
-    <span class="selector">& .price</span> { <span class="property">grid-row</span>: <span class="value">4</span>; }
-}</code></pre>
+    <span class="property">grid-template-rows</span>: <span class="value">subgrid</span>; <span class="comment">/* inherit parent rows! */</span>
+}
+
+<span class="comment">/* Other grid items */</span>
+<span class="selector">.item-a</span> { <span class="property">grid-column</span>: <span class="value">2</span>; <span class="property">grid-row</span>: <span class="value">1</span>; }
+<span class="selector">.item-b</span> { <span class="property">grid-column</span>: <span class="value">3</span>; <span class="property">grid-row</span>: <span class="value">1</span>; }
+<span class="selector">.item-c</span> { <span class="property">grid-column</span>: <span class="value">2</span>; <span class="property">grid-row</span>: <span class="value">2</span>; }
+<span class="selector">.item-d</span> { <span class="property">grid-column</span>: <span class="value">3</span>; <span class="property">grid-row</span>: <span class="value">2</span>; }</code></pre>
         <div class="code-header css-header">
             <span class="code-language">HTML</span>
             <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
         </div>
-        <pre class="code-content"><code><span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"product-grid"</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"product-card"</span><span class="html-tag">&gt;</span>
-        <span class="html-tag">&lt;</span><span class="html-tag-name">img</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"image"</span><span class="html-tag">&gt;</span>
-        <span class="html-tag">&lt;</span><span class="html-tag-name">h3</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"title"</span><span class="html-tag">&gt;</span><span class="html-text">Product Name</span><span class="html-tag">&lt;/</span><span class="html-tag-name">h3</span><span class="html-tag">&gt;</span>
-        <span class="html-tag">&lt;</span><span class="html-tag-name">p</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"description"</span><span class="html-tag">&gt;</span><span class="html-text">Description</span><span class="html-tag">&lt;/</span><span class="html-tag-name">p</span><span class="html-tag">&gt;</span>
-        <span class="html-tag">&lt;</span><span class="html-tag-name">span</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"price"</span><span class="html-tag">&gt;</span><span class="html-text">$99</span><span class="html-tag">&lt;/</span><span class="html-tag-name">span</span><span class="html-tag">&gt;</span>
+        <pre
+            class="code-content"><code><span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"main-grid"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"sidebar"</span><span class="html-tag">&gt;</span>
+        <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">Top Section</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+        <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">Bottom Section</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
     <span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"item-a"</span><span class="html-tag">&gt;</span><span class="html-text">Item A</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"item-b"</span><span class="html-tag">&gt;</span><span class="html-text">Item B</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"item-c"</span><span class="html-tag">&gt;</span><span class="html-text">Item C</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"item-d"</span><span class="html-tag">&gt;</span><span class="html-text">Item D</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
 <span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span></code></pre>
     </div>
     <div class="result-panel">
         <div style="text-align: center;">
-            <h4 style="margin-bottom: 1rem;">🕸️ Subgrid Alignment Demo</h4>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1rem 0;">
-                <!-- Card 1 -->
-                <div style="display: grid; grid-template-rows: auto auto 1fr auto; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
-                    <div style="height: 60px; background: linear-gradient(45deg, #ff6b6b, #ee5a24); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">📱</div>
-                    <h4 style="margin: 0; font-size: 1rem;">Smartphone</h4>
-                    <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">Latest model with amazing features and long battery life</p>
-                    <div style="font-weight: bold; color: #4facfe; font-size: 1.1rem;">$699</div>
+            <h4 style="margin-bottom: 1rem;">🎯 3×2 Grid with Subgrid Sidebar</h4>
+
+            <!-- Visual representation of the grid -->
+            <div
+                style="display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 0.8rem; height: 200px; margin: 1rem 0; border: 2px dashed rgba(255,255,255,0.3); padding: 1rem; border-radius: 8px;">
+
+                <!-- Sidebar (spans both rows, uses subgrid) -->
+                <div
+                    style="grid-column: 1; grid-row: 1 / 3; display: grid; grid-template-rows: subgrid; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; padding: 1rem; color: white; position: relative;">
+                    <div
+                        style="display: flex; align-items: center; justify-content: center; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.3);">
+                        � Sidebar Top
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                        📊 Sidebar Bottom
+                    </div>
+                    <div
+                        style="position: absolute; top: -8px; left: 50%; transform: translateX(-50%); background: #ff6b6b; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold;">
+                        SUBGRID
+                    </div>
                 </div>
-                
-                <!-- Card 2 -->
-                <div style="display: grid; grid-template-rows: auto auto 1fr auto; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
-                    <div style="height: 60px; background: linear-gradient(45deg, #4ecdc4, #44a08d); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">💻</div>
-                    <h4 style="margin: 0; font-size: 1rem;">Laptop</h4>
-                    <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">Powerful machine for work</p>
-                    <div style="font-weight: bold; color: #4facfe; font-size: 1.1rem;">$1299</div>
+
+                <!-- Item A -->
+                <div
+                    style="grid-column: 2; grid-row: 1; background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
+                    Item A
+                </div>
+
+                <!-- Item B -->
+                <div
+                    style="grid-column: 3; grid-row: 1; background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
+                    Item B
+                </div>
+
+                <!-- Item C -->
+                <div
+                    style="grid-column: 2; grid-row: 2; background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
+                    Item C
+                </div>
+
+                <!-- Item D -->
+                <div
+                    style="grid-column: 3; grid-row: 2; background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
+                    Item D
                 </div>
             </div>
-            
-            <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-top: 1rem; font-size: 0.9rem;">
-                <strong>🎯 Subgrid Magic:</strong><br>
-                ✅ Perfect alignment across cards<br>
-                ✅ No more height hacks<br>
-                ✅ Content-aware layouts<br>
-                ✅ Responsive by default
+
+            <div
+                style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-top: 1rem; font-size: 0.9rem;">
+                <strong>🎯 Subgrid Benefits:</strong><br>
+                ✅ Sidebar inherits parent grid rows<br>
+                ✅ Perfect alignment with other items<br>
+                ✅ No manual height calculations<br>
+                ✅ Responsive grid behavior
             </div>
-            
-            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                Notice how titles and prices align perfectly despite different content lengths!
-            </p>
         </div>
     </div>
 </div>

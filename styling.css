@@ -806,27 +806,87 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
         }
 
         .badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .badge.aurelia {
-            background: linear-gradient(45deg, rgba(237, 20, 61, 0.2), rgba(255, 107, 107, 0.2));
-            border-color: rgba(237, 20, 61, 0.3);
+            background: linear-gradient(135deg,
+                    rgba(237, 20, 61, 0.25),
+                    rgba(255, 107, 107, 0.25),
+                    rgba(255, 255, 255, 0.1));
+            border-color: rgba(237, 20, 61, 0.4);
+            box-shadow:
+                0 8px 32px rgba(237, 20, 61, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(237, 20, 61, 0.1);
+        }
+
+        .badge.aurelia:hover {
+            background: linear-gradient(135deg,
+                    rgba(237, 20, 61, 0.35),
+                    rgba(255, 107, 107, 0.35),
+                    rgba(255, 255, 255, 0.15));
+            border-color: rgba(237, 20, 61, 0.5);
+            box-shadow:
+                0 12px 40px rgba(237, 20, 61, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 rgba(237, 20, 61, 0.2);
         }
 
         .badge.mvp {
-            background: linear-gradient(45deg, rgba(0, 120, 215, 0.2), rgba(70, 130, 255, 0.2));
-            border-color: rgba(0, 120, 215, 0.3);
+            background: linear-gradient(135deg,
+                    rgba(0, 120, 215, 0.25),
+                    rgba(70, 130, 255, 0.25),
+                    rgba(255, 255, 255, 0.1));
+            border-color: rgba(0, 120, 215, 0.4);
+            box-shadow:
+                0 8px 32px rgba(0, 120, 215, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(0, 120, 215, 0.1);
+        }
+
+        .badge.mvp:hover {
+            background: linear-gradient(135deg,
+                    rgba(0, 120, 215, 0.35),
+                    rgba(70, 130, 255, 0.35),
+                    rgba(255, 255, 255, 0.15));
+            border-color: rgba(0, 120, 215, 0.5);
+            box-shadow:
+                0 12px 40px rgba(0, 120, 215, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 rgba(0, 120, 215, 0.2);
         }
 
         .badge-icon {
