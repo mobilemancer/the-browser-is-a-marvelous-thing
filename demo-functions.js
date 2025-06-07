@@ -7,50 +7,163 @@ window.demoFunctions = {
     demoViewTransition: function () {
         const content = document.getElementById('transitionContent');
         if (content) {
-            const colors = [
-                'linear-gradient(45deg, #4facfe, #00f2fe)',
-                'linear-gradient(45deg, #ff6b6b, #ee5a24)',
-                'linear-gradient(45deg, #4ecdc4, #44a08d)',
-                'linear-gradient(45deg, #45b7d1, #96c93d)'
+            const gradientClasses = [
+                'gradient-blue-cyan',
+                'gradient-red-orange',
+                'gradient-teal-green',
+                'gradient-blue-lime'
             ];
 
-            const currentColor = content.style.background || colors[0];
-            const currentIndex = colors.indexOf(currentColor);
-            const nextIndex = (currentIndex + 1) % colors.length;
+            // Find current gradient class
+            let currentIndex = -1;
+            for (let i = 0; i < gradientClasses.length; i++) {
+                if (content.classList.contains(gradientClasses[i])) {
+                    currentIndex = i;
+                    break;
+                }
+            }
+
+            // If no gradient class found, start with first one
+            if (currentIndex === -1) currentIndex = 0;
+
+            const nextIndex = (currentIndex + 1) % gradientClasses.length;
 
             if (document.startViewTransition) {
                 document.startViewTransition(() => {
-                    content.style.background = colors[nextIndex];
+                    // Remove current gradient class and add next one
+                    content.classList.remove(gradientClasses[currentIndex]);
+                    content.classList.add(gradientClasses[nextIndex]);
                 });
             } else {
-                content.style.background = colors[nextIndex];
+                // Remove current gradient class and add next one
+                content.classList.remove(gradientClasses[currentIndex]);
+                content.classList.add(gradientClasses[nextIndex]);
             }
         }
     },
 
     // Demo function for transition cards
     transitionCard: function (cardElement) {
-        const colors = [
-            'linear-gradient(45deg, #4facfe, #00f2fe)',
-            'linear-gradient(45deg, #ff6b6b, #ee5a24)',
-            'linear-gradient(45deg, #4ecdc4, #44a08d)',
-            'linear-gradient(45deg, #45b7d1, #96c93d)',
-            'linear-gradient(45deg, #a8edea, #fed6e3)',
-            'linear-gradient(45deg, #ffecd2, #fcb69f)'
+        const gradientClasses = [
+            'gradient-blue-cyan',
+            'gradient-red-orange',
+            'gradient-teal-green',
+            'gradient-blue-lime',
+            'gradient-aqua-pink',
+            'gradient-peach-orange'
         ];
 
-        const currentBg = cardElement.style.background || cardElement.style.backgroundImage || 'linear-gradient(45deg, #4facfe, #00f2fe)';
-        let currentIndex = colors.findIndex(color => currentBg.includes(color.split(',')[0].split('(')[2]));
+        // Find current gradient class
+        let currentIndex = -1;
+        for (let i = 0; i < gradientClasses.length; i++) {
+            if (cardElement.classList.contains(gradientClasses[i])) {
+                currentIndex = i;
+                break;
+            }
+        }
+
+        // If no gradient class found, start with first one
         if (currentIndex === -1) currentIndex = 0;
 
-        const nextIndex = (currentIndex + 1) % colors.length;
+        const nextIndex = (currentIndex + 1) % gradientClasses.length;
 
         if (document.startViewTransition) {
             document.startViewTransition(() => {
-                cardElement.style.background = colors[nextIndex];
+                // Remove current gradient class and add next one
+                cardElement.classList.remove(gradientClasses[currentIndex]);
+                cardElement.classList.add(gradientClasses[nextIndex]);
             });
         } else {
-            cardElement.style.background = colors[nextIndex];
+            // Remove current gradient class and add next one
+            cardElement.classList.remove(gradientClasses[currentIndex]);
+            cardElement.classList.add(gradientClasses[nextIndex]);
+        }
+    },
+
+    // Demo function for hero transition card
+    transitionHeroCard: function (cardElement) {
+        const themes = [
+            {
+                gradient: 'gradient-blue-cyan',
+                emoji: '🌊',
+                title: 'Ocean Waves',
+                subtitle: 'Click to transform'
+            },
+            {
+                gradient: 'gradient-red-orange',
+                emoji: '🔥',
+                title: 'Blazing Fire',
+                subtitle: 'Feel the heat'
+            },
+            {
+                gradient: 'gradient-teal-green',
+                emoji: '🌿',
+                title: 'Forest Vibes',
+                subtitle: 'Nature calls'
+            },
+            {
+                gradient: 'gradient-blue-lime',
+                emoji: '⚡',
+                title: 'Electric Storm',
+                subtitle: 'Power surge'
+            },
+            {
+                gradient: 'gradient-aqua-pink',
+                emoji: '🌸',
+                title: 'Cherry Blossom',
+                subtitle: 'Spring beauty'
+            },
+            {
+                gradient: 'gradient-peach-orange',
+                emoji: '🌅',
+                title: 'Golden Sunrise',
+                subtitle: 'New beginnings'
+            }
+        ];
+
+        // Find current theme
+        let currentIndex = -1;
+        for (let i = 0; i < themes.length; i++) {
+            if (cardElement.classList.contains(themes[i].gradient)) {
+                currentIndex = i;
+                break;
+            }
+        }
+
+        // If no theme found, start with first one
+        if (currentIndex === -1) currentIndex = 0;
+
+        const nextIndex = (currentIndex + 1) % themes.length;
+        const currentTheme = themes[currentIndex];
+        const nextTheme = themes[nextIndex];
+
+        if (document.startViewTransition) {
+            document.startViewTransition(() => {
+                // Update gradient class
+                cardElement.classList.remove(currentTheme.gradient);
+                cardElement.classList.add(nextTheme.gradient);
+
+                // Update content
+                const emoji = cardElement.querySelector('.hero-emoji');
+                const title = cardElement.querySelector('.hero-title');
+                const subtitle = cardElement.querySelector('.hero-subtitle');
+
+                if (emoji) emoji.textContent = nextTheme.emoji;
+                if (title) title.textContent = nextTheme.title;
+                if (subtitle) subtitle.textContent = nextTheme.subtitle;
+            });
+        } else {
+            // Fallback without view transitions
+            cardElement.classList.remove(currentTheme.gradient);
+            cardElement.classList.add(nextTheme.gradient);
+
+            const emoji = cardElement.querySelector('.hero-emoji');
+            const title = cardElement.querySelector('.hero-title');
+            const subtitle = cardElement.querySelector('.hero-subtitle');
+
+            if (emoji) emoji.textContent = nextTheme.emoji;
+            if (title) title.textContent = nextTheme.title;
+            if (subtitle) subtitle.textContent = nextTheme.subtitle;
         }
     },
 
@@ -125,6 +238,7 @@ window.demoFileAPI = window.demoFunctions.demoFileAPI;
 window.demoViewTransition = window.demoFunctions.demoViewTransition;
 window.demoDevTools = window.demoFunctions.demoDevTools;
 window.transitionCard = window.demoFunctions.transitionCard;
+window.transitionHeroCard = window.demoFunctions.transitionHeroCard;
 window.toggleLayerHighlight = window.demoFunctions.toggleLayerHighlight;
 window.resetLayerDemo = window.demoFunctions.resetLayerDemo;
 window.copyCodeToClipboard = copyCodeToClipboard;

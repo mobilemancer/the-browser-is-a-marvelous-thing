@@ -319,7 +319,6 @@
         .container-query-demo {
             width: 100%;
             height: 200px;
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
             border-radius: 10px;
             resize: horizontal;
             overflow: auto;
@@ -452,15 +451,7 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        .transition-demo {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            width: 100%;
-        }
-
         .transition-card {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
             border-radius: 10px;
             padding: 1.5rem;
             text-align: center;
@@ -921,5 +912,144 @@
 
             .presenter-name {
                 font-size: 2rem;
+            }
+        }
+
+        /* Gradient background classes for transition cards */
+        .gradient-blue-cyan {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+        }
+
+        .gradient-red-orange {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        }
+
+        .gradient-teal-green {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+        }
+
+        .gradient-blue-lime {
+            background: linear-gradient(45deg, #45b7d1, #96c93d);
+        }
+
+        .gradient-aqua-pink {
+            background: linear-gradient(45deg, #a8edea, #fed6e3);
+        }
+
+        .gradient-peach-orange {
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
+        }
+
+        /* Hero transition card styles */
+        .hero-transition-card {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-transition-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-transition-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-transition-card:hover::before {
+            opacity: 1;
+        }
+
+        .hero-emoji {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+            view-transition-name: hero-emoji;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            view-transition-name: hero-title;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            view-transition-name: hero-subtitle;
+        }
+
+        /* View transition animations for hero card */
+        ::view-transition-old(hero-emoji),
+        ::view-transition-new(hero-emoji) {
+            animation-duration: 0.6s;
+            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        ::view-transition-old(hero-emoji) {
+            animation-name: emoji-scale-out, emoji-rotate-out;
+        }
+
+        ::view-transition-new(hero-emoji) {
+            animation-name: emoji-scale-in, emoji-rotate-in;
+        }
+
+        @keyframes emoji-scale-out {
+            to {
+                transform: scale(0.8) rotate(-10deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes emoji-scale-in {
+            from {
+                transform: scale(1.2) rotate(10deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes emoji-rotate-out {
+            to {
+                transform: rotate(-180deg);
+            }
+        }
+
+        @keyframes emoji-rotate-in {
+            from {
+                transform: rotate(180deg);
+            }
+
+            to {
+                transform: rotate(0deg);
             }
         }
