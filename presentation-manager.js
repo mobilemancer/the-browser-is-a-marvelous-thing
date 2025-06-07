@@ -137,18 +137,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Fullscreen on F11 or double-click
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'F11') {
-        e.preventDefault();
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
-        } else {
-            document.exitFullscreen();
-        }
-    }
-});
-
 // Preload next slide for better performance
 function preloadNextSlide() {
     if (currentSlideIndex < enabledSlides.length - 1) {
