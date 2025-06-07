@@ -39,6 +39,14 @@
       "description": "Introduction to modern CSS features"
     },
     {
+      "id": "css-2024-2025",
+      "title": "CSS in 2024-2025: Awesome Additions",
+      "file": "css-2024-2025.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Upcoming CSS features and improvements for 2024-2025"
+    },
+    {
       "id": "container-queries",
       "title": "Container Queries",
       "file": "container-queries.html",
