@@ -602,7 +602,6 @@
             }
         }
 
-        /* CSS Superpowers demo styles */
         .layer-demo-btn {
             transition: all 0.3s ease;
             cursor: pointer;
@@ -611,6 +610,60 @@
 
         .layer-demo-btn:hover {
             transform: scale(1.05);
+        }
+
+        .layers-demo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .layers-demo-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .layers-demo-explanation {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            text-align: left;
+            max-width: 500px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .layers-demo-title {
+            color: #ffd700;
+        }
+
+        .layers-demo-card-title {
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .layers-demo-card-text {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .layers-demo-toggle-btn {
+            font-size: 0.9rem;
+            padding: 0.8rem 1.5rem;
+        }
+
+        .layers-demo-explanation-title {
+            color: #ffd700;
+        }
+
+        .layers-demo-explanation-highlight {
+            color: #ffd700;
         }
 
         /* CSS Cascade Layers Demo - Define layer order */
@@ -623,9 +676,10 @@
                 border: 2px solid #90caf9;
                 padding: 2rem;
                 border-radius: 12px;
-                max-width: 300px;
-                margin: 0 auto;
+                max-width: 350px;
+                margin: 1.5rem auto 2rem auto;
                 transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             }
         }
 
@@ -636,9 +690,13 @@
                 color: white;
                 padding: 1rem 2rem;
                 border-radius: 8px;
+                border: none;
                 cursor: pointer;
                 font-weight: 600;
+                font-size: 1rem;
                 transition: all 0.3s ease;
+                margin: 0.5rem 0;
+                display: inline-block;
             }
 
             .layer-button:hover {

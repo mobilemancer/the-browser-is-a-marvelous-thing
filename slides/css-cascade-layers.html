@@ -38,13 +38,13 @@
 }</code></pre>
     </div>
     <div class="result-panel">
-        <div style="text-align: center;">
-            <h4 style="margin-bottom: 1rem;">🎯 Layer Priority Demo</h4>
+        <div class="layers-demo-container">
+            <h4 class="layers-demo-title">🎯 Layer Priority Demo</h4>
 
             <!-- Demo Card with Button -->
             <div class="layer-demo-card" id="demoCard">
-                <h5 style="margin-bottom: 1rem; color: #333;">Background Layer Card</h5>
-                <p style="color: #666; margin-bottom: 1.5rem; font-size: 0.9rem;">
+                <h5 class="layers-demo-card-title">Background Layer Card</h5>
+                <p class="layers-demo-card-text">
                     This card belongs to the "background" layer
                 </p>
                 <button class="layer-button" id="layerButton">
@@ -53,21 +53,19 @@
             </div>
 
             <!-- Controls -->
-            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <button onclick="toggleLayerHighlight()" class="demo-button"
-                    style="font-size: 0.9rem; padding: 0.7rem 1.2rem;">
+            <div class="layers-demo-controls">
+                <button onclick="toggleLayerHighlight()" class="demo-button layers-demo-toggle-btn">
                     🔄 Toggle Utility Layer
                 </button>
             </div>
 
             <!-- Explanation -->
-            <div
-                style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-top: 1rem; font-size: 0.85rem; text-align: left;">
-                <strong>🚀 Layer Priority in Action:</strong><br>
+            <div class="layers-demo-explanation">
+                <strong class="layers-demo-explanation-title">🚀 Layer Priority in Action:</strong><br><br>
                 🔸 <strong>Background Layer:</strong> Card styling (light blue)<br>
                 🔸 <strong>Components Layer:</strong> Button styling (green)<br>
-                🔸 <strong>Utilities Layer:</strong> Highlight override (orange)<br>
-                <em>Higher layers always win, regardless of specificity!</em>
+                🔸 <strong>Utilities Layer:</strong> Highlight override (orange)<br><br>
+                <em class="layers-demo-explanation-highlight">Higher layers always win, regardless of specificity!</em>
             </div>
         </div>
     </div>
