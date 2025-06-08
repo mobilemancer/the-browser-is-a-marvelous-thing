@@ -1001,6 +1001,90 @@
             }
         }
 
+        /* Thank You slide styles */
+        .connect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(3rem, 6vw, 5rem);
+            width: 100%;
+            max-width: 900px;
+            margin: clamp(2rem, 4vw, 3rem) 0;
+        }
+
+        .qr-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 25px;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            padding: clamp(1.5rem, 3vw, 2rem);
+            text-align: center;
+        }
+
+        .qr-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+        }
+
+        .qr-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow:
+                0 15px 45px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .qr-code {
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .qr-code img {
+            width: clamp(120px, 15vw, 150px);
+            height: clamp(120px, 15vw, 150px);
+            border-radius: 15px;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .qr-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .qr-icon {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+        }
+
+        .qr-text {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            font-weight: 600;
+            color: white;
+        }
+
+        .thank-you-message {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 600;
+            margin: clamp(2rem, 4vw, 3rem) 0 1rem 0;
+            color: #ffd700;
+        }
+
         /* Gradient background classes for transition cards */
         .gradient-blue-cyan {
             background: linear-gradient(45deg, #4facfe, #00f2fe);

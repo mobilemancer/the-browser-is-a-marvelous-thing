@@ -173,6 +173,14 @@
       "enabled": true,
       "section": "conclusion",
       "description": "Call to action and closing thoughts"
+    },
+    {
+      "id": "thank-you",
+      "title": "Thank You!",
+      "file": "thank-you.html",
+      "enabled": true,
+      "section": "conclusion",
+      "description": "Thanksa and let's connect!"
     }
   ],
   "sections": [
