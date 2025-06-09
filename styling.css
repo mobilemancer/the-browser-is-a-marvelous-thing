@@ -160,6 +160,170 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
+        /* Responsive scrolling animation for smaller screens */
+        @media (max-width: 1300px) {
+            .feature-grid {
+                display: block;
+                overflow: hidden;
+                position: relative;
+                height: 70vh;
+                mask: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+                -webkit-mask: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+            }
+
+            .feature-item {
+                position: absolute;
+                opacity: 0;
+                transform: translateX(-100vw);
+                animation: scrollFeature 15s infinite linear;
+                padding: 0.8rem;
+                width: auto;
+                min-width: 280px;
+                max-width: 350px;
+                z-index: 1;
+            }
+
+            .feature-badge {
+                font-size: 0.95rem;
+                padding: 0.8rem 1.5rem;
+                white-space: nowrap;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Stagger the animations for each row with faster timing */
+            .feature-item:nth-child(1) {
+                animation-delay: 0s;
+                top: 8%;
+            }
+
+            .feature-item:nth-child(2) {
+                animation-delay: 1.8s;
+                top: 8%;
+            }
+
+            .feature-item:nth-child(3) {
+                animation-delay: 3.6s;
+                top: 8%;
+            }
+
+            .feature-item:nth-child(4) {
+                animation-delay: 5.4s;
+                top: 8%;
+            }
+
+            .feature-item:nth-child(5) {
+                animation-delay: 0.6s;
+                top: 25%;
+            }
+
+            .feature-item:nth-child(6) {
+                animation-delay: 2.4s;
+                top: 25%;
+            }
+
+            .feature-item:nth-child(7) {
+                animation-delay: 4.2s;
+                top: 25%;
+            }
+
+            .feature-item:nth-child(8) {
+                animation-delay: 6s;
+                top: 25%;
+            }
+
+            .feature-item:nth-child(9) {
+                animation-delay: 1.2s;
+                top: 42%;
+            }
+
+            .feature-item:nth-child(10) {
+                animation-delay: 3s;
+                top: 42%;
+            }
+
+            .feature-item:nth-child(11) {
+                animation-delay: 4.8s;
+                top: 42%;
+            }
+
+            .feature-item:nth-child(12) {
+                animation-delay: 6.6s;
+                top: 42%;
+            }
+
+            .feature-item:nth-child(13) {
+                animation-delay: 0.3s;
+                top: 59%;
+            }
+
+            .feature-item:nth-child(14) {
+                animation-delay: 2.1s;
+                top: 59%;
+            }
+
+            .feature-item:nth-child(15) {
+                animation-delay: 3.9s;
+                top: 59%;
+            }
+
+            .feature-item:nth-child(16) {
+                animation-delay: 5.7s;
+                top: 59%;
+            }
+
+            .feature-item:nth-child(17) {
+                animation-delay: 0.9s;
+                top: 76%;
+            }
+
+            .feature-item:nth-child(18) {
+                animation-delay: 2.7s;
+                top: 76%;
+            }
+
+            .feature-item:nth-child(19) {
+                animation-delay: 4.5s;
+                top: 76%;
+            }
+
+            .feature-item:nth-child(20) {
+                animation-delay: 6.3s;
+                top: 76%;
+            }
+        }
+
+        @keyframes scrollFeature {
+            0% {
+                transform: translateX(-120vw);
+                opacity: 0;
+            }
+
+            8% {
+                opacity: 1;
+            }
+
+            20% {
+                transform: translateX(-20vw);
+                opacity: 1;
+            }
+
+            80% {
+                transform: translateX(120vw);
+                opacity: 1;
+            }
+
+            92% {
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(120vw);
+                opacity: 0;
+            }
+        }
+
         .feature-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
