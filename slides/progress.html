@@ -9,15 +9,14 @@
             <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
         </div>
         <pre
-            class="code-content"><code><span class="comment">&lt;!-- Basic Progress --&gt;</span>
-<span class="html-tag">&lt;</span><span class="html-tag-name">progress</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"70"</span> <span class="html-attribute">max</span>=<span class="html-attribute-value">"100"</span><span class="html-tag">&gt;</span><span class="html-text">70%</span><span class="html-tag">&lt;/</span><span class="html-tag-name">progress</span><span class="html-tag">&gt;</span>
+            class="code-content"><code><span class="comment">&lt;!-- Determinate Progress --&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">label</span><span class="html-tag">&gt;</span><span class="html-text">Installation:</span><span class="html-tag">&lt;/</span><span class="html-tag-name">label</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">progress</span> <span class="html-attribute">id</span>=<span class="html-attribute-value">"install"</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"0"</span> <span class="html-attribute">max</span>=<span class="html-attribute-value">"100"</span><span class="html-tag">&gt;</span><span class="html-text">0%</span><span class="html-tag">&lt;/</span><span class="html-tag-name">progress</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">span</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"progress-text"</span><span class="html-tag">&gt;</span><span class="html-text">0%</span><span class="html-tag">&lt;/</span><span class="html-tag-name">span</span><span class="html-tag">&gt;</span>
 
-<span class="comment">&lt;!-- Indeterminate progress --&gt;</span>
-<span class="html-tag">&lt;</span><span class="html-tag-name">progress</span><span class="html-tag">&gt;</span><span class="html-text">Loading...</span><span class="html-tag">&lt;/</span><span class="html-tag-name">progress</span><span class="html-tag">&gt;</span>
-
-<span class="comment">&lt;!-- With labels --&gt;</span>
-<span class="html-tag">&lt;</span><span class="html-tag-name">label</span> <span class="html-attribute">for</span>=<span class="html-attribute-value">"file"</span><span class="html-tag">&gt;</span><span class="html-text">File progress:</span><span class="html-tag">&lt;/</span><span class="html-tag-name">label</span><span class="html-tag">&gt;</span>
-<span class="html-tag">&lt;</span><span class="html-tag-name">progress</span> <span class="html-attribute">id</span>=<span class="html-attribute-value">"file"</span> <span class="html-attribute">max</span>=<span class="html-attribute-value">"100"</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"32"</span><span class="html-tag">&gt;</span><span class="html-text">32%</span><span class="html-tag">&lt;/</span><span class="html-tag-name">progress</span><span class="html-tag">&gt;</span></code></pre>
+<span class="comment">&lt;!-- Indeterminate Progress --&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">label</span><span class="html-tag">&gt;</span><span class="html-text">Processing...</span><span class="html-tag">&lt;/</span><span class="html-tag-name">label</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">progress</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"indeterminate"</span><span class="html-tag">&gt;</span><span class="html-text">Loading</span><span class="html-tag">&lt;/</span><span class="html-tag-name">progress</span><span class="html-tag">&gt;</span></code></pre>
     </div>
     <div class="result-panel">
         <div class="progress-demo">
