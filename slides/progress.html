@@ -46,20 +46,13 @@
                 <h3>🔄 Indeterminate</h3>
                 <div class="progress-item">
                     <label>Processing...</label>
-                    <progress class="indeterminate">Loading</progress>
-                    <span class="progress-text">Please wait</span>
-                </div>
-
-                <div class="progress-item">
-                    <label>Connecting...</label>
-                    <progress class="indeterminate">Connecting</progress>
-                    <span class="progress-text">Establishing connection</span>
+                    <progress max="100">Loading</progress>
                 </div>
             </div>
 
             <div class="demo-controls">
-                <button onclick="animateProgress()" class="demo-button">🎬 Animate Progress</button>
-                <button onclick="resetProgress()" class="demo-button">🔄 Reset</button>
+                <button onclick="animateProgress()" class="progress-button">🎬 Animate Progress</button>
+                <button onclick="resetProgress()" class="progress-button">🔄 Reset</button>
             </div>
 
             <div class="demo-info">
@@ -69,125 +62,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    .progress-demo {
-        padding: 1rem;
-    }
-
-    .demo-section {
-        margin: 1rem 0;
-        padding: 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-    }
-
-    .demo-section h3 {
-        margin: 0 0 0.5rem 0;
-        color: #4ECDC4;
-        font-size: 1rem;
-    }
-
-    .progress-item {
-        display: flex;
-        align-items: center;
-        margin: 0.5rem 0;
-        gap: 0.5rem;
-    }
-
-    .progress-item label {
-        min-width: 100px;
-        font-weight: 600;
-        font-size: 0.9rem;
-    }
-
-    .progress-item progress {
-        flex: 1;
-        height: 20px;
-        border-radius: 10px;
-        border: none;
-        background: rgba(255, 255, 255, 0.2);
-    }
-
-    .progress-item progress::-webkit-progress-bar {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 10px;
-    }
-
-    .progress-item progress::-webkit-progress-value {
-        background: linear-gradient(90deg, #4ECDC4, #45B7D1);
-        border-radius: 10px;
-        transition: width 0.3s ease;
-    }
-
-    .progress-item progress::-moz-progress-bar {
-        background: linear-gradient(90deg, #4ECDC4, #45B7D1);
-        border-radius: 10px;
-    }
-
-    .progress-item .progress-text {
-        min-width: 60px;
-        font-weight: 600;
-        color: #4ECDC4;
-    }
-
-    .indeterminate::-webkit-progress-bar {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 10px;
-    }
-
-    .indeterminate::-webkit-progress-value {
-        background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FF6B6B);
-        background-size: 200% 100%;
-        animation: indeterminateAnimation 2s infinite linear;
-        border-radius: 10px;
-    }
-
-    @keyframes indeterminateAnimation {
-        0% {
-            background-position: 200% 0;
-        }
-
-        100% {
-            background-position: -200% 0;
-        }
-    }
-
-    .demo-controls {
-        margin: 2rem 0;
-        text-align: center;
-    }
-
-    .demo-button {
-        margin: 0 0.5rem;
-        padding: 0.75rem 1.5rem;
-        background: rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 8px;
-        color: white;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
-
-    .demo-button:hover {
-        background: rgba(255, 255, 255, 0.3);
-        transform: translateY(-1px);
-    }
-
-    .demo-info {
-        margin-top: 1rem;
-        padding: 0.75rem;
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 8px;
-        border-left: 4px solid #4ECDC4;
-        font-size: 0.9rem;
-    }
-
-    .demo-info p {
-        margin: 0;
-        font-size: 0.95rem;
-    }
-</style>
