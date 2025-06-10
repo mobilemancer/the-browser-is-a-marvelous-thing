@@ -1,4 +1,3 @@
-<!-- Slide 7b: CSS Nesting -->
 <h2>CSS Nesting</h2>
 <h3>"Sass is now built into browsers!"</h3>
 <div class="demo-container">
@@ -44,28 +43,26 @@
 }</code></pre>
     </div>
     <div class="result-panel">
-        <div style="text-align: center;">
-            <h4 style="margin-bottom: 1rem;">🪆 Nesting Demo</h4>
-            <div class="nesting-demo-card" style="background: white; color: #333; border-radius: 8px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 1rem auto; max-width: 300px; transition: all 0.3s ease; cursor: pointer;" 
-                 onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'"
-                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)'">
-                <div class="title" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">
+        <div class="nesting-demo-container">
+            <h4 class="nesting-demo-title">🪆 Nesting Demo</h4>
+            <div class="nesting-demo-card">
+                <div class="title">
                     Nested Card
                 </div>
-                <div class="content" style="color: #666; line-height: 1.6;">
+                <div class="content">
                     This card demonstrates CSS nesting in action. Hover to see the nested :hover styles!
                 </div>
             </div>
-            
-            <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-top: 1rem; font-size: 0.9rem;">
+
+            <div class="nesting-benefits">
                 <strong>🎉 Benefits of CSS Nesting:</strong><br>
                 ✅ No more Sass compilation<br>
                 ✅ Better organization<br>
                 ✅ Scoped styles<br>
                 ✅ Media queries inside selectors
             </div>
-            
-            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+
+            <p class="nesting-note">
                 Resize your browser to see responsive nesting in action!
             </p>
         </div>

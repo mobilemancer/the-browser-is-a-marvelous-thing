@@ -893,21 +893,6 @@ dialog::backdrop {
     }
 }
 
-.nesting-demo-card {
-    transition: all 0.3s ease;
-}
-
-/* Responsive nesting demo */
-@media (max-width: 768px) {
-    .nesting-demo-card {
-        padding: 0.5rem !important;
-    }
-
-    .nesting-demo-card .title {
-        font-size: 1.2rem !important;
-    }
-}
-
 .intersection-demo {
     height: 150px;
     overflow-y: scroll;
@@ -1474,5 +1459,79 @@ dialog::backdrop {
 
     to {
         transform: rotate(0deg);
+    }
+}
+
+/* CSS Nesting Demo Styles */
+.nesting-demo-container {
+    text-align: center;
+}
+
+.nesting-demo-title {
+    margin-bottom: 1rem;
+}
+
+.nesting-demo-card {
+    background: white;
+    color: #333;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    max-width: 300px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    & .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    & .content {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+        padding: 0.5rem;
+
+        & .title {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.nesting-benefits {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.nesting-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.demo-explanation {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    text-align: left;
+    max-width: 500px;
+    border-left: 4px solid #ffd700;
+
+    .highlight {
+        color: #ffd700;
     }
 }
