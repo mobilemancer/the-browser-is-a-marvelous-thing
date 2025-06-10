@@ -8,7 +8,8 @@
             <span class="code-language">HTML</span>
             <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
         </div>
-        <pre class="code-content"><code><span class="comment">&lt;!-- Basic Datalist --&gt;</span>
+        <pre
+            class="code-content"><code><span class="comment">&lt;!-- Basic Datalist --&gt;</span>
 <span class="html-tag">&lt;</span><span class="html-tag-name">input</span> <span class="html-attribute">list</span>=<span class="html-attribute-value">"browsers"</span> <span class="html-attribute">placeholder</span>=<span class="html-attribute-value">"Choose a browser..."</span><span class="html-tag">&gt;</span>
 <span class="html-tag">&lt;</span><span class="html-tag-name">datalist</span> <span class="html-attribute">id</span>=<span class="html-attribute-value">"browsers"</span><span class="html-tag">&gt;</span>
     <span class="html-tag">&lt;</span><span class="html-tag-name">option</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"Chrome"</span><span class="html-tag">&gt;</span>
@@ -42,6 +43,7 @@
                 <label class="demo-label">⚛️ Pick a framework:</label>
                 <input list="frameworks" placeholder="Type to search..." class="demo-input">
                 <datalist id="frameworks">
+                    <option value="Aurelia" label="Awesome framework">
                     <option value="React" label="Meta's UI library">
                     <option value="Vue" label="Progressive framework">
                     <option value="Angular" label="Google's platform">
@@ -51,75 +53,63 @@
                 </datalist>
             </div>
 
-            <div class="demo-section">
-                <label class="demo-label">🎨 Select a color:</label>
-                <input list="colors" placeholder="Type a color..." class="demo-input">
-                <datalist id="colors">
-                    <option value="#FF6B6B" label="Coral Red">
-                    <option value="#4ECDC4" label="Turquoise">
-                    <option value="#45B7D1" label="Sky Blue">
-                    <option value="#96CEB4" label="Mint Green">
-                    <option value="#FFEAA7" label="Warm Yellow">
-                    <option value="#DDA0DD" label="Plum">
-                </datalist>
-            </div>
-
             <div class="demo-info">
-                <p>💡 <strong>Pro tip:</strong> Datalist provides suggestions but allows free text input. Users can type anything or select from the dropdown!</p>
+                <p>💡 <strong>Pro tip:</strong> Datalist provides suggestions but allows free text input. Users can type
+                    anything or select from the dropdown!</p>
             </div>
         </div>
     </div>
 </div>
 
 <style>
-.datalist-demo {
-    padding: 2rem;
-}
+    .datalist-demo {
+        padding: 0rem 1rem;
+    }
 
-.demo-section {
-    margin: 1.5rem 0;
-    padding: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-}
+    .demo-section {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
 
-.demo-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
+    .demo-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
 
-.demo-input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.9);
-    color: #333;
-    font-size: 1rem;
-    transition: all 0.2s ease;
-}
+    .demo-input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+    }
 
-.demo-input:focus {
-    outline: none;
-    border-color: #4ECDC4;
-    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
-    transform: translateY(-1px);
-}
+    .demo-input:focus {
+        outline: none;
+        border-color: #4ECDC4;
+        box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+        transform: translateY(-1px);
+    }
 
-.demo-info {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    border-left: 4px solid #4ECDC4;
-}
+    .demo-info {
+        margin-top: 2rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        border-left: 4px solid #4ECDC4;
+    }
 
-.demo-info p {
-    margin: 0;
-    font-size: 0.95rem;
-}
+    .demo-info p {
+        margin: 0;
+        font-size: 0.95rem;
+    }
 </style>
