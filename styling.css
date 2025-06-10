@@ -712,6 +712,66 @@ dialog::backdrop {
     background: rgba(255, 255, 255, 0.2);
 }
 
+.file-display {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.file-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.save-btn {
+    background: rgba(74, 222, 128, 0.2);
+    border: 1px solid rgba(74, 222, 128, 0.5);
+    color: #4ade80;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.save-btn:hover {
+    background: rgba(74, 222, 128, 0.3);
+    border-color: #4ade80;
+}
+
+.file-content {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 1rem;
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    resize: vertical;
+    min-height: 150px;
+}
+
+.file-content:focus {
+    outline: none;
+    border-color: rgba(74, 222, 128, 0.5);
+    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.2);
+}
+
+.file-info {
+    margin-top: 0.5rem;
+    text-align: center;
+    opacity: 0.8;
+}
+
 .transition-card {
     border-radius: 10px;
     padding: 1.5rem;

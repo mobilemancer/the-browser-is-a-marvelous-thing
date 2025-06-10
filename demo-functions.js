@@ -1,7 +1,106 @@
 // Demo functions for the presentation
 window.demoFunctions = {
-    demoFileAPI: function () {
-        alert('In a real environment, this would open a native file picker!\n\nThe File System Access API lets web apps:\n• Read files from your computer\n• Save files directly to folders\n• Edit files in place\n• Work like desktop applications');
+    demoFileAPI: async function () {
+        try {
+            // Show file picker to open a text file
+            const [fileHandle] = await window.showOpenFilePicker({
+                types: [{
+                    description: 'Text files',
+                    accept: {
+                        'text/plain': ['.txt'],
+                        'text/markdown': ['.md'],
+                        'text/javascript': ['.js'],
+                        'text/css': ['.css'],
+                        'text/html': ['.html']
+                    }
+                }],
+                multiple: false
+            });
+
+            // Read the file
+            const file = await fileHandle.getFile();
+            const contents = await file.text();
+
+            // Update the demo interface to show the file contents
+            window.demoFunctions.updateFileAPIDemo(file.name, contents, fileHandle);
+
+        } catch (error) {
+            if (error.name === 'AbortError') {
+                // User cancelled the file picker
+                console.log('File selection cancelled');
+            } else {
+                console.error('Error reading file:', error);
+                alert('Error reading file: ' + error.message);
+            }
+        }
+    },
+
+    updateFileAPIDemo: function (fileName, contents, fileHandle) {
+        const demoContainer = document.querySelector('.file-api-demo');
+        if (!demoContainer) return;
+
+        // Create or update the demo interface
+        demoContainer.innerHTML = `
+            <div class="file-input" onclick="window.demoFunctions.demoFileAPI()">
+                📁 Click to open another file
+            </div>
+            <div class="file-display">
+                <div class="file-header">
+                    <strong>📄 ${fileName}</strong>
+                    <button class="save-btn" onclick="window.demoFunctions.saveFileAPI()">💾 Save As</button>
+                </div>
+                <textarea class="file-content" rows="8" placeholder="File contents will appear here...">${contents}</textarea>
+                <div class="file-info">
+                    <small>File size: ${contents.length} characters | You can edit the content above and save it!</small>
+                </div>
+            </div>
+        `;
+
+        // Store the current file handle for saving
+        window.currentFileHandle = fileHandle;
+    },
+
+    saveFileAPI: async function () {
+        try {
+            const textarea = document.querySelector('.file-content');
+            if (!textarea) return;
+
+            const content = textarea.value;
+
+            // Show save file picker
+            const fileHandle = await window.showSaveFilePicker({
+                types: [{
+                    description: 'Text files',
+                    accept: {
+                        'text/plain': ['.txt'],
+                        'text/markdown': ['.md'],
+                        'text/javascript': ['.js'],
+                        'text/css': ['.css'],
+                        'text/html': ['.html']
+                    }
+                }],
+                suggestedName: 'edited-file.txt'
+            });
+
+            // Create a writable stream and write content
+            const writable = await fileHandle.createWritable();
+            await writable.write(content);
+            await writable.close();
+
+            // Show success feedback
+            const fileInfo = document.querySelector('.file-info');
+            if (fileInfo) {
+                fileInfo.innerHTML = `<small style="color: #4ade80;">✅ File saved successfully! | Size: ${content.length} characters</small>`;
+                setTimeout(() => {
+                    fileInfo.innerHTML = `<small>File size: ${content.length} characters | You can edit the content above and save it!</small>`;
+                }, 3000);
+            }
+
+        } catch (error) {
+            if (error.name !== 'AbortError') {
+                console.error('Error saving file:', error);
+            }
+        }
     },
 
     demoViewTransition: function () {
@@ -276,6 +375,7 @@ function copyCodeToClipboard(button) {
 
 // Make functions available globally for onclick handlers
 window.demoFileAPI = window.demoFunctions.demoFileAPI;
+window.saveFileAPI = window.demoFunctions.saveFileAPI;
 window.demoViewTransition = window.demoFunctions.demoViewTransition;
 window.demoDevTools = window.demoFunctions.demoDevTools;
 window.transitionCard = window.demoFunctions.transitionCard;
