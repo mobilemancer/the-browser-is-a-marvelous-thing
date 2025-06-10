@@ -220,7 +220,7 @@ window.demoFunctions = {
 
     resetProgress: function () {
         const progressElements = document.querySelectorAll('progress[value]');
-        const originalValues = [75, 45, 90];
+        const originalValues = [100]; // Only installation progress remains
 
         progressElements.forEach((progress, index) => {
             if (originalValues[index] !== undefined) {
