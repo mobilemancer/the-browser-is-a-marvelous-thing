@@ -1584,16 +1584,35 @@ dialog::backdrop {
     color: #4ECDC4;
 }
 
+.indeterminate {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
 .indeterminate::-webkit-progress-bar {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
 
 .indeterminate::-webkit-progress-value {
-    background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FF6B6B);
+    background: linear-gradient(90deg, transparent, #4ECDC4, transparent);
     background-size: 200% 100%;
     animation: indeterminateAnimation 2s infinite linear;
     border-radius: 10px;
+}
+
+.indeterminate::-moz-progress-bar {
+    background: linear-gradient(90deg, transparent, #4ECDC4, transparent);
+    background-size: 200% 100%;
+    animation: indeterminateAnimation 2s infinite linear;
+    border-radius: 10px;
+}
+
+/* For browsers that don't support ::-webkit-progress-value */
+.indeterminate:not([value]) {
+    background: linear-gradient(90deg, transparent, #4ECDC4, transparent);
+    background-size: 200% 100%;
+    animation: indeterminateAnimation 2s infinite linear;
 }
 
 @keyframes indeterminateAnimation {
