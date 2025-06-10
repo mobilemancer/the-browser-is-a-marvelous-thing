@@ -31,11 +31,11 @@
 
             <details class="demo-details">
                 <summary>🔍 FAQ: Browser support?</summary>
-                <p>Excellent! Supported in all modern browsers since 2020. Works with keyboard navigation and screen
-                    readers out of the box.</p>
+                <p>Supported in all modern browsers. Works with keyboard navigation and screen readers out of the box.
+                </p>
             </details>
 
-            <details class="demo-details" open>
+            <details class="demo-details">
                 <summary>⚡ FAQ: Why use this?</summary>
                 <p>No JavaScript required, built-in accessibility, semantic HTML, and you can style it with CSS. It's
                     the perfect replacement for custom accordion components!</p>
@@ -57,43 +57,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    .demo-details {
-        margin: 1rem 0;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-    }
-
-    .demo-details summary {
-        padding: 1rem;
-        cursor: pointer;
-        font-weight: 600;
-        border-radius: 8px;
-        transition: background-color 0.2s ease;
-    }
-
-    .demo-details summary:hover {
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    .demo-details[open] summary {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px 8px 0 0;
-    }
-
-    .demo-details p,
-    .demo-details ul {
-        padding: 1rem;
-        margin: 0;
-    }
-
-    .demo-details code {
-        background: rgba(0, 0, 0, 0.3);
-        padding: 0.2rem 0.4rem;
-        border-radius: 4px;
-        font-family: 'Fira Code', monospace;
-    }
-</style>

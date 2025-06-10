@@ -1521,6 +1521,7 @@ dialog::backdrop {
     opacity: 0.8;
 }
 
+/* common demo explanation box */
 .demo-explanation {
     background: rgba(0, 0, 0, 0.3);
     padding: 1.5rem;
@@ -1534,4 +1535,44 @@ dialog::backdrop {
     .highlight {
         color: #ffd700;
     }
+}
+
+/* summary slide */
+.demo-details {
+    margin: 1rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.demo-details summary {
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    text-align: left;
+}
+
+.demo-details summary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.demo-details[open] summary {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px 8px 0 0;
+}
+
+.demo-details p,
+.demo-details ul {
+    padding: 1rem;
+    margin: 0;
+}
+
+.demo-details code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
 }
