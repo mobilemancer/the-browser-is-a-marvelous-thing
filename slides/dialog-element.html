@@ -1,4 +1,3 @@
-<!-- Slide 9: Dialog Element -->
 <h2>&lt;dialog&gt;</h2>
 <h3>"Native modals with a11y built-in"</h3>
 <div class="demo-container">
@@ -31,20 +30,15 @@
             </button>
             <dialog id="demoDialog">
                 <h3>🎉 Native Dialog!</h3>
-                <p>✅ Automatic focus management<br>
-                    ✅ Keyboard navigation<br>
-                    ✅ Screen reader support<br>
-                    ✅ Backdrop click to close</p>
+                <div class="demo-explanation">
+                    <p>✅ Automatic focus management<br>
+                        ✅ Keyboard navigation<br>
+                        ✅ Screen reader support<br>
+                        ✅ Backdrop click to close</p>
+                </div>
                 <button class="demo-button" onclick="document.getElementById('demoDialog').close()">Close</button>
             </dialog>
-            <script>
-                // Add backdrop click to close functionality
-                document.getElementById('demoDialog').addEventListener('click', function (event) {
-                    if (event.target === this) {
-                        this.close();
-                    }
-                });
-            </script>
+
             <p style="margin-top: 1rem; font-size: 0.9rem;">
                 200 lines of modal code → 5 lines
             </p>

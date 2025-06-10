@@ -645,11 +645,11 @@ h3 {
 dialog {
     border: none;
     border-radius: 15px;
-    padding: 2rem;
+    padding: 2rem 5rem;
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    min-width: 300px;
-    max-width: 500px;
+    min-width: 500px;
+    max-width: 600px;
     position: fixed;
     top: 50%;
     left: 50%;
