@@ -1576,3 +1576,20 @@ dialog::backdrop {
     border-radius: 4px;
     font-family: 'Fira Code', monospace;
 }
+
+.demo-details p,
+.demo-details div {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 3s ease-out, opacity 3s ease-out, margin 3s ease-out;
+    margin: 0;
+}
+
+.demo-details[open] p,
+.demo-details[open] div {
+    max-height: 500px;
+    /* Large enough to fit content */
+    opacity: 1;
+    margin-top: 1rem;
+}
