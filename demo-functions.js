@@ -193,6 +193,44 @@ window.demoFunctions = {
         }, 100);
 
         alert('Check the browser console (F12) to see the demo output!');
+    },
+
+    // Progress bar animation functions
+    animateProgress: function () {
+        const progressElements = document.querySelectorAll('progress[value]');
+        progressElements.forEach((progress, index) => {
+            const targetValue = parseInt(progress.getAttribute('value'));
+            progress.value = 0;
+
+            const animate = () => {
+                const currentValue = parseInt(progress.value);
+                if (currentValue < targetValue) {
+                    progress.value = currentValue + 1;
+                    const textElement = progress.nextElementSibling;
+                    if (textElement && textElement.classList.contains('progress-text')) {
+                        textElement.textContent = `${currentValue + 1}%`;
+                    }
+                    setTimeout(animate, 20);
+                }
+            };
+
+            setTimeout(animate, index * 200);
+        });
+    },
+
+    resetProgress: function () {
+        const progressElements = document.querySelectorAll('progress[value]');
+        const originalValues = [75, 45, 90];
+
+        progressElements.forEach((progress, index) => {
+            if (originalValues[index] !== undefined) {
+                progress.value = originalValues[index];
+                const textElement = progress.nextElementSibling;
+                if (textElement && textElement.classList.contains('progress-text')) {
+                    textElement.textContent = `${originalValues[index]}%`;
+                }
+            }
+        });
     }
 };
 
@@ -232,4 +270,6 @@ window.transitionCard = window.demoFunctions.transitionCard;
 window.transitionHeroCard = window.demoFunctions.transitionHeroCard;
 window.toggleLayerHighlight = window.demoFunctions.toggleLayerHighlight;
 window.resetLayerDemo = window.demoFunctions.resetLayerDemo;
+window.animateProgress = window.demoFunctions.animateProgress;
+window.resetProgress = window.demoFunctions.resetProgress;
 window.copyCodeToClipboard = copyCodeToClipboard;

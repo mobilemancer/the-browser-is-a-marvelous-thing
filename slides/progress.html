@@ -8,7 +8,8 @@
             <span class="code-language">HTML</span>
             <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
         </div>
-        <pre class="code-content"><code><span class="comment">&lt;!-- Basic Progress --&gt;</span>
+        <pre
+            class="code-content"><code><span class="comment">&lt;!-- Basic Progress --&gt;</span>
 <span class="html-tag">&lt;</span><span class="html-tag-name">progress</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"70"</span> <span class="html-attribute">max</span>=<span class="html-attribute-value">"100"</span><span class="html-tag">&gt;</span><span class="html-text">70%</span><span class="html-tag">&lt;/</span><span class="html-tag-name">progress</span><span class="html-tag">&gt;</span>
 
 <span class="comment">&lt;!-- Indeterminate progress --&gt;</span>
@@ -23,17 +24,17 @@
             <div class="demo-section">
                 <h3>📈 Determinate Progress</h3>
                 <div class="progress-item">
-                    <label>Download Progress:</label>
+                    <label>Download:</label>
                     <progress id="download" value="75" max="100">75%</progress>
                     <span class="progress-text">75%</span>
                 </div>
-                
+
                 <div class="progress-item">
-                    <label>Upload Progress:</label>
+                    <label>Upload:</label>
                     <progress id="upload" value="45" max="100">45%</progress>
                     <span class="progress-text">45%</span>
                 </div>
-                
+
                 <div class="progress-item">
                     <label>Installation:</label>
                     <progress id="install" value="90" max="100">90%</progress>
@@ -42,13 +43,13 @@
             </div>
 
             <div class="demo-section">
-                <h3>🔄 Indeterminate Progress</h3>
+                <h3>🔄 Indeterminate</h3>
                 <div class="progress-item">
                     <label>Processing...</label>
                     <progress class="indeterminate">Loading</progress>
                     <span class="progress-text">Please wait</span>
                 </div>
-                
+
                 <div class="progress-item">
                     <label>Connecting...</label>
                     <progress class="indeterminate">Connecting</progress>
@@ -62,154 +63,131 @@
             </div>
 
             <div class="demo-info">
-                <p>💡 <strong>Accessibility:</strong> Progress elements are automatically announced by screen readers and provide semantic meaning for assistive technologies!</p>
+                <p>💡 <strong>Accessibility:</strong> Progress elements are automatically announced by screen readers
+                    and provide semantic meaning for assistive technologies!</p>
             </div>
         </div>
     </div>
 </div>
 
 <style>
-.progress-demo {
-    padding: 2rem;
-}
+    .progress-demo {
+        padding: 1rem;
+    }
 
-.demo-section {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-}
+    .demo-section {
+        margin: 1rem 0;
+        padding: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
 
-.demo-section h3 {
-    margin: 0 0 1rem 0;
-    color: #4ECDC4;
-    font-size: 1.2rem;
-}
+    .demo-section h3 {
+        margin: 0 0 0.5rem 0;
+        color: #4ECDC4;
+        font-size: 1rem;
+    }
 
-.progress-item {
-    display: flex;
-    align-items: center;
-    margin: 1rem 0;
-    gap: 1rem;
-}
+    .progress-item {
+        display: flex;
+        align-items: center;
+        margin: 0.5rem 0;
+        gap: 0.5rem;
+    }
 
-.progress-item label {
-    min-width: 120px;
-    font-weight: 600;
-}
+    .progress-item label {
+        min-width: 100px;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
 
-.progress-item progress {
-    flex: 1;
-    height: 20px;
-    border-radius: 10px;
-    border: none;
-    background: rgba(255, 255, 255, 0.2);
-}
+    .progress-item progress {
+        flex: 1;
+        height: 20px;
+        border-radius: 10px;
+        border: none;
+        background: rgba(255, 255, 255, 0.2);
+    }
 
-.progress-item progress::-webkit-progress-bar {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-}
+    .progress-item progress::-webkit-progress-bar {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+    }
 
-.progress-item progress::-webkit-progress-value {
-    background: linear-gradient(90deg, #4ECDC4, #45B7D1);
-    border-radius: 10px;
-    transition: width 0.3s ease;
-}
+    .progress-item progress::-webkit-progress-value {
+        background: linear-gradient(90deg, #4ECDC4, #45B7D1);
+        border-radius: 10px;
+        transition: width 0.3s ease;
+    }
 
-.progress-item progress::-moz-progress-bar {
-    background: linear-gradient(90deg, #4ECDC4, #45B7D1);
-    border-radius: 10px;
-}
+    .progress-item progress::-moz-progress-bar {
+        background: linear-gradient(90deg, #4ECDC4, #45B7D1);
+        border-radius: 10px;
+    }
 
-.progress-item .progress-text {
-    min-width: 60px;
-    font-weight: 600;
-    color: #4ECDC4;
-}
+    .progress-item .progress-text {
+        min-width: 60px;
+        font-weight: 600;
+        color: #4ECDC4;
+    }
 
-.indeterminate::-webkit-progress-bar {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-}
+    .indeterminate::-webkit-progress-bar {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+    }
 
-.indeterminate::-webkit-progress-value {
-    background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FF6B6B);
-    background-size: 200% 100%;
-    animation: indeterminateAnimation 2s infinite linear;
-    border-radius: 10px;
-}
+    .indeterminate::-webkit-progress-value {
+        background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FF6B6B);
+        background-size: 200% 100%;
+        animation: indeterminateAnimation 2s infinite linear;
+        border-radius: 10px;
+    }
 
-@keyframes indeterminateAnimation {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
+    @keyframes indeterminateAnimation {
+        0% {
+            background-position: 200% 0;
+        }
 
-.demo-controls {
-    margin: 2rem 0;
-    text-align: center;
-}
+        100% {
+            background-position: -200% 0;
+        }
+    }
 
-.demo-button {
-    margin: 0 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
+    .demo-controls {
+        margin: 2rem 0;
+        text-align: center;
+    }
 
-.demo-button:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-1px);
-}
+    .demo-button {
+        margin: 0 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
 
-.demo-info {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    border-left: 4px solid #4ECDC4;
-}
+    .demo-button:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-1px);
+    }
 
-.demo-info p {
-    margin: 0;
-    font-size: 0.95rem;
-}
+    .demo-info {
+        margin-top: 1rem;
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        border-left: 4px solid #4ECDC4;
+        font-size: 0.9rem;
+    }
+
+    .demo-info p {
+        margin: 0;
+        font-size: 0.95rem;
+    }
 </style>
-
-<script>
-function animateProgress() {
-    const progressElements = document.querySelectorAll('progress[value]');
-    progressElements.forEach((progress, index) => {
-        const targetValue = parseInt(progress.getAttribute('value'));
-        progress.value = 0;
-        
-        const animate = () => {
-            const currentValue = parseInt(progress.value);
-            if (currentValue < targetValue) {
-                progress.value = currentValue + 1;
-                progress.nextElementSibling.textContent = `${currentValue + 1}%`;
-                setTimeout(animate, 20);
-            }
-        };
-        
-        setTimeout(animate, index * 200);
-    });
-}
-
-function resetProgress() {
-    const progressElements = document.querySelectorAll('progress[value]');
-    const originalValues = [75, 45, 90];
-    
-    progressElements.forEach((progress, index) => {
-        progress.value = originalValues[index];
-        progress.nextElementSibling.textContent = `${originalValues[index]}%`;
-    });
-}
-</script>
