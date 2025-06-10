@@ -97,6 +97,11 @@ async function showSlide(index) {
 }
 
 function initializeSlideInteractions() {
+    // Stop any existing auto-progress animation
+    if (typeof stopAutoProgress === 'function') {
+        stopAutoProgress();
+    }
+
     // Re-initialize intersection observer for scroll items
     const scrollItems = document.querySelectorAll('.scroll-item');
     if (scrollItems.length > 0) {
@@ -109,6 +114,15 @@ function initializeSlideInteractions() {
         });
 
         scrollItems.forEach(item => observer.observe(item));
+    }
+
+    // Check if this is the progress slide and start auto-animation
+    const installProgress = document.getElementById('install');
+    if (installProgress && typeof startAutoProgress === 'function') {
+        // Small delay to ensure the slide is fully loaded
+        setTimeout(() => {
+            startAutoProgress();
+        }, 100);
     }
 }
 

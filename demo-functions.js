@@ -195,42 +195,54 @@ window.demoFunctions = {
         alert('Check the browser console (F12) to see the demo output!');
     },
 
-    // Progress bar animation functions
-    animateProgress: function () {
-        const progressElements = document.querySelectorAll('progress[value]');
-        progressElements.forEach((progress, index) => {
-            const targetValue = parseInt(progress.getAttribute('value'));
-            progress.value = 0;
 
-            const animate = () => {
-                const currentValue = parseInt(progress.value);
-                if (currentValue < targetValue) {
-                    progress.value = currentValue + 1;
-                    const textElement = progress.nextElementSibling;
-                    if (textElement && textElement.classList.contains('progress-text')) {
-                        textElement.textContent = `${currentValue + 1}%`;
-                    }
-                    setTimeout(animate, 20);
-                }
-            };
 
-            setTimeout(animate, index * 200);
-        });
+    // Auto-animating progress for slide load
+    startAutoProgress: function () {
+        const installProgress = document.getElementById('install');
+        const installText = installProgress ? installProgress.nextElementSibling : null;
+
+        if (!installProgress || !installText) return;
+
+        let currentValue = 0;
+        let animationId = null;
+
+        const animateToHundred = () => {
+            if (currentValue < 100) {
+                // Random increment between 1-5
+                const increment = Math.floor(Math.random() * 5) + 1;
+                currentValue = Math.min(currentValue + increment, 100);
+
+                installProgress.value = currentValue;
+                installText.textContent = `${currentValue}%`;
+
+                // Random delay between 100-300ms for natural feel
+                const delay = Math.floor(Math.random() * 200) + 100;
+                animationId = setTimeout(animateToHundred, delay);
+            } else {
+                // Wait 10 seconds at 100%, then restart
+                animationId = setTimeout(() => {
+                    currentValue = 0;
+                    installProgress.value = 0;
+                    installText.textContent = '0%';
+                    // Start again after a brief pause
+                    setTimeout(animateToHundred, 500);
+                }, 10000);
+            }
+        };
+
+        // Store animation ID for cleanup
+        window.progressAnimationId = animationId;
+
+        // Start the animation
+        animateToHundred();
     },
 
-    resetProgress: function () {
-        const progressElements = document.querySelectorAll('progress[value]');
-        const originalValues = [100]; // Only installation progress remains
-
-        progressElements.forEach((progress, index) => {
-            if (originalValues[index] !== undefined) {
-                progress.value = originalValues[index];
-                const textElement = progress.nextElementSibling;
-                if (textElement && textElement.classList.contains('progress-text')) {
-                    textElement.textContent = `${originalValues[index]}%`;
-                }
-            }
-        });
+    stopAutoProgress: function () {
+        if (window.progressAnimationId) {
+            clearTimeout(window.progressAnimationId);
+            window.progressAnimationId = null;
+        }
     }
 };
 
@@ -270,6 +282,7 @@ window.transitionCard = window.demoFunctions.transitionCard;
 window.transitionHeroCard = window.demoFunctions.transitionHeroCard;
 window.toggleLayerHighlight = window.demoFunctions.toggleLayerHighlight;
 window.resetLayerDemo = window.demoFunctions.resetLayerDemo;
-window.animateProgress = window.demoFunctions.animateProgress;
-window.resetProgress = window.demoFunctions.resetProgress;
+
+window.startAutoProgress = window.demoFunctions.startAutoProgress;
+window.stopAutoProgress = window.demoFunctions.stopAutoProgress;
 window.copyCodeToClipboard = copyCodeToClipboard;

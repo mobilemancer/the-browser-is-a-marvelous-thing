@@ -1625,27 +1625,7 @@ dialog::backdrop {
     }
 }
 
-.demo-controls {
-    margin: 2rem 0;
-    text-align: center;
-}
 
-.progress-button {
-    margin: 0 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.progress-button:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-1px);
-}
 
 .demo-info {
     margin-top: 1rem;
