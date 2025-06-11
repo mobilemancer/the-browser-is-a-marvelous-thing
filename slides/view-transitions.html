@@ -38,8 +38,8 @@
     <div class="result-panel">
         <div class="view-transition-demo">
             <div id="transitionContainer" class="transition-container">
-                <!-- Initial state: Card layout -->
-                <div class="demo-state" id="cardState">
+                <!-- State 1: Card Grid Layout -->
+                <div class="demo-state active" id="cardState">
                     <div class="demo-header" style="view-transition-name: header;">
                         <h3 style="view-transition-name: title;">🎬 Movie Database</h3>
                         <div class="demo-nav" style="view-transition-name: nav;">
@@ -61,6 +61,68 @@
                             <div class="movie-poster">😂</div>
                             <h4>Comedy Gold</h4>
                             <p>★★★☆☆</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- State 2: List Layout -->
+                <div class="demo-state" id="listState">
+                    <div class="demo-header" style="view-transition-name: header;">
+                        <h3 style="view-transition-name: title;">📋 Movie List</h3>
+                        <div class="demo-nav" style="view-transition-name: nav;">
+                            <span>📊 List View</span> | <span>🔍 Search</span>
+                        </div>
+                    </div>
+                    <div class="movie-list">
+                        <div class="movie-item" style="view-transition-name: movie-1;">
+                            <div class="movie-poster">🎭</div>
+                            <div class="movie-details">
+                                <h4>Drama Classic</h4>
+                                <p>★★★★☆ • 2h 15m • Drama</p>
+                            </div>
+                        </div>
+                        <div class="movie-item" style="view-transition-name: movie-2;">
+                            <div class="movie-poster">🚀</div>
+                            <div class="movie-details">
+                                <h4>Sci-Fi Epic</h4>
+                                <p>★★★★★ • 2h 45m • Sci-Fi</p>
+                            </div>
+                        </div>
+                        <div class="movie-item" style="view-transition-name: movie-3;">
+                            <div class="movie-poster">😂</div>
+                            <div class="movie-details">
+                                <h4>Comedy Gold</h4>
+                                <p>★★★☆☆ • 1h 30m • Comedy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- State 3: Profile Layout -->
+                <div class="demo-state" id="profileState">
+                    <div class="demo-header" style="view-transition-name: header;">
+                        <h3 style="view-transition-name: title;">👤 User Profile</h3>
+                        <div class="demo-nav" style="view-transition-name: nav;">
+                            <span>⚙️ Settings</span> | <span>🚪 Logout</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="profile-avatar" style="view-transition-name: movie-1;">👤</div>
+                        <h4>Movie Enthusiast</h4>
+                        <p>Joined January 2024</p>
+                        <div class="profile-stats">
+                            <div class="stat-item" style="view-transition-name: movie-2;">
+                                <div class="stat-number">127</div>
+                                <div class="stat-label">Movies Watched</div>
+                            </div>
+                            <div class="stat-item" style="view-transition-name: movie-3;">
+                                <div class="stat-number">4.2</div>
+                                <div class="stat-label">Avg Rating</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">23</div>
+                                <div class="stat-label">Reviews</div>
+                            </div>
                         </div>
                     </div>
                 </div>

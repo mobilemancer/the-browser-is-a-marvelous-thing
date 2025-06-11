@@ -778,6 +778,14 @@ dialog::backdrop {
     width: 100%;
 }
 
+.demo-state {
+    display: none;
+}
+
+.demo-state.active {
+    display: block;
+}
+
 .transition-container {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
@@ -876,10 +884,6 @@ dialog::backdrop {
     color: #fbbf24;
 }
 
-/* Profile view styles */
-.profile-view {
-    /* text-align: center; */
-}
 
 .profile-avatar {
     font-size: 4rem;
