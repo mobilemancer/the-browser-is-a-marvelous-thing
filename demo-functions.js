@@ -271,21 +271,89 @@ window.demoFunctions = {
     },
 
     demoDevTools: function () {
-        console.log('🔧 DevTools Demo Functions:');
+        // Clear console for dramatic effect
+        console.clear();
+
+        // Epic header with enhanced neon styling
+        const headerStyle = 'background: linear-gradient(45deg, #8b5cf6, #a855f7, #c084fc, #d946ef); color: #f3e8ff; font-weight: bold; padding: 16px 32px; border-radius: 16px; text-shadow: 0 0 15px #8b5cf6, 0 0 30px #8b5cf6, 0 0 45px #8b5cf6; box-shadow: 0 0 40px rgba(139, 92, 246, 0.8), inset 0 0 30px rgba(139, 92, 246, 0.3); font-size: 2.2em; letter-spacing: 3px; text-transform: uppercase;';
+        console.log('%c🚀 DEVTOOLS SUPERPOWERS ACTIVATED! 🚀', headerStyle);
+
+        // Cool ASCII art with neon glow
+        const asciiStyle = 'color: #a855f7; font-family: monospace; font-size: 1.1em; text-shadow: 0 0 15px #8b5cf6; line-height: 1.2;';
+        console.log('%c' + `
+    ╔═════════════════════════════════╗
+    ║   🌟 BROWSER CAPABILITIES 🌟   ║
+    ║         ⚡ UNLOCKED ⚡         ║
+    ╚═════════════════════════════════╝`, asciiStyle);
+
+        // Enhanced table with emojis and power levels
+        const tableStyle = 'background: linear-gradient(45deg, #8b5cf6, #a855f7, #c084fc); color: #f3e8ff; font-weight: bold; padding: 12px 24px; border-radius: 12px; text-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6; box-shadow: 0 0 25px rgba(139, 92, 246, 0.6), inset 0 0 25px rgba(139, 92, 246, 0.2); font-size: 1.6em; letter-spacing: 2px;';
+        console.log('%c🎯 FEATURE ANALYSIS MATRIX', tableStyle);
+
         console.table([
-            { Feature: 'CSS Grid Inspector', Status: 'Available' },
-            { Feature: 'Container Queries Debug', Status: 'Available' },
-            { Feature: 'Performance Profiling', Status: 'Available' }
+            { '🎯 Feature': 'CSS Grid Inspector', '⚡ Status': '✅ ONLINE', '🔥 Power': '9000', '💎 Rarity': 'LEGENDARY' },
+            { '🎯 Feature': 'Container Queries Debug', '⚡ Status': '✅ ONLINE', '🔥 Power': '8500', '💎 Rarity': 'EPIC' },
+            { '🎯 Feature': 'Performance Profiling', '⚡ Status': '✅ ONLINE', '🔥 Power': '9500', '💎 Rarity': 'LEGENDARY' },
+            { '🎯 Feature': 'View Transitions Debug', '⚡ Status': '✅ ONLINE', '🔥 Power': '10000', '💎 Rarity': 'MYTHIC' },
+            { '🎯 Feature': 'File System Access', '⚡ Status': '✅ ONLINE', '🔥 Power': '8000', '💎 Rarity': 'RARE' }
         ]);
 
-        console.time('demo-operation');
-        setTimeout(() => {
-            console.timeEnd('demo-operation');
-            console.log('Performance memory:', performance.memory);
-            console.log('Check the Network tab, Console tab, and Elements tab!');
-        }, 100);
+        // Performance timing with enhanced styling
+        const timeStyle = 'background: linear-gradient(45deg, #8b5cf6, #a855f7, #c084fc); color: #f3e8ff; font-weight: bold; padding: 12px 24px; border-radius: 12px; text-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6; box-shadow: 0 0 25px rgba(139, 92, 246, 0.6), inset 0 0 25px rgba(139, 92, 246, 0.2); font-size: 1.6em; letter-spacing: 2px;';
+        console.log('%c⚡ PERFORMANCE SPEED TEST INITIATED', timeStyle);
+        console.time('⚡ DEMO OPERATION SPEED TEST');
 
-        alert('Check the browser console (F12) to see the demo output!');
+        // Organized output with groups
+        console.group('%c🔍 SYSTEM DIAGNOSTICS SUITE', 'color: #c084fc; font-weight: bold; font-size: 1.4em; text-shadow: 0 0 10px #8b5cf6;');
+
+        setTimeout(() => {
+            console.timeEnd('⚡ DEMO OPERATION SPEED TEST');
+
+            // Memory analysis with enhanced styling
+            const memoryStyle = 'background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7); color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; text-shadow: 0 0 10px rgba(139, 92, 246, 0.8);';
+            console.log('%c💾 MEMORY ANALYSIS COMPLETE:', memoryStyle);
+            console.log('📊 Performance memory:', performance.memory);
+
+            // Browser intelligence
+            const browserStyle = 'background: linear-gradient(90deg, #ec4899, #8b5cf6, #06b6d4); color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; text-shadow: 0 0 10px rgba(139, 92, 246, 0.8);';
+            console.log('%c🌐 BROWSER INTELLIGENCE REPORT:', browserStyle);
+            console.log('🔍 User Agent:', navigator.userAgent.split(' ').slice(-2).join(' '));
+            console.log('📐 Viewport Dimensions:', `${window.innerWidth}x${window.innerHeight}px`);
+            console.log('🎨 Color Depth:', screen.colorDepth + ' bits');
+            console.log('🖥️ Screen Resolution:', `${screen.width}x${screen.height}px`);
+
+            // Network diagnostics
+            if (navigator.connection) {
+                const networkStyle = 'background: linear-gradient(90deg, #10b981, #8b5cf6, #f59e0b); color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; text-shadow: 0 0 10px rgba(139, 92, 246, 0.8);';
+                console.log('%c📡 NETWORK STATUS ANALYSIS:', networkStyle);
+                console.log('🚀 Connection Type:', navigator.connection.effectiveType);
+                console.log('⬇️ Downlink Speed:', navigator.connection.downlink + ' Mbps');
+                console.log('📶 Round Trip Time:', navigator.connection.rtt + ' ms');
+            }
+
+            // Hardware acceleration check
+            const canvas = document.createElement('canvas');
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (gl) {
+                const hardwareStyle = 'background: linear-gradient(90deg, #f59e0b, #ef4444, #8b5cf6); color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; text-shadow: 0 0 10px rgba(139, 92, 246, 0.8);';
+                console.log('%c🎮 GPU ACCELERATION STATUS:', hardwareStyle);
+                console.log('🔥 WebGL Renderer:', gl.getParameter(gl.RENDERER));
+                console.log('⚡ WebGL Vendor:', gl.getParameter(gl.VENDOR));
+            }
+
+            console.groupEnd();
+
+            // Epic finale
+            const finaleStyle = 'background: linear-gradient(45deg, #f59e0b, #ef4444, #8b5cf6, #06b6d4, #10b981); color: white; font-weight: bold; padding: 20px 40px; border-radius: 20px; text-shadow: 0 0 25px rgba(139, 92, 246, 0.9); box-shadow: 0 0 50px rgba(139, 92, 246, 0.7); font-size: 2em; letter-spacing: 2px; text-transform: uppercase;';
+            console.log('%c🎉 THE BROWSER IS TRULY MARVELOUS! 🎉', finaleStyle);
+
+            // Dramatic warnings and errors for effect
+            console.warn('⚠️  WARNING: Excessive awesomeness levels detected in browser capabilities! ⚠️');
+            console.error('🚨 CRITICAL: Mind-blowing features may cause uncontrollable excitement! 🚨');
+
+        }, 200);
+
+        alert('🎭 Open DevTools (F12) to witness the EPIC browser capabilities showcase! 🎭');
     },
 
 
