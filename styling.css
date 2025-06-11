@@ -107,6 +107,11 @@ h3 {
     max-width: 800px;
 }
 
+.demo-title {
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -169,8 +174,8 @@ h3 {
         overflow: hidden;
         position: relative;
         height: 70vh;
-        mask: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-        -webkit-mask: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        mask: linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
+        -webkit-mask: linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
     }
 
     .feature-item {
@@ -331,6 +336,7 @@ h3 {
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 2rem;
+    margin: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -570,6 +576,7 @@ h3 {
 @container demo-container (min-width: 300px) {
     .responsive-card {
         flex-direction: row;
+        justify-content: space-evenly;
         background: linear-gradient(45deg, #667eea, #764ba2);
         color: white;
     }
@@ -1042,10 +1049,6 @@ dialog::backdrop {
     text-align: left;
     max-width: 500px;
     border-left: 4px solid #ffd700;
-}
-
-.layers-demo-title {
-    color: #ffd700;
 }
 
 .layers-demo-card-title {
@@ -1692,10 +1695,6 @@ dialog::backdrop {
 /* CSS Nesting Demo Styles */
 .nesting-demo-container {
     text-align: center;
-}
-
-.nesting-demo-title {
-    margin-bottom: 1rem;
 }
 
 .nesting-demo-card {
