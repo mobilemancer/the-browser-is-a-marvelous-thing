@@ -104,40 +104,131 @@ window.demoFunctions = {
     },
 
     demoViewTransition: function () {
-        const content = document.getElementById('transitionContent');
-        if (content) {
-            const gradientClasses = [
-                'gradient-blue-cyan',
-                'gradient-red-orange',
-                'gradient-teal-green',
-                'gradient-blue-lime'
-            ];
+        const container = document.getElementById('transitionContainer');
+        if (!container) return;
 
-            // Find current gradient class
-            let currentIndex = -1;
-            for (let i = 0; i < gradientClasses.length; i++) {
-                if (content.classList.contains(gradientClasses[i])) {
-                    currentIndex = i;
-                    break;
-                }
+        // Define the different states
+        const states = [
+            {
+                name: 'cardState',
+                html: `
+                    <div class="demo-state" id="cardState">
+                        <div class="demo-header" style="view-transition-name: header;">
+                            <h3 style="view-transition-name: title;">🎬 Movie Database</h3>
+                            <div class="demo-nav" style="view-transition-name: nav;">
+                                <span>🏠 Home</span> | <span>⭐ Favorites</span>
+                            </div>
+                        </div>
+                        <div class="movie-grid">
+                            <div class="movie-card" style="view-transition-name: movie-1;">
+                                <div class="movie-poster">🎭</div>
+                                <h4>Drama Classic</h4>
+                                <p>★★★★☆</p>
+                            </div>
+                            <div class="movie-card" style="view-transition-name: movie-2;">
+                                <div class="movie-poster">🚀</div>
+                                <h4>Sci-Fi Epic</h4>
+                                <p>★★★★★</p>
+                            </div>
+                            <div class="movie-card" style="view-transition-name: movie-3;">
+                                <div class="movie-poster">😂</div>
+                                <h4>Comedy Gold</h4>
+                                <p>★★★☆☆</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                name: 'listState',
+                html: `
+                    <div class="demo-state" id="listState">
+                        <div class="demo-header" style="view-transition-name: header;">
+                            <h3 style="view-transition-name: title;">📋 Movie List</h3>
+                            <div class="demo-nav" style="view-transition-name: nav;">
+                                <span>📊 List View</span> | <span>🔍 Search</span>
+                            </div>
+                        </div>
+                        <div class="movie-list">
+                            <div class="movie-item" style="view-transition-name: movie-1;">
+                                <div class="movie-poster">🎭</div>
+                                <div class="movie-details">
+                                    <h4>Drama Classic</h4>
+                                    <p>★★★★☆ • 2h 15m • Drama</p>
+                                </div>
+                            </div>
+                            <div class="movie-item" style="view-transition-name: movie-2;">
+                                <div class="movie-poster">🚀</div>
+                                <div class="movie-details">
+                                    <h4>Sci-Fi Epic</h4>
+                                    <p>★★★★★ • 2h 45m • Sci-Fi</p>
+                                </div>
+                            </div>
+                            <div class="movie-item" style="view-transition-name: movie-3;">
+                                <div class="movie-poster">😂</div>
+                                <div class="movie-details">
+                                    <h4>Comedy Gold</h4>
+                                    <p>★★★☆☆ • 1h 30m • Comedy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                name: 'profileState',
+                html: `
+                    <div class="demo-state" id="profileState">
+                        <div class="demo-header" style="view-transition-name: header;">
+                            <h3 style="view-transition-name: title;">👤 User Profile</h3>
+                            <div class="demo-nav" style="view-transition-name: nav;">
+                                <span>⚙️ Settings</span> | <span>🚪 Logout</span>
+                            </div>
+                        </div>
+                        <div class="profile-view">
+                            <div class="profile-avatar" style="view-transition-name: movie-1;">👤</div>
+                            <h4>Movie Enthusiast</h4>
+                            <p>Joined January 2024</p>
+                            <div class="profile-stats">
+                                <div class="stat-item" style="view-transition-name: movie-2;">
+                                    <div class="stat-number">127</div>
+                                    <div class="stat-label">Movies Watched</div>
+                                </div>
+                                <div class="stat-item" style="view-transition-name: movie-3;">
+                                    <div class="stat-number">4.2</div>
+                                    <div class="stat-label">Avg Rating</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">23</div>
+                                    <div class="stat-label">Reviews</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
             }
+        ];
 
-            // If no gradient class found, start with first one
-            if (currentIndex === -1) currentIndex = 0;
-
-            const nextIndex = (currentIndex + 1) % gradientClasses.length;
-
-            if (document.startViewTransition) {
-                document.startViewTransition(() => {
-                    // Remove current gradient class and add next one
-                    content.classList.remove(gradientClasses[currentIndex]);
-                    content.classList.add(gradientClasses[nextIndex]);
-                });
-            } else {
-                // Remove current gradient class and add next one
-                content.classList.remove(gradientClasses[currentIndex]);
-                content.classList.add(gradientClasses[nextIndex]);
+        // Find current state
+        let currentStateIndex = 0;
+        for (let i = 0; i < states.length; i++) {
+            if (container.querySelector(`#${states[i].name}`)) {
+                currentStateIndex = i;
+                break;
             }
+        }
+
+        // Get next state
+        const nextStateIndex = (currentStateIndex + 1) % states.length;
+        const nextState = states[nextStateIndex];
+
+        // Perform the transition
+        if (document.startViewTransition) {
+            document.startViewTransition(() => {
+                container.innerHTML = nextState.html;
+            });
+        } else {
+            container.innerHTML = nextState.html;
         }
     },
 

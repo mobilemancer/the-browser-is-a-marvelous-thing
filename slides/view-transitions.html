@@ -36,18 +36,38 @@
 }</code></pre>
     </div>
     <div class="result-panel">
-        <div style="text-align: center;">
-            <div id="transitionContent" class="gradient-blue-cyan"
-                style="padding: 2rem; border-radius: 15px; margin: 1rem 0;">
-                <h4>Content Block</h4>
-                <p>Click button to see smooth transition</p>
+        <div class="view-transition-demo">
+            <div id="transitionContainer" class="transition-container">
+                <!-- Initial state: Card layout -->
+                <div class="demo-state" id="cardState">
+                    <div class="demo-header" style="view-transition-name: header;">
+                        <h3 style="view-transition-name: title;">🎬 Movie Database</h3>
+                        <div class="demo-nav" style="view-transition-name: nav;">
+                            <span>🏠 Home</span> | <span>⭐ Favorites</span>
+                        </div>
+                    </div>
+                    <div class="movie-grid">
+                        <div class="movie-card" style="view-transition-name: movie-1;">
+                            <div class="movie-poster">🎭</div>
+                            <h4>Drama Classic</h4>
+                            <p>★★★★☆</p>
+                        </div>
+                        <div class="movie-card" style="view-transition-name: movie-2;">
+                            <div class="movie-poster">🚀</div>
+                            <h4>Sci-Fi Epic</h4>
+                            <p>★★★★★</p>
+                        </div>
+                        <div class="movie-card" style="view-transition-name: movie-3;">
+                            <div class="movie-poster">😂</div>
+                            <h4>Comedy Gold</h4>
+                            <p>★★★☆☆</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button class="demo-button" onclick="demoViewTransition()" style="margin-top: 1rem;">
-                Trigger View Transition
+            <button class="demo-button" onclick="demoViewTransition()">
+                🎬 Transform Layout
             </button>
-            <p style="font-size: 0.9rem; margin-top: 1rem;">
-                Smooth morphing animations between DOM states
-            </p>
         </div>
     </div>
 </div>
