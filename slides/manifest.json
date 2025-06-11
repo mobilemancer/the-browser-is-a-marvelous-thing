@@ -7,6 +7,14 @@
   },
   "slides": [
     {
+      "id": "devsum-intro",
+      "title": "DevSum Conference Introduction",
+      "file": "devsum-intro.html",
+      "enabled": true,
+      "section": "introduction",
+      "description": "Conference organizer intro slide"
+    },
+    {
       "id": "title",
       "title": "The Browser is a Marvelous Thing",
       "file": "title.html",
