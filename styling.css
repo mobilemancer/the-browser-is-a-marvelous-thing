@@ -2045,6 +2045,7 @@ dialog::backdrop {
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    width: 535px;
 }
 
 .demo-details summary {
