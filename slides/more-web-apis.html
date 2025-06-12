@@ -37,16 +37,56 @@ channel.<span class="property">onmessage</span> = (event) => {
     <div class="result-panel">
         <div>
             <h4 class="demo-title">🕵️ Intersection Observer Demo</h4>
-            <div class="intersection-demo">
-                <div class="scroll-item">Scroll item 1</div>
-                <div class="scroll-item">Scroll item 2</div>
-                <div class="scroll-item">Scroll item 3</div>
-                <div class="scroll-item">Scroll item 4</div>
-                <div class="scroll-item">Scroll item 5</div>
+            <div class="intersection-status">
+                <span class="status-indicator">👁️ Watching: <span id="watching-count">0</span> elements</span>
+                <span class="status-indicator">✨ Visible: <span id="visible-count">0</span> elements</span>
             </div>
-            <p style="font-size: 0.9rem; margin-top: 1rem;">
-                Scroll to see items fade in when visible
-            </p>
+            <div class="intersection-demo" id="intersection-container">
+                <div class="scroll-item" data-item="1">
+                    <div class="item-content">
+                        <span class="item-emoji">🚀</span>
+                        <span class="item-text">Launch Sequence</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+                <div class="scroll-item" data-item="2">
+                    <div class="item-content">
+                        <span class="item-emoji">⚡</span>
+                        <span class="item-text">Power Boost</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+                <div class="scroll-item" data-item="3">
+                    <div class="item-content">
+                        <span class="item-emoji">🌟</span>
+                        <span class="item-text">Star Power</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+                <div class="scroll-item" data-item="4">
+                    <div class="item-content">
+                        <span class="item-emoji">🎯</span>
+                        <span class="item-text">Target Lock</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+                <div class="scroll-item" data-item="5">
+                    <div class="item-content">
+                        <span class="item-emoji">🏆</span>
+                        <span class="item-text">Victory!</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+                <div class="scroll-item" data-item="6">
+                    <div class="item-content">
+                        <span class="item-emoji">🎉</span>
+                        <span class="item-text">Celebration</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <p> 📜 Scroll inside the container to trigger intersection events! </p>
         </div>
     </div>
 </div>

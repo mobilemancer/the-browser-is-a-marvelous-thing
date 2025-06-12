@@ -1123,30 +1123,185 @@ dialog::backdrop {
     }
 }
 
-.intersection-demo {
-    height: 150px;
-    overflow-y: scroll;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    padding: 1rem;
+/* Intersection Observer Status */
+.intersection-status {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
+.status-indicator {
+    background: linear-gradient(45deg, #8b5cf6, #a855f7);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.8);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
+        transform: scale(1.02);
+    }
+}
+
+/* Enhanced Intersection Demo Container */
+.intersection-demo {
+    height: 200px;
+    overflow-y: scroll;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1));
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    border-radius: 15px;
+    padding: 1.5rem;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 8px 32px rgba(139, 92, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Scroll Items with Epic Effects */
 .scroll-item {
-    height: 80px;
-    margin: 1rem 0;
-    background: linear-gradient(45deg, #ffd700, #ffed4e);
-    border-radius: 5px;
+    height: 100px;
+    margin: 1.5rem 1rem;
+    /* Added horizontal margin for better spacing */
+    background: linear-gradient(45deg, #1f2937, #374151);
+    border: 2px solid rgba(139, 92, 246, 0.2);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #333;
     font-weight: bold;
-    opacity: 0.3;
-    transition: opacity 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 0 1rem;
+    /* Added internal padding for content spacing */
+
+    /* Initial hidden state - dramatic */
+    opacity: 0;
+    transform: translateX(-100px) scale(0.8) rotateY(-15deg);
+    filter: blur(5px) grayscale(100%);
+
+    /* Epic transition */
+    transition: all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* Item Content Layout */
+.item-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    padding-right: 6rem;
+    /* Make space for the badge */
+}
+
+.item-emoji {
+    font-size: 2rem;
+    filter: grayscale(100%);
+    transition: all 0.8s ease;
+    flex-shrink: 0;
+    /* Prevent emoji from shrinking */
+}
+
+.item-text {
+    font-size: 1.1rem;
+    color: #9ca3af;
+    transition: all 0.8s ease;
+    flex: 1;
+    /* Allow text to take available space */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.visibility-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    right: 0rem;
+    transform: translateY(-50%);
+    background: linear-gradient(45deg, #ef4444, #dc2626);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(239, 68, 68, 0.4);
+    transition: all 0.8s ease;
+    z-index: 3;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Visible State - EPIC! */
 .scroll-item.visible {
     opacity: 1;
+    transform: translateX(0) scale(1) rotateY(0deg);
+    filter: blur(0) grayscale(0%);
+    background: linear-gradient(45deg, #8b5cf6, #a855f7, #c084fc);
+    border-color: rgba(139, 92, 246, 0.8);
+    box-shadow:
+        0 10px 30px rgba(139, 92, 246, 0.4),
+        0 0 50px rgba(139, 92, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.scroll-item.visible .item-emoji {
+    filter: grayscale(0%);
+    transform: scale(1.2) rotate(360deg);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.scroll-item.visible .item-text {
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+}
+
+.scroll-item.visible .visibility-badge {
+    background: linear-gradient(45deg, #10b981, #059669);
+    box-shadow: 0 2px 15px rgba(16, 185, 129, 0.5);
+}
+
+/* Demo Instruction Styling */
+.demo-instruction {
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    color: #a855f7;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    animation: instruction-pulse 3s infinite;
+}
+
+@keyframes instruction-pulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
 }
 
 .big-number {

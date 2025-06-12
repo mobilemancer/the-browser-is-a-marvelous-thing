@@ -102,18 +102,59 @@ function initializeSlideInteractions() {
         stopAutoProgress();
     }
 
-    // Re-initialize intersection observer for scroll items
+    // Enhanced intersection observer for scroll items with status tracking
     const scrollItems = document.querySelectorAll('.scroll-item');
     if (scrollItems.length > 0) {
+        const watchingCountEl = document.getElementById('watching-count');
+        const visibleCountEl = document.getElementById('visible-count');
+
+        // Update watching count immediately
+        if (watchingCountEl) {
+            watchingCountEl.textContent = scrollItems.length;
+        }
+
+        const updateVisibleCount = () => {
+            if (visibleCountEl) {
+                const visibleItems = document.querySelectorAll('.scroll-item.visible');
+                visibleCountEl.textContent = visibleItems.length;
+            }
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                const badge = entry.target.querySelector('.visibility-badge');
+
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    // Add visible class with slight delay for dramatic effect
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                        if (badge) {
+                            badge.textContent = 'VISIBLE';
+                        }
+                        // Update count after DOM changes
+                        updateVisibleCount();
+                    }, 100);
+                } else {
+                    // Remove visible class when not intersecting
+                    entry.target.classList.remove('visible');
+                    if (badge) {
+                        badge.textContent = 'Hidden';
+                    }
+                    // Update count immediately for hiding
+                    updateVisibleCount();
                 }
             });
+        }, {
+            // Enhanced options for better demo visibility
+            threshold: 0.3, // Trigger when 30% visible
+            rootMargin: '-20px' // Add some margin for better effect
         });
 
         scrollItems.forEach(item => observer.observe(item));
+
+        // Add some initial demo instructions via console
+        console.log('🕵️ Intersection Observer Demo initialized!');
+        console.log(`👁️ Watching ${scrollItems.length} elements for visibility changes`);
     }
 
     // Check if this is the progress slide and start auto-animation
