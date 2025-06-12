@@ -165,6 +165,11 @@ function initializeSlideInteractions() {
             startAutoProgress();
         }, 100);
     }
+
+    // Initialize CSS if() function demo
+    if (typeof window.demoFunctions !== 'undefined' && window.demoFunctions.initializeIfDemo) {
+        window.demoFunctions.initializeIfDemo();
+    }
 }
 
 function nextSlide() {

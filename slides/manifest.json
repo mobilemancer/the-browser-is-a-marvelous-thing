@@ -95,6 +95,14 @@
       "description": "Grids all the way down"
     },
     {
+      "id": "css-if-function",
+      "title": "CSS if() Function",
+      "file": "css-if-function.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Conditional styling with native CSS logic"
+    },
+    {
       "id": "act2-intro",
       "title": "Act II: HTML Elements You've Been Reinventing",
       "file": "act2-intro.html",

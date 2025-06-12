@@ -404,6 +404,53 @@ window.demoFunctions = {
             clearTimeout(window.progressAnimationId);
             window.progressAnimationId = null;
         }
+    },
+
+    // CSS if() function demo
+    toggleIfTheme: function () {
+        let ifCurrentTheme = window.ifCurrentTheme || 'default';
+        const ifThemes = ['default', 'dark', 'light'];
+
+        const currentIndex = ifThemes.indexOf(ifCurrentTheme);
+        const nextIndex = (currentIndex + 1) % ifThemes.length;
+        ifCurrentTheme = ifThemes[nextIndex];
+
+        const card = document.getElementById('ifDemoCard');
+        const themeDisplay = document.getElementById('ifCurrentTheme');
+
+        if (!card || !themeDisplay) return;
+
+        // Remove all theme attributes
+        card.removeAttribute('data-theme');
+
+        // Set new theme
+        if (ifCurrentTheme !== 'default') {
+            card.setAttribute('data-theme', ifCurrentTheme);
+        }
+
+        themeDisplay.textContent = ifCurrentTheme;
+
+        // Add visual feedback
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            card.style.transform = 'scale(1)';
+        }, 150);
+
+        // Store current theme globally
+        window.ifCurrentTheme = ifCurrentTheme;
+    },
+
+    // Initialize CSS if() function demo
+    initializeIfDemo: function () {
+        const ifDemoCard = document.getElementById('ifDemoCard');
+        if (ifDemoCard) {
+            // Initialize theme display
+            const themeDisplay = document.getElementById('ifCurrentTheme');
+            if (themeDisplay) {
+                window.ifCurrentTheme = 'default';
+                themeDisplay.textContent = 'default';
+            }
+        }
     }
 };
 
@@ -447,4 +494,5 @@ window.resetLayerDemo = window.demoFunctions.resetLayerDemo;
 
 window.startAutoProgress = window.demoFunctions.startAutoProgress;
 window.stopAutoProgress = window.demoFunctions.stopAutoProgress;
+window.toggleIfTheme = window.demoFunctions.toggleIfTheme;
 window.copyCodeToClipboard = copyCodeToClipboard;

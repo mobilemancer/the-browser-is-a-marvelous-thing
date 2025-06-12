@@ -2094,3 +2094,68 @@ dialog::backdrop {
     opacity: 1;
     margin-top: 1rem;
 }
+
+/* CSS if() Function Demo Styles */
+.if-function-toggle {
+    background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.if-function-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.if-function-card {
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid #fbbf24;
+    transition: all 0.5s ease;
+    text-align: center;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    color: white;
+    position: relative;
+}
+
+.if-function-card[data-theme="dark"] {
+    background: linear-gradient(135deg, #1f2937, #374151);
+    color: #f1f5f9;
+    border-color: #8b5cf6;
+}
+
+.if-function-card[data-theme="light"] {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    color: #1e293b;
+    border-color: #06b6d4;
+}
+
+.if-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.if-future-badge {
+    background: linear-gradient(45deg, #ef4444, #f97316);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+    position: absolute;
+    top: -8px;
+    right: 1rem;
+}
