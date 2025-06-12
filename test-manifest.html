@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifest System Test</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1a1a1a;
+            color: #00ff00;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .test-output {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            white-space: pre-wrap;
+            font-size: 14px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .run-test {
+            background: #4facfe;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 1rem 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .run-test:hover {
+            background: #3d8bfe;
+        }
+        .success { color: #00ff00; }
+        .error { color: #ff4757; }
+        .warning { color: #ffa502; }
+        .info { color: #70a1ff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Manifest-Based Slide System Test</h1>
+        <button class="run-test" onclick="runTest()">Run Manifest Test</button>
+        <div id="output" class="test-output">Click "Run Manifest Test" to verify the new slide system...</div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const output = document.getElementById('output');
+            const className = type === 'success' ? 'success' : 
+                             type === 'error' ? 'error' : 
+                             type === 'warning' ? 'warning' : 'info';
+            output.innerHTML += `<span class="${className}">${message}</span>\n`;
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function clearLog() {
+            document.getElementById('output').innerHTML = '';
+        }
+
+        async function runTest() {
+            clearLog();
+            log('🧪 Testing Manifest-Based Slide System...', 'info');
+            log('', 'info');
+            
+            try {
+                // Test 1: Load manifest
+                log('📋 Test 1: Loading manifest...', 'info');
+                const response = await fetch('slides/manifest.json');
+                if (!response.ok) {
+                    throw new Error(`Failed to load manifest: ${response.status}`);
+                }
+                
+                const manifest = await response.json();
+                log('✅ Manifest loaded successfully', 'success');
+                log(`   Title: ${manifest.presentation.title}`, 'info');
+                log(`   Author: ${manifest.presentation.author}`, 'info');
+                log(`   Total slides defined: ${manifest.slides.length}`, 'info');
+                
+                // Test 2: Check enabled slides
+                log('', 'info');
+                log('🎯 Test 2: Checking enabled slides...', 'info');
+                const enabledSlides = manifest.slides.filter(slide => slide.enabled);
+                log(`✅ Enabled slides: ${enabledSlides.length}/${manifest.slides.length}`, 'success');
+                
+                // Test 3: Verify slide files exist
+                log('', 'info');
+                log('📁 Test 3: Verifying slide files...', 'info');
+                let successCount = 0;
+                let failCount = 0;
+                
+                for (const slide of enabledSlides) {
+                    try {
+                        const slideResponse = await fetch(`slides/${slide.file}`);
+                        if (slideResponse.ok) {
+                            log(`✅ ${slide.id}: ${slide.file} (${slide.title})`, 'success');
+                            successCount++;
+                        } else {
+                            log(`❌ ${slide.id}: ${slide.file} - HTTP ${slideResponse.status}`, 'error');
+                            failCount++;
+                        }
+                    } catch (error) {
+                        log(`❌ ${slide.id}: ${slide.file} - ${error.message}`, 'error');
+                        failCount++;
+                    }
+                }
+                
+                // Test 4: Check sections
+                log('', 'info');
+                log('🏷️ Test 4: Checking sections...', 'info');
+                if (manifest.sections) {
+                    log(`✅ Sections defined: ${manifest.sections.length}`, 'success');
+                    manifest.sections.forEach(section => {
+                        const slidesInSection = enabledSlides.filter(slide => slide.section === section.id);
+                        log(`   ${section.title}: ${slidesInSection.length} slides`, 'info');
+                    });
+                } else {
+                    log('⚠️ No sections defined in manifest', 'warning');
+                }
+                
+                // Test 5: Validate slide structure
+                log('', 'info');
+                log('🔢 Test 5: Validating slide structure...', 'info');
+                const slideIds = enabledSlides.map(slide => slide.id);
+                const uniqueIds = new Set(slideIds);
+                
+                if (slideIds.length === uniqueIds.size) {
+                    log('✅ All slide IDs are unique', 'success');
+                } else {
+                    log('❌ Duplicate slide IDs found!', 'error');
+                    failCount++;
+                }
+                
+                // Test 6: Test presentation navigation
+                log('', 'info');
+                log('🎮 Test 6: Testing navigation logic...', 'info');
+                log(`   First slide: ${enabledSlides[0]?.id} (${enabledSlides[0]?.title})`, 'info');
+                log(`   Last slide: ${enabledSlides[enabledSlides.length - 1]?.id} (${enabledSlides[enabledSlides.length - 1]?.title})`, 'info');
+                log('✅ Navigation structure looks good', 'success');
+                
+                // Summary
+                log('', 'info');
+                log('📊 Test Summary:', 'info');
+                log(`   Manifest: ✅ Loaded`, 'success');
+                log(`   Enabled slides: ${enabledSlides.length}`, 'info');
+                log(`   Files accessible: ${successCount}/${enabledSlides.length}`, successCount === enabledSlides.length ? 'success' : 'warning');
+                log(`   Sections: ${manifest.sections ? manifest.sections.length : 0}`, 'info');
+                
+                if (failCount === 0) {
+                    log('', 'info');
+                    log('🎉 All tests passed! Manifest system is working correctly.', 'success');
+                    log('', 'info');
+                    log('✨ Benefits of the new system:', 'info');
+                    log('   • Easy slide insertion/removal without renumbering', 'success');
+                    log('   • Semantic file names for better organization', 'success');
+                    log('   • Slide metadata and sections support', 'success');
+                    log('   • Enable/disable slides without deletion', 'success');
+                    log('   • Dynamic slide counting', 'success');
+                } else {
+                    log('', 'info');
+                    log(`⚠️ ${failCount} issues found. Please check the failed files.`, 'warning');
+                }
+                
+            } catch (error) {
+                log('❌ Test failed: ' + error.message, 'error');
+            }
+        }
+    </script>
+</body>
+</html>

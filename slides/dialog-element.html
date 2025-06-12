@@ -1,0 +1,48 @@
+<h2>&lt;dialog&gt;</h2>
+<h3>"Native modals with a11y built-in"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">HTML</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre
+            class="code-content"><code><span class="html-tag">&lt;</span><span class="html-tag-name">dialog</span> <span class="html-attribute">id</span>=<span class="html-attribute-value">"myDialog"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">h2</span><span class="html-tag">&gt;</span><span class="html-text">Native Dialog</span><span class="html-tag">&lt;/</span><span class="html-tag-name">h2</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">p</span><span class="html-tag">&gt;</span><span class="html-text">Built-in accessibility!</span><span class="html-tag">&lt;/</span><span class="html-tag-name">p</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">button</span> <span class="html-attribute">onclick</span>=<span class="html-attribute-value">"closeDialog()"</span><span class="html-tag">&gt;</span><span class="html-text">Close</span><span class="html-tag">&lt;/</span><span class="html-tag-name">button</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;/</span><span class="html-tag-name">dialog</span><span class="html-tag">&gt;</span>
+
+<span class="html-tag">&lt;</span><span class="html-tag-name">button</span> <span class="html-attribute">onclick</span>=<span class="html-attribute-value">"showDialog()"</span><span class="html-tag">&gt;</span><span class="html-text">Open Dialog</span><span class="html-tag">&lt;/</span><span class="html-tag-name">button</span><span class="html-tag">&gt;</span></code></pre>
+        <div class="code-header css-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="function">function showDialog</span>() {
+    <span class="object">document</span>.<span class="method">getElementById</span>(<span class="value">'myDialog'</span>)
+        .<span class="method">showModal</span>();
+}</code></pre>
+    </div>
+    <div class="result-panel">
+        <div class="dialog-demo">
+            <h4 class="demo-title">⏹️ Dialog Element Demo</h4>
+            <button class="demo-button" onclick="document.getElementById('demoDialog').showModal()">
+                Open Native Dialog
+            </button>
+            <dialog id="demoDialog">
+                <h3>🎉 Native Dialog!</h3>
+                <div class="demo-explanation">
+                    <p>✅ Automatic focus management<br>
+                        ✅ Keyboard navigation<br>
+                        ✅ Screen reader support<br>
+                        ✅ Backdrop click to close</p>
+                </div>
+                <button class="demo-button" onclick="document.getElementById('demoDialog').close()">Close</button>
+            </dialog>
+
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                200 lines of modal code → 5 lines
+            </p>
+        </div>
+    </div>
+</div>
