@@ -1,0 +1,32 @@
+<!-- Slide 3: Hook -->
+<div class="big-number">2024</div>
+<h2>Your browser gained <span class="highlight">superpowers</span></h2>
+<p class="subtitle">And most developers don't even know they exist</p>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="comment">// View Transitions API</span>
+<span class="object">document</span>.<span class="method">startViewTransition</span>(<span class="function">() =></span> {
+    <span class="comment">// Update the DOM</span>
+    <span class="function">updateContent</span>();
+});</code></pre>
+        <div class="code-header css-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="selector">::view-transition-old(root)</span>,
+<span class="selector">::view-transition-new(root)</span> {
+    <span class="property">animation-duration</span>: <span class="value">0.5s</span>;
+}</code></pre>
+    </div>
+    <div class="result-panel">
+        <div class="hero-transition-card gradient-blue-cyan" onclick="transitionHeroCard(this)">
+            <div class="hero-emoji">🌊</div>
+            <div class="hero-title">Ocean Waves</div>
+            <div class="hero-subtitle">Click to transform</div>
+        </div>
+    </div>
+</div>

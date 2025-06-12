@@ -1,0 +1,54 @@
+<!-- Slide 12: File System Access -->
+<h2>File System Access API</h2>
+<h3>"Read/write files like a desktop app"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="comment">// File System Access API</span>
+<span class="function">async function openFile</span>() {
+    <span class="function">const</span> [fileHandle] = <span class="function">await</span>
+        <span class="object">window</span>.<span class="method">showOpenFilePicker</span>({
+            <span class="property">types</span>: [{
+                <span class="property">description</span>: <span class="value">'Text files'</span>,
+                <span class="property">accept</span>: {<span class="value">'text/plain'</span>: [<span class="value">'.txt'</span>]}
+            }]
+        });
+
+    <span class="function">const</span> file = <span class="function">await</span> fileHandle.<span class="method">getFile</span>();
+    <span class="function">const</span> contents = <span class="function">await</span> file.<span class="method">text</span>();
+    <span class="object">console</span>.<span class="method">log</span>(contents);
+}
+
+<span class="function">async function saveFile</span>(content) {
+    <span class="function">const</span> fileHandle = <span class="function">await</span>
+        <span class="object">window</span>.<span class="method">showSaveFilePicker</span>();
+
+    <span class="function">const</span> writable = <span class="function">await</span>
+        fileHandle.<span class="method">createWritable</span>();
+
+    <span class="function">await</span> writable.<span class="method">write</span>(content);
+    <span class="function">await</span> writable.<span class="method">close</span>();
+}</code></pre>
+    </div>
+    <div class="result-panel">
+        <h4 class="demo-title">🗃️ File System Access Demo</h4>
+
+        <div class="file-api-demo">
+            <div class="file-input" onclick="demoFileAPI()">
+                📁 Click to demo File System Access
+            </div>
+            <p style="font-size: 0.9rem; text-align: center; margin-top: 1rem;">
+                Web apps can now read and write files directly to your computer!
+            </p>
+            <!-- <div
+                style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 10px; margin-top: 1rem; font-family: monospace; font-size: 0.8rem;">
+                // This would open a native file picker<br>
+                // and let you save files to your desktop<br>
+                // Just like a desktop application!
+            </div> -->
+        </div>
+    </div>
+</div>

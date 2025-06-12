@@ -1,0 +1,62 @@
+<!-- CSS if() Function Slide -->
+<h2>CSS if() Function</h2>
+<h3>"Conditional styling with native CSS logic!"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="comment">/* Future CSS if() Function */</span>
+<span class="selector">.conditional-card</span> {
+    <span class="property">background</span>: <span class="value">if(
+        style(data-theme="dark"):
+            linear-gradient(135deg, #1f2937, #374151);
+        style(data-theme="light"):
+            linear-gradient(135deg, #f8fafc, #e2e8f0);
+        else:
+            linear-gradient(135deg, #8b5cf6, #06b6d4);
+    )</span>;
+
+    <span class="property">color</span>: <span class="value">if(
+        style(data-theme="dark"): #f1f5f9;
+        style(data-theme="light"): #1e293b;
+        else: white;
+    )</span>;
+
+    <span class="property">border-color</span>: <span class="value">if(
+        style(data-theme="dark"): #8b5cf6;
+        style(data-theme="light"): #06b6d4;
+        else: #fbbf24;
+    )</span>;
+}</code></pre>
+
+
+    </div>
+    <div class="result-panel">
+        <div style="text-align: center;">
+            <h4 class="demo-title">🎯 Conditional Styling Demo</h4>
+
+            <button class="if-function-toggle" onclick="toggleIfTheme()">
+                🎨 Toggle Theme
+            </button>
+
+            <div class="if-function-card" id="ifDemoCard">
+                <div class="if-card-header">
+                    <span class="if-future-badge">FUTURE CSS</span>
+                    <h4>🎨 Conditional Card</h4>
+                </div>
+                <p>This card demonstrates the CSS if() function!</p>
+                <p><strong>Current theme:</strong> <span id="ifCurrentTheme">default</span></p>
+            </div>
+
+            <div class="demo-explanation">
+                <strong>🚀 CSS if() Benefits:</strong><br>
+                ✅ No more complex CSS custom properties<br>
+                ✅ Cleaner conditional logic<br>
+                ✅ Better performance than JS solutions<br>
+                ✅ Native browser support (future)
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,117 @@
+<!-- Datalist Element -->
+<h2>📝 Datalist</h2>
+<p class="slide-subtitle">Native autocomplete without libraries</p>
+
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">HTML</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre
+            class="code-content"><code><span class="comment">&lt;!-- Basic Datalist --&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">input</span> <span class="html-attribute">list</span>=<span class="html-attribute-value">"browsers"</span> <span class="html-attribute">placeholder</span>=<span class="html-attribute-value">"Choose a browser..."</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">datalist</span> <span class="html-attribute">id</span>=<span class="html-attribute-value">"browsers"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">option</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"Chrome"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">option</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"Firefox"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">option</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"Safari"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">option</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"Edge"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;/</span><span class="html-tag-name">datalist</span><span class="html-tag">&gt;</span>
+
+<span class="comment">&lt;!-- With descriptions --&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">datalist</span> <span class="html-attribute">id</span>=<span class="html-attribute-value">"frameworks"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">option</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"React"</span> <span class="html-attribute">label</span>=<span class="html-attribute-value">"Meta's UI library"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">option</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"Vue"</span> <span class="html-attribute">label</span>=<span class="html-attribute-value">"Progressive framework"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;/</span><span class="html-tag-name">datalist</span><span class="html-tag">&gt;</span></code></pre>
+    </div>
+    <div class="result-panel">
+        <div class="datalist-demo">
+            <h4 class="demo-title">📃 Datalist Element Demo</h4>
+
+            <div class="demo-section">
+                <label class="demo-label">🌐 Choose your browser:</label>
+                <input list="browsers" placeholder="Type to search..." class="demo-input">
+                <datalist id="browsers">
+                    <option value="Chrome">
+                    <option value="Firefox">
+                    <option value="Safari">
+                    <option value="Edge">
+                    <option value="Opera">
+                    <option value="Brave">
+                </datalist>
+            </div>
+
+            <div class="demo-section">
+                <label class="demo-label">⚛️ Pick a framework:</label>
+                <input list="frameworks" placeholder="Type to search..." class="demo-input">
+                <datalist id="frameworks">
+                    <option value="Aurelia" label="Awesome framework">
+                    <option value="React" label="Meta's UI library">
+                    <option value="Vue" label="Progressive framework">
+                    <option value="Angular" label="Google's platform">
+                    <option value="Svelte" label="Compile-time framework">
+                    <option value="Solid" label="Fine-grained reactivity">
+                    <option value="Qwik" label="Resumable framework">
+                </datalist>
+            </div>
+
+            <div class="demo-info">
+                <p>💡 <strong>Pro tip:</strong> Datalist provides suggestions but allows free text input. Users can type
+                    anything or select from the dropdown!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .datalist-demo {
+        padding: 0rem 1rem;
+    }
+
+    .demo-section {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
+
+    .demo-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .demo-input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+    }
+
+    .demo-input:focus {
+        outline: none;
+        border-color: #4ECDC4;
+        box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+        transform: translateY(-1px);
+    }
+
+    .demo-info {
+        margin-top: 2rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        border-left: 4px solid #4ECDC4;
+    }
+
+    .demo-info p {
+        margin: 0;
+        font-size: 0.95rem;
+    }
+</style>

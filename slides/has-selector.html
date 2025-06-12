@@ -1,0 +1,38 @@
+<!-- Slide 6: :has() Selector -->
+<h2>CSS :has() - The Parent Selector</h2>
+<h3>"CSS can finally look up the tree"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="selector">form:has(input:invalid)</span> {
+    <span class="property">background</span>: <span class="value">rgba(255, 71, 87, 0.1)</span>;
+    <span class="property">border</span>: <span class="value">2px solid #ff4757</span>;
+    <span class="property">padding</span>: <span class="value">1rem</span>;
+    <span class="property">border-radius</span>: <span class="value">10px</span>;
+}
+
+<span class="selector">input:invalid</span> {
+    <span class="property">border-color</span>: <span class="value">#ff4757</span>;
+}</code></pre>
+        <div class="code-header css-header">
+            <span class="code-language">HTML</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre
+            class="code-content"><code><span class="html-tag">&lt;</span><span class="html-tag-name">form</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">input</span> <span class="html-attribute">type</span>=<span class="html-attribute-value">"tel"</span> <span class="html-attribute">pattern</span>=<span class="html-attribute-value">"[0-9]+"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;/</span><span class="html-tag-name">form</span><span class="html-tag">&gt;</span></code></pre>
+    </div>
+    <div class="result-panel">
+        <h4 class="demo-title">📤 has() Selector Demo</h4>
+        <form class="has-demo-form">
+            <input type="tel" pattern="[0-9]+" placeholder="Enter ☎️ number">
+        </form>
+        <p style="font-size: 0.9rem; margin-top: 1rem;">
+            Try entering invalid data to see the form highlight
+        </p>
+    </div>
+</div>

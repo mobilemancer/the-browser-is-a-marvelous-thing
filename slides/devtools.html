@@ -1,0 +1,58 @@
+<!-- Slide 15: DevTools -->
+<h2>DevTools Superpowers</h2>
+<h3>"Your browser is your best debugging friend"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre
+            class="code-content"><code><span class="comment">// Console tricks</span>
+<span class="object">console</span>.<span class="method">table</span>(data);
+<span class="object">console</span>.<span class="method">time</span>(<span class="value">'operation'</span>);
+<span class="object">console</span>.<span class="method">timeEnd</span>(<span class="value">'operation'</span>);
+
+<span class="comment">// Performance monitoring</span>
+<span class="object">performance</span>.<span class="method">mark</span>(<span class="value">'start'</span>);
+<span class="comment">// ... do work ...</span>
+<span class="object">performance</span>.<span class="method">mark</span>(<span class="value">'end'</span>);
+<span class="object">performance</span>.<span class="method">measure</span>(<span class="value">'work'</span>, <span class="value">'start'</span>, <span class="value">'end'</span>);
+
+<span class="comment">// Memory usage</span>
+<span class="object">console</span>.<span class="method">log</span>(<span class="object">performance</span>.<span class="property">memory</span>);</code></pre>
+        <div class="code-header css-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="selector">.grid</span> {
+    <span class="property">display</span>: <span class="value">grid</span>;
+    <span class="comment">/* Firefox/Chrome show grid lines */</span>
+}
+
+<span class="selector">@container (min-width: 300px)</span> {
+    <span class="comment">/* Inspect shows container boundaries */</span>
+}</code></pre>
+    </div>
+    <div class="result-panel">
+        <div style="text-align: center;">
+            <h4 class="demo-title">🔧 DevTools Features</h4>
+            <div class="demo-explanation">
+                <div>✅ CSS Grid Inspector</div>
+                <div>✅ Container Query Debug</div>
+                <div>✅ Performance Profiling</div>
+                <div>✅ Memory Leak Detection</div>
+                <div>✅ Lighthouse Integration</div>
+                <div>✅ Remote Debugging</div>
+                <div>✅ Styled Logs</div>
+            </div>
+            <br>
+            <button class="demo-button" onclick="demoDevTools()">
+                Open DevTools & Try
+            </button>
+            <p style="font-size: 0.9rem; margin-top: 1rem;">
+                Press F12 and check the Console!
+            </p>
+        </div>
+    </div>
+</div>

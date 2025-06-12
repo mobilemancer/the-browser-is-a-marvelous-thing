@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Browser is a Marvelous Thing</title>
+    <link href="styling.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="presentation-container">
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">20</span>
+        </div>
+
+        <div class="slide active" id="slideContainer">
+            <!-- Slide content will be loaded here -->
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="previousSlide()">← Previous</button>
+            <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+        </div>
+    </div>
+
+    <script src="demo-functions.js"></script>
+    <script src="presentation-manager.js"></script>
+</body>
+
+</html>

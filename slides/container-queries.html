@@ -1,0 +1,39 @@
+<!-- Slide 5: Container Queries -->
+<h2>Container Queries</h2>
+<h3>"Responsive components, not just pages"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="selector">.container</span> {
+    <span class="property">container-type</span>: <span class="value">inline-size</span>;
+}
+
+<span class="selector">.card</span> {
+    <span class="property">display</span>: <span class="value">flex</span>;
+    <span class="property">flex-direction</span>: <span class="value">column</span>;
+    <span class="property">gap</span>: <span class="value">1rem</span>;
+    <span class="property">padding</span>: <span class="value">1rem</span>;
+    <span class="property">background</span>: <span class="value">gold</span>;
+}
+
+<span class="selector">@container (min-width: 300px)</span> {
+    <span class="selector">.card</span> {
+        <span class="property">flex-direction</span>: <span class="value">row</span>;
+        <span class="property">background</span>: <span class="value">purple</span>;
+    }
+}</code></pre>
+    </div>
+    <div class="result-panel">
+        <h4 class="demo-title">🫙Container Queries Demo</h4>
+        <div class="container-query-demo gradient-blue-cyan">
+            <div class="responsive-card">
+                <div class="card-content">Card Content</div>
+                <div class="card-content">More Content</div>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Drag the corner to resize →</p>
+    </div>
+</div>

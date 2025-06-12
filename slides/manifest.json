@@ -1,0 +1,240 @@
+{
+  "presentation": {
+    "title": "The Browser is a Marvelous Thing!",
+    "author": "Andreas Wänqvist",
+    "version": "1.0.0",
+    "description": "Discover the hidden features that will transform your web projects"
+  },
+  "slides": [
+    {
+      "id": "devsum-intro",
+      "title": "DevSum Conference Introduction",
+      "file": "devsum-intro.html",
+      "enabled": true,
+      "section": "introduction",
+      "description": "Conference organizer intro slide"
+    },
+    {
+      "id": "title",
+      "title": "The Browser is a Marvelous Thing",
+      "file": "title.html",
+      "enabled": true,
+      "section": "introduction",
+      "description": "Title slide with presentation overview and statistics"
+    },
+    {
+      "id": "presenter",
+      "title": "About the Presenter",
+      "file": "presenter.html",
+      "enabled": true,
+      "section": "introduction",
+      "description": "Andreas Wänqvist introduction with credentials and background"
+    },
+    {
+      "id": "hook",
+      "title": "2024: Browser Superpowers",
+      "file": "hook.html",
+      "enabled": true,
+      "section": "introduction",
+      "description": "Hook slide about browser capabilities in 2024"
+    },
+    {
+      "id": "act1-intro",
+      "title": "Act I: CSS Renaissance",
+      "file": "act1-intro.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Introduction to modern CSS features"
+    },
+    {
+      "id": "css-2024-2025",
+      "title": "CSS in 2024-2025: Awesome Additions",
+      "file": "css-2024-2025.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Upcoming CSS features and improvements for 2024-2025"
+    },
+    {
+      "id": "container-queries",
+      "title": "Container Queries",
+      "file": "container-queries.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Responsive components with container queries"
+    },
+    {
+      "id": "has-selector",
+      "title": "CSS :has() - The Parent Selector",
+      "file": "has-selector.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Parent selector and form validation with :has()"
+    },
+    {
+      "id": "cascade-layers",
+      "title": "CSS Cascade Layers",
+      "file": "css-cascade-layers.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Finally, control over specificity!"
+    },
+    {
+      "id": "css-nesting",
+      "title": "CSS Nesting",
+      "file": "css-nesting.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Sass is now built into browsers"
+    },
+    {
+      "id": "css-subgrid",
+      "title": "CSS Subgrid",
+      "file": "css-subgrid.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Grids all the way down"
+    },
+    {
+      "id": "css-if-function",
+      "title": "CSS if() Function",
+      "file": "css-if-function.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Conditional styling with native CSS logic"
+    },
+    {
+      "id": "act2-intro",
+      "title": "Act II: HTML Elements You've Been Reinventing",
+      "file": "act2-intro.html",
+      "enabled": true,
+      "section": "html-elements",
+      "description": "Introduction to underutilized HTML elements"
+    },
+    {
+      "id": "dialog-element",
+      "title": "Native Dialog Element",
+      "file": "dialog-element.html",
+      "enabled": true,
+      "section": "html-elements",
+      "description": "Native modals with built-in accessibility"
+    },
+    {
+      "id": "details-summary",
+      "title": "Details & Summary",
+      "file": "details-summary.html",
+      "enabled": true,
+      "section": "html-elements",
+      "description": "Native accordions without JavaScript"
+    },
+    {
+      "id": "datalist",
+      "title": "Datalist",
+      "file": "datalist.html",
+      "enabled": true,
+      "section": "html-elements",
+      "description": "Native autocomplete without libraries"
+    },
+    {
+      "id": "progress",
+      "title": "Progress",
+      "file": "progress.html",
+      "enabled": true,
+      "section": "html-elements",
+      "description": "Native progress bars with semantic meaning"
+    },
+    {
+      "id": "act3-intro",
+      "title": "Act III: Web APIs That Feel Like Cheating",
+      "file": "act3-intro.html",
+      "enabled": true,
+      "section": "web-apis",
+      "description": "Introduction to powerful Web APIs"
+    },
+    {
+      "id": "file-system-api",
+      "title": "File System Access API",
+      "file": "file-system-api.html",
+      "enabled": true,
+      "section": "web-apis",
+      "description": "Read and write files like a desktop app"
+    },
+    {
+      "id": "view-transitions",
+      "title": "View Transitions API",
+      "file": "view-transitions.html",
+      "enabled": true,
+      "section": "web-apis",
+      "description": "Movie-quality page transitions"
+    },
+    {
+      "id": "more-web-apis",
+      "title": "Even More Browser Magic",
+      "file": "more-web-apis.html",
+      "enabled": true,
+      "section": "web-apis",
+      "description": "Intersection Observer, Web Locks, and Broadcast Channel"
+    },
+    {
+      "id": "devtools",
+      "title": "DevTools Superpowers",
+      "file": "devtools.html",
+      "enabled": true,
+      "section": "development",
+      "description": "Advanced debugging and development tools"
+    },
+    {
+      "id": "finale",
+      "title": "The Future is Now",
+      "file": "finale.html",
+      "enabled": true,
+      "section": "conclusion",
+      "description": "Call to action and closing thoughts"
+    },
+    {
+      "id": "thank-you",
+      "title": "Thank You!",
+      "file": "thank-you.html",
+      "enabled": true,
+      "section": "conclusion",
+      "description": "Thanks and let's connect!"
+    }
+  ],
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "color": "#4facfe",
+      "description": "Welcome and presentation overview"
+    },
+    {
+      "id": "css-features",
+      "title": "CSS Renaissance",
+      "color": "#ffd700",
+      "description": "Modern CSS capabilities"
+    },
+    {
+      "id": "html-elements",
+      "title": "HTML Elements",
+      "color": "#ff6b6b",
+      "description": "Underutilized HTML elements"
+    },
+    {
+      "id": "web-apis",
+      "title": "Web APIs",
+      "color": "#4ecdc4",
+      "description": "Powerful browser APIs"
+    },
+    {
+      "id": "development",
+      "title": "Development Tools",
+      "color": "#45b7d1",
+      "description": "Developer experience improvements"
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "color": "#96ceb4",
+      "description": "Wrap-up and next steps"
+    }
+  ]
+}

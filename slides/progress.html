@@ -1,0 +1,48 @@
+<!-- Progress Element -->
+<h2>📊 Progress</h2>
+<p class="slide-subtitle">Native progress bars with semantic meaning</p>
+
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">HTML</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre
+            class="code-content"><code><span class="comment">&lt;!-- Determinate Progress --&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">label</span><span class="html-tag">&gt;</span><span class="html-text">Installation:</span><span class="html-tag">&lt;/</span><span class="html-tag-name">label</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">progress</span> <span class="html-attribute">id</span>=<span class="html-attribute-value">"install"</span> <span class="html-attribute">value</span>=<span class="html-attribute-value">"0"</span> <span class="html-attribute">max</span>=<span class="html-attribute-value">"100"</span><span class="html-tag">&gt;</span><span class="html-text">0%</span><span class="html-tag">&lt;/</span><span class="html-tag-name">progress</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">span</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"progress-text"</span><span class="html-tag">&gt;</span><span class="html-text">0%</span><span class="html-tag">&lt;/</span><span class="html-tag-name">span</span><span class="html-tag">&gt;</span>
+
+<span class="comment">&lt;!-- Indeterminate Progress --&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">label</span><span class="html-tag">&gt;</span><span class="html-text">Processing...</span><span class="html-tag">&lt;/</span><span class="html-tag-name">label</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">progress</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"indeterminate"</span><span class="html-tag">&gt;</span><span class="html-tag">&lt;/</span><span class="html-tag-name">progress</span><span class="html-tag">&gt;</span></code></pre>
+    </div>
+    <div class="result-panel">
+        <div class="progress-demo">
+            <div class="demo-section">
+                <h3>📈 Determinate Progress</h3>
+                <div class="progress-item">
+                    <label>Installation:</label>
+                    <progress id="install" value="0" max="100">0%</progress>
+                    <span class="progress-text">0%</span>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3>🔄 Indeterminate</h3>
+                <div class="progress-item">
+                    <label>Processing...</label>
+                    <progress class="indeterminate">Loading</progress>
+                </div>
+            </div>
+
+
+
+            <div class="demo-info">
+                <p>💡 <strong>Accessibility:</strong> Progress elements are automatically announced by screen readers
+                    and provide semantic meaning for assistive technologies!</p>
+            </div>
+        </div>
+    </div>
+</div>

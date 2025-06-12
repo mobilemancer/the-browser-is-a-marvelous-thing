@@ -1,0 +1,92 @@
+<!-- Slide 14: More Web APIs -->
+<h2>Even More Browser Magic</h2>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="comment">// Intersection Observer</span>
+<span class="function">const</span> observer = <span class="function">new</span> <span class="object">IntersectionObserver</span>(
+    (entries) => {
+        entries.<span class="method">forEach</span>(entry => {
+            <span class="function">if</span> (entry.<span class="property">isIntersecting</span>) {
+                entry.<span class="property">target</span>.<span class="property">classList</span>.<span class="method">add</span>(<span class="value">'visible'</span>);
+            }
+        });
+    }
+);
+
+observer.<span class="method">observe</span>(element);
+
+<span class="comment">// Web Locks API</span>
+<span class="function">await</span> <span class="object">navigator</span>.<span class="property">locks</span>.<span class="method">request</span>(<span class="value">'my-lock'</span>,
+    <span class="function">async</span> () => {
+        <span class="comment">// Critical section</span>
+        <span class="function">await</span> <span class="function">doImportantWork</span>();
+    }
+);
+
+<span class="comment">// Broadcast Channel</span>
+<span class="function">const</span> channel = <span class="function">new</span> <span class="object">BroadcastChannel</span>(<span class="value">'tab-sync'</span>);
+channel.<span class="method">postMessage</span>({<span class="property">type</span>: <span class="value">'update'</span>});
+channel.<span class="property">onmessage</span> = (event) => {
+    <span class="object">console</span>.<span class="method">log</span>(<span class="value">'Message from another tab:'</span>, event.<span class="property">data</span>);
+};</code></pre>
+    </div>
+    <div class="result-panel">
+        <div>
+            <h4 class="demo-title">🕵️ Intersection Observer Demo</h4>
+            <div class="intersection-status">
+                <span class="status-indicator">👁️ Watching: <span id="watching-count">0</span> elements</span>
+                <span class="status-indicator">✨ Visible: <span id="visible-count">0</span> elements</span>
+            </div>
+            <div class="intersection-demo" id="intersection-container">
+                <div class="scroll-item" data-item="1">
+                    <div class="item-content">
+                        <span class="item-emoji">🚀</span>
+                        <span class="item-text">Launch Sequence</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+                <div class="scroll-item" data-item="2">
+                    <div class="item-content">
+                        <span class="item-emoji">⚡</span>
+                        <span class="item-text">Power Boost</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+                <div class="scroll-item" data-item="3">
+                    <div class="item-content">
+                        <span class="item-emoji">🌟</span>
+                        <span class="item-text">Star Power</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+                <div class="scroll-item" data-item="4">
+                    <div class="item-content">
+                        <span class="item-emoji">🎯</span>
+                        <span class="item-text">Target Lock</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+                <div class="scroll-item" data-item="5">
+                    <div class="item-content">
+                        <span class="item-emoji">🏆</span>
+                        <span class="item-text">Victory!</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+                <div class="scroll-item" data-item="6">
+                    <div class="item-content">
+                        <span class="item-emoji">🎉</span>
+                        <span class="item-text">Celebration</span>
+                        <span class="visibility-badge">Hidden</span>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <p> 📜 Scroll inside the container to trigger intersection events! </p>
+        </div>
+    </div>
+</div>
