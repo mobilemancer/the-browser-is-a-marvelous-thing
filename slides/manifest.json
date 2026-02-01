@@ -15,6 +15,14 @@
       "description": "Conference organizer intro slide"
     },
     {
+      "id": "jfokus-intro",
+      "title": "JFokus Conference Introduction",
+      "file": "jfokus-intro.html",
+      "enabled": true,
+      "section": "introduction",
+      "description": "JFokus 2026 Norse God themed intro slide"
+    },
+    {
       "id": "title",
       "title": "The Browser is a Marvelous Thing",
       "file": "title.html",
