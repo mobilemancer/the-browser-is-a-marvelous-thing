@@ -4,7 +4,7 @@
 [x] add a slanted "DEMO" banner on the right hand demo cards (.result-panel)
 [x] change emoji infront of the subgrid top "� Sidebar Top" on the subgrid slide
 [ ] write a short talkign narrative for the if() slide
-[ ] make backdrop click to close work in the dialog slide
+[x] make backdrop click to close work in the dialog slide
 [ ] add animation to the FAQ expansion and contraction for the Details & summary slide
 [ ] talking ponts for how the progress percentage get updated in the Progress slide
 [ ] make .code-panel and .result-panel have the same height in all the slides
