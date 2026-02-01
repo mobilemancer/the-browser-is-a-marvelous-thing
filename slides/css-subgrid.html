@@ -7,100 +7,100 @@
             <span class="code-language">CSS</span>
             <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
         </div>
-        <pre
-            class="code-content"><code><span class="comment">/* Parent: 3×2 grid */</span>
+        <pre class="code-content"><code><span class="comment">/* Parent: 3×3 grid */</span>
 <span class="selector">.main-grid</span> {
     <span class="property">display</span>: <span class="value">grid</span>;
-    <span class="property">grid-template-columns</span>: <span class="value">2fr 1fr 1fr</span>;
-    <span class="property">grid-template-rows</span>: <span class="value">1fr 1fr</span>;
+    <span class="property">grid-template-columns</span>: <span class="value">1fr 1fr 1fr</span>;
+    <span class="property">grid-template-rows</span>: <span class="value">1fr 1fr 1fr</span>;
     <span class="property">gap</span>: <span class="value">1rem</span>;
-    <span class="property">height</span>: <span class="value">300px</span>;
 }
 
-<span class="comment">/* Sidebar spans both rows & becomes subgrid */</span>
-<span class="selector">.sidebar</span> {
-    <span class="property">grid-column</span>: <span class="value">1</span>;
-    <span class="property">grid-row</span>: <span class="value">1 / 3</span>; <span class="comment">/* span both rows */</span>
+<span class="comment">/* Feature spans 2×2 & becomes subgrid */</span>
+<span class="selector">.feature</span> {
+    <span class="property">grid-column</span>: <span class="value">2 / 4</span>; <span class="comment">/* span cols 2-3 */</span>
+    <span class="property">grid-row</span>: <span class="value">2 / 4</span>;    <span class="comment">/* span rows 2-3 */</span>
     <span class="property">display</span>: <span class="value">grid</span>;
-    <span class="property">grid-template-rows</span>: <span class="value">subgrid</span>; <span class="comment">/* inherit parent rows! */</span>
-}
-
-<span class="comment">/* Other grid items */</span>
-<span class="selector">.item-a</span> { <span class="property">grid-column</span>: <span class="value">2</span>; <span class="property">grid-row</span>: <span class="value">1</span>; }
-<span class="selector">.item-b</span> { <span class="property">grid-column</span>: <span class="value">3</span>; <span class="property">grid-row</span>: <span class="value">1</span>; }
-<span class="selector">.item-c</span> { <span class="property">grid-column</span>: <span class="value">2</span>; <span class="property">grid-row</span>: <span class="value">2</span>; }
-<span class="selector">.item-d</span> { <span class="property">grid-column</span>: <span class="value">3</span>; <span class="property">grid-row</span>: <span class="value">2</span>; }</code></pre>
+    <span class="property">grid-template-columns</span>: <span class="value">subgrid</span>;
+    <span class="property">grid-template-rows</span>: <span class="value">subgrid</span>;
+}</code></pre>
         <div class="code-header css-header">
             <span class="code-language">HTML</span>
             <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
         </div>
         <pre
             class="code-content"><code><span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"main-grid"</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"sidebar"</span><span class="html-tag">&gt;</span>
-        <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">Top Section</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
-        <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">Bottom Section</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">Header</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">Nav 1</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">Nav 2</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">Sidebar</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"feature"</span><span class="html-tag">&gt;</span>
+        <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">A</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+        <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">B</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+        <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">C</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+        <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">D</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
     <span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"item-a"</span><span class="html-tag">&gt;</span><span class="html-text">Item A</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"item-b"</span><span class="html-tag">&gt;</span><span class="html-text">Item B</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"item-c"</span><span class="html-tag">&gt;</span><span class="html-text">Item C</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">class</span>=<span class="html-attribute-value">"item-d"</span><span class="html-tag">&gt;</span><span class="html-text">Item D</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span><span class="html-text">Footer</span><span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
 <span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span></code></pre>
     </div>
     <div class="result-panel">
         <div style="text-align: center;">
-            <h4 class="demo-title">🎯 3×2 Grid with Subgrid Sidebar</h4>
+            <h4 class="demo-title">🎯 3×3 Grid with 2×2 Subgrid</h4>
 
             <!-- Visual representation of the grid -->
             <div
-                style="display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 0.8rem; height: 200px; margin: 1rem 0; border: 2px dashed rgba(255,255,255,0.3); padding: 1rem; border-radius: 8px;">
+                style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 0.5rem; height: 220px; margin: 1rem 0; border: 2px dashed rgba(255,255,255,0.3); padding: 0.75rem; border-radius: 8px;">
 
-                <!-- Sidebar (spans both rows, uses subgrid) -->
+                <!-- Row 1 -->
                 <div
-                    style="grid-column: 1; grid-row: 1 / 3; display: grid; grid-template-rows: subgrid; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; padding: 1rem; color: white; position: relative;">
+                    style="background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
+                    Header
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
+                    Nav 1
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
+                    Nav 2
+                </div>
+
+                <!-- Row 2: Sidebar + Feature subgrid starts -->
+                <div
+                    style="grid-row: 2 / 4; background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
+                    Sidebar
+                </div>
+
+                <!-- Feature area (2x2 subgrid) -->
+                <div
+                    style="grid-column: 2 / 4; grid-row: 2 / 4; display: grid; grid-template-columns: subgrid; grid-template-rows: subgrid; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; padding: 0.5rem; gap: 0.5rem; position: relative;">
                     <div
-                        style="display: flex; align-items: center; justify-content: center; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.3);">
-                        � Sidebar Top
+                        style="background: rgba(255,255,255,0.2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">
+                        A
                     </div>
-                    <div style="display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                        📊 Sidebar Bottom
+                    <div
+                        style="background: rgba(255,255,255,0.2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">
+                        B
+                    </div>
+                    <div
+                        style="background: rgba(255,255,255,0.2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">
+                        C
+                    </div>
+                    <div
+                        style="background: rgba(255,255,255,0.2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">
+                        D
                     </div>
                     <div
                         style="position: absolute; top: -8px; left: 50%; transform: translateX(-50%); background: #ff6b6b; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold;">
                         SUBGRID
                     </div>
                 </div>
-
-                <!-- Item A -->
-                <div
-                    style="grid-column: 2; grid-row: 1; background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
-                    Item A
-                </div>
-
-                <!-- Item B -->
-                <div
-                    style="grid-column: 3; grid-row: 1; background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
-                    Item B
-                </div>
-
-                <!-- Item C -->
-                <div
-                    style="grid-column: 2; grid-row: 2; background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
-                    Item C
-                </div>
-
-                <!-- Item D -->
-                <div
-                    style="grid-column: 3; grid-row: 2; background: rgba(255,255,255,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #4facfe;">
-                    Item D
-                </div>
             </div>
 
             <div class="demo-explanation">
                 <strong>🎯 Subgrid Benefits:</strong><br>
-                ✅ Sidebar inherits parent grid rows<br>
-                ✅ Perfect alignment with other items<br>
-                ✅ No manual height calculations<br>
-                ✅ Responsive grid behavior
+                ✅ Inherits BOTH parent columns & rows<br>
+                ✅ A, B, C, D align perfectly with outer grid<br>
+                ✅ No manual sizing - tracks flow through!
             </div>
         </div>
     </div>
