@@ -2065,12 +2065,21 @@ dialog::backdrop {
 
 /* summary slide */
 .demo-details {
-    margin: 1rem 0;
+    margin: 0.75rem 0;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     width: 535px;
+    max-height: 5.75rem;
+    /* Collapsed: summary height with padding */
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.demo-details[open] {
+    max-height: 500px;
+    /* Expanded: enough for content */
 }
 
 .demo-details summary {
@@ -2080,6 +2089,22 @@ dialog::backdrop {
     border-radius: 8px;
     transition: background-color 0.2s ease;
     text-align: left;
+    list-style: none;
+}
+
+.demo-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.demo-details summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.demo-details[open] summary::before {
+    transform: rotate(90deg);
 }
 
 .demo-details summary:hover {
@@ -2102,23 +2127,6 @@ dialog::backdrop {
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
     font-family: 'Fira Code', monospace;
-}
-
-.demo-details p,
-.demo-details div {
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 3s ease-out, opacity 3s ease-out, margin 3s ease-out;
-    margin: 0;
-}
-
-.demo-details[open] p,
-.demo-details[open] div {
-    max-height: 500px;
-    /* Large enough to fit content */
-    opacity: 1;
-    margin-top: 1rem;
 }
 
 /* CSS if() Function Demo Styles */
