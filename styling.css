@@ -414,6 +414,8 @@ h3 {
     width: 90%;
     max-width: 1200px;
     margin: 2rem 0;
+    align-items: stretch;
+    max-height: 60dvh;
 }
 
 .code-panel {
@@ -423,7 +425,6 @@ h3 {
     text-align: left;
     border-left: 4px solid #ffd700;
     overflow-y: auto;
-    max-height: 500px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
