@@ -11,5 +11,5 @@
 [x] fix styling so .results-panel isn't as high for the user profile card in the View transitions API slide
 [ ] exact talking points to the View transitions API code example
 [ ] talking points on IntersectionObserver, Web locks API and broadcastchannel, also talking points to the demo for "Even more browser magic"
-[ ] add nicer looking fonts
+[x] add nicer looking fonts
 [ ] add a QR code for the jfokus survey
