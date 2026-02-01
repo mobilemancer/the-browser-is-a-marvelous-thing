@@ -263,10 +263,15 @@ window.demoFunctions = {
     // Toggle CSS layers demo - highlight utility layer
     toggleLayerHighlight: function () {
         const demoCard = document.getElementById('demoCard');
+        const layerButton = document.getElementById('layerButton');
 
         if (demoCard) {
             // Toggle the highlight class to show utility layer priority
             demoCard.classList.toggle('highlight-box');
+        }
+        if (layerButton) {
+            // Toggle button highlight to show layer priority beats specificity
+            layerButton.classList.toggle('highlight-btn');
         }
     },
 

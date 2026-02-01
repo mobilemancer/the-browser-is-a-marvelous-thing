@@ -1,6 +1,6 @@
 # Things to fix
 
-[ ] on the cascade layers slide, make the button change color when slapping on the utility layer
+[x] on the cascade layers slide, make the button change color when slapping on the utility layer
 [ ] add a slanted "DEMO" banner on the right hand demo cards (.result-panel)
 [ ] change emoji infront of the subgrid top "� Sidebar Top" on the subgrid slide
 [ ] write a short talkign narrative for the if() slide
