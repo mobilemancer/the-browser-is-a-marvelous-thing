@@ -1,0 +1,148 @@
+<h2>CSS Anchor Positioning</h2>
+<h3>Tooltips, Popovers & Menus Without JavaScript ⚓</h3>
+
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="comment">/* Define the anchor */</span>
+<span class="selector">.anchor-button</span> {
+    <span class="property">anchor-name</span>: <span class="value">--my-anchor</span>;
+}
+
+<span class="comment">/* Position element relative to anchor */</span>
+<span class="selector">.tooltip</span> {
+    <span class="property">position</span>: <span class="value">absolute</span>;
+    <span class="property">position-anchor</span>: <span class="value">--my-anchor</span>;
+
+    <span class="comment">/* Position at bottom center */</span>
+    <span class="property">top</span>: <span class="value">anchor(bottom)</span>;
+    <span class="property">left</span>: <span class="value">anchor(center)</span>;
+    <span class="property">translate</span>: <span class="value">-50% 0.5rem</span>;
+}
+
+<span class="comment">/* Auto-flip when hitting viewport edge */</span>
+<span class="selector">.tooltip</span> {
+    <span class="property">position-try-fallbacks</span>: 
+        <span class="value">flip-block</span>, 
+        <span class="value">flip-inline</span>;
+}</code></pre>
+    </div>
+    <div class="result-panel anchor-demo">
+        <div class="anchor-playground">
+            <button class="anchor-button" id="anchorBtn" popovertarget="anchor-tooltip">
+                Click me! ✨
+            </button>
+            <div class="anchor-tooltip" id="anchor-tooltip" popover>
+                <span class="tooltip-arrow"></span>
+                I'm anchored to the button!<br>
+                <small>No JS positioning needed</small>
+            </div>
+        </div>
+
+        <div class="demo-explanation">
+            <span>🎯 Anchor to any element</span><br>
+            <span>🔄 Auto-flip at edges</span><br>
+            <span>📍Multiple fallback positions</span><br>
+            <span>🚀 Works with Popover API</span>
+        </div>
+    </div>
+</div>
+</div>
+
+<style>
+    .anchor-demo {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .anchor-playground {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 120px;
+        position: relative;
+    }
+
+    .anchor-button {
+        anchor-name: --demo-anchor;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .anchor-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .anchor-tooltip {
+        /* Reset popover defaults first */
+        margin: 0;
+        inset: auto;
+
+        /* Anchor positioning */
+        position: fixed;
+        position-anchor: --demo-anchor;
+        top: anchor(bottom);
+        left: anchor(center);
+        translate: -50% 0.75rem;
+
+        /* Styling */
+        background: #1a1a2e;
+        color: white;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.9rem;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .anchor-tooltip::backdrop {
+        background: transparent;
+    }
+
+    .tooltip-arrow {
+        position: absolute;
+        top: -6px;
+        left: 50%;
+        translate: -50% 0;
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid #1a1a2e;
+    }
+
+    .anchor-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .anchor-feature {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        background: rgba(102, 126, 234, 0.1);
+        border-radius: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .feature-icon {
+        font-size: 1.1rem;
+    }
+</style>

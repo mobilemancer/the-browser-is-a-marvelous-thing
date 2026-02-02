@@ -63,6 +63,22 @@
       "description": "Upcoming CSS features and improvements for 2024-2025"
     },
     {
+      "id": "css-anchor-positioning",
+      "title": "CSS Anchor Positioning",
+      "file": "css-anchor-positioning.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Position tooltips, popovers and menus relative to anchor elements"
+    },
+    {
+      "id": "scroll-driven-animations",
+      "title": "Scroll-Driven Animations",
+      "file": "scroll-driven-animations.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Animate elements based on scroll position with pure CSS"
+    },
+    {
       "id": "container-queries",
       "title": "Container Queries",
       "file": "container-queries.html",
