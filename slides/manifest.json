@@ -199,6 +199,14 @@
       "description": "Intersection Observer, Web Locks, and Broadcast Channel"
     },
     {
+      "id": "web-apis-new",
+      "title": "New Web APIs (2024-2026)",
+      "file": "web-apis-new.html",
+      "enabled": true,
+      "section": "web-apis",
+      "description": "URLPattern, Navigation API, scrollend, and more modern JavaScript APIs"
+    },
+    {
       "id": "devtools",
       "title": "DevTools Superpowers",
       "file": "devtools.html",

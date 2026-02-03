@@ -11,11 +11,11 @@
 <span class="selector">@keyframes reveal</span> {
     <span class="selector">from</span> {
         <span class="property">opacity</span>: <span class="value">0</span>;
-        <span class="property">transform</span>: <span class="value">translateY(50px)</span>;
+        <span class="property">transform</span>: <span class="value">translateX(-50px) scale(0.50)</span>;
     }
     <span class="selector">to</span> {
         <span class="property">opacity</span>: <span class="value">1</span>;
-        <span class="property">transform</span>: <span class="value">translateY(0)</span>;
+        <span class="property">transform</span>: <span class="value">translateX(0) scale(1)</span>;
     }
 }
 
@@ -23,7 +23,7 @@
 <span class="selector">.card</span> {
     <span class="property">animation</span>: <span class="value">reveal linear</span>;
     <span class="property">animation-timeline</span>: <span class="value">view()</span>;
-    <span class="property">animation-range</span>: <span class="value">entry 0% cover 40%</span>;
+    <span class="property">animation-range</span>: <span class="value">entry 0% cover 30%</span>;
 }
 
 <span class="comment">/* Or use scroll progress */</span>
@@ -110,13 +110,13 @@
         /* Scroll-driven animation */
         animation: cardReveal linear both;
         animation-timeline: view();
-        animation-range: entry 0% cover 50%;
+        animation-range: entry 0% cover 30%;
     }
 
     @keyframes cardReveal {
         from {
-            opacity: 0.3;
-            transform: translateX(-30px) scale(0.95);
+            opacity: 0;
+            transform: translateX(-50px) scale(0.50);
         }
 
         to {
