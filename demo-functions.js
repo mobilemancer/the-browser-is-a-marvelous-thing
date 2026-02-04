@@ -263,10 +263,15 @@ window.demoFunctions = {
     // Toggle CSS layers demo - highlight utility layer
     toggleLayerHighlight: function () {
         const demoCard = document.getElementById('demoCard');
+        const layerButton = document.getElementById('layerButton');
 
         if (demoCard) {
             // Toggle the highlight class to show utility layer priority
             demoCard.classList.toggle('highlight-box');
+        }
+        if (layerButton) {
+            // Toggle button highlight to show layer priority beats specificity
+            layerButton.classList.toggle('highlight-btn');
         }
     },
 
@@ -496,3 +501,71 @@ window.startAutoProgress = window.demoFunctions.startAutoProgress;
 window.stopAutoProgress = window.demoFunctions.stopAutoProgress;
 window.toggleIfTheme = window.demoFunctions.toggleIfTheme;
 window.copyCodeToClipboard = copyCodeToClipboard;
+
+// Stylable Select demo function
+window.changeSelectTheme = function (value) {
+    const selectEl = document.getElementById('themeSelect');
+    if (!selectEl) return;
+
+    // Remove existing theme classes
+    selectEl.classList.remove('purple-theme', 'ocean-theme', 'sunset-theme', 'forest-theme');
+
+    // Add new theme class
+    switch (value) {
+        case 'purple':
+            selectEl.classList.add('purple-theme');
+            break;
+        case 'ocean':
+            selectEl.classList.add('ocean-theme');
+            break;
+        case 'sunset':
+            selectEl.classList.add('sunset-theme');
+            break;
+        case 'forest':
+            selectEl.classList.add('forest-theme');
+            break;
+    }
+};
+
+// EyeDropper API demo function
+window.openEyeDropper = async function () {
+    if (!('EyeDropper' in window)) {
+        alert('EyeDropper API is not supported in this browser. Try Chrome or Edge!');
+        return;
+    }
+
+    const eyeDropper = new EyeDropper();
+
+    try {
+        const result = await eyeDropper.open();
+        const color = result.sRGBHex;
+
+        // Update the swatch
+        const swatch = document.getElementById('pickedColorSwatch');
+        if (swatch) {
+            swatch.style.backgroundColor = color;
+            swatch.classList.add('has-color');
+        }
+
+        // Update the color value display
+        const valueEl = document.getElementById('pickedColorValue');
+        if (valueEl) {
+            valueEl.textContent = color;
+        }
+
+        // Update preview boxes
+        const box1 = document.getElementById('previewBox1');
+        const box2 = document.getElementById('previewBox2');
+        const box3 = document.getElementById('previewBox3');
+
+        if (box1) box1.style.color = color;
+        if (box2) box2.style.backgroundColor = color;
+        if (box3) {
+            box3.style.borderColor = color;
+            box3.style.borderWidth = '3px';
+        }
+    } catch (e) {
+        // User cancelled (pressed Escape)
+        console.log('EyeDropper cancelled');
+    }
+};

@@ -29,13 +29,13 @@
             <button class="demo-button" onclick="document.getElementById('demoDialog').showModal()">
                 Open Native Dialog
             </button>
-            <dialog id="demoDialog">
+            <dialog id="demoDialog" onclick="if(event.target === this) this.close()">
                 <h3>🎉 Native Dialog!</h3>
                 <div class="demo-explanation">
                     <p>✅ Automatic focus management<br>
-                        ✅ Keyboard navigation<br>
+                        ✅ Keyboard navigation (Esc to close)<br>
                         ✅ Screen reader support<br>
-                        ✅ Backdrop click to close</p>
+                        ✅ Native ::backdrop styling</p>
                 </div>
                 <button class="demo-button" onclick="document.getElementById('demoDialog').close()">Close</button>
             </dialog>

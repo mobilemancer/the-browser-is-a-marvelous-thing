@@ -1,0 +1,111 @@
+<!-- Stylable Select Slide -->
+<h2>Stylable Select Elements</h2>
+<h3>"Finally! Full control over dropdowns!"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">CSS</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="comment">/* Opt-in to customizable select */</span>
+<span class="selector">select</span>, <span class="selector">::picker(select)</span> {
+    <span class="property">appearance</span>: <span class="value">base-select</span>;
+}
+
+<span class="comment">/* Style the button */</span>
+<span class="selector">select</span> {
+    <span class="property">background</span>: <span class="value">linear-gradient(135deg, #667eea, #764ba2)</span>;
+    <span class="property">color</span>: <span class="value">white</span>;
+    <span class="property">padding</span>: <span class="value">0.75rem 1.5rem</span>;
+    <span class="property">border-radius</span>: <span class="value">12px</span>;
+}
+
+<span class="comment">/* Style the dropdown picker */</span>
+<span class="selector">::picker(select)</span> {
+    <span class="property">border-radius</span>: <span class="value">12px</span>;
+    <span class="property">padding</span>: <span class="value">0.5rem</span>;
+    <span class="property">box-shadow</span>: <span class="value">0 10px 40px rgba(0,0,0,0.3)</span>;
+}
+
+<span class="comment">/* Style on open state */</span>
+<span class="selector">select:open</span> {
+    <span class="property">box-shadow</span>: <span class="value">0 0 0 3px #ffd700</span>;
+}</code></pre>
+        <div class="code-header html-header">
+            <span class="code-language">HTML</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre
+            class="code-content"><code><span class="html-tag">&lt;</span><span class="html-tag-name">select</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">button</span><span class="html-tag">&gt;</span>
+        <span class="html-tag">&lt;</span><span class="html-tag-name">selectedcontent</span><span class="html-tag">&gt;&lt;/</span><span class="html-tag-name">selectedcontent</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;/</span><span class="html-tag-name">button</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">option</span><span class="html-tag">&gt;</span><span class="html-text">🎭 Drama</span><span class="html-tag">&lt;/</span><span class="html-tag-name">option</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">option</span><span class="html-tag">&gt;</span><span class="html-text">🚀 Sci-Fi</span><span class="html-tag">&lt;/</span><span class="html-tag-name">option</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;</span><span class="html-tag-name">option</span><span class="html-tag">&gt;</span><span class="html-text">😂 Comedy</span><span class="html-tag">&lt;/</span><span class="html-tag-name">option</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;/</span><span class="html-tag-name">select</span><span class="html-tag">&gt;</span></code></pre>
+    </div>
+    <div class="result-panel">
+        <div class="stylable-select-demo">
+            <h4 class="demo-title">🎨 Stylable Select Demo</h4>
+
+            <div class="select-demo-section">
+                <label class="select-label">Choose a Genre:</label>
+                <select class="styled-select" id="genreSelect">
+                    <button>
+                        <selectedcontent></selectedcontent>
+                    </button>
+                    <option value="drama">🎭 Drama</option>
+                    <option value="scifi">🚀 Sci-Fi</option>
+                    <option value="comedy">😂 Comedy</option>
+                    <option value="horror">👻 Horror</option>
+                    <option value="romance">💕 Romance</option>
+                    <option value="action">💥 Action</option>
+                </select>
+            </div>
+
+            <div class="select-demo-section">
+                <label class="select-label">Pick a Country:</label>
+                <select class="styled-select country-select" id="countrySelect">
+                    <button>
+                        <selectedcontent></selectedcontent>
+                    </button>
+                    <hr>
+                    <optgroup label="🌍 Europe">
+                        <option value="se">🇸🇪 Sweden</option>
+                        <option value="de">🇩🇪 Germany</option>
+                        <option value="fr">🇫🇷 France</option>
+                    </optgroup>
+                    <hr>
+                    <optgroup label="🌎 Americas">
+                        <option value="us">🇺🇸 United States</option>
+                        <option value="br">🇧🇷 Brazil</option>
+                        <option value="ca">🇨🇦 Canada</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="select-demo-section">
+                <label class="select-label">Theme Selector:</label>
+                <select class="styled-select theme-select" id="themeSelect" onchange="changeSelectTheme(this.value)">
+                    <button>
+                        <selectedcontent></selectedcontent>
+                    </button>
+                    <option value="purple">💜 Purple Magic</option>
+                    <option value="ocean">🌊 Ocean Blue</option>
+                    <option value="sunset">🌅 Sunset Orange</option>
+                    <option value="forest">🌲 Forest Green</option>
+                </select>
+            </div>
+
+            <div class="demo-explanation">
+                <strong>🎯 Key Features:</strong><br>
+                ✅ <code>appearance: base-select</code> opt-in<br>
+                ✅ <code>::picker(select)</code> for dropdown styling<br>
+                ✅ <code>&lt;selectedcontent&gt;</code> for button content<br>
+                ✅ Rich content in options (emojis, images)<br>
+                ✅ <code>:open</code> pseudo-class for state styling
+            </div>
+        </div>
+    </div>
+</div>

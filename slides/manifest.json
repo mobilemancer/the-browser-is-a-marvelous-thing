@@ -10,9 +10,17 @@
       "id": "devsum-intro",
       "title": "DevSum Conference Introduction",
       "file": "devsum-intro.html",
-      "enabled": true,
+      "enabled": false,
       "section": "introduction",
       "description": "Conference organizer intro slide"
+    },
+    {
+      "id": "jfokus-intro",
+      "title": "JFokus Conference Introduction",
+      "file": "jfokus-intro.html",
+      "enabled": true,
+      "section": "introduction",
+      "description": "JFokus 2026 Norse God themed intro slide"
     },
     {
       "id": "title",
@@ -47,12 +55,28 @@
       "description": "Introduction to modern CSS features"
     },
     {
-      "id": "css-2024-2025",
-      "title": "CSS in 2024-2025: Awesome Additions",
-      "file": "css-2024-2025.html",
+      "id": "css-new",
+      "title": "CSS in 2024->: Awesome Additions",
+      "file": "css-new.html",
       "enabled": true,
       "section": "css-features",
       "description": "Upcoming CSS features and improvements for 2024-2025"
+    },
+    {
+      "id": "css-anchor-positioning",
+      "title": "CSS Anchor Positioning",
+      "file": "css-anchor-positioning.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Position tooltips, popovers and menus relative to anchor elements"
+    },
+    {
+      "id": "scroll-driven-animations",
+      "title": "Scroll-Driven Animations",
+      "file": "scroll-driven-animations.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Animate elements based on scroll position with pure CSS"
     },
     {
       "id": "container-queries",
@@ -101,6 +125,14 @@
       "enabled": true,
       "section": "css-features",
       "description": "Conditional styling with native CSS logic"
+    },
+    {
+      "id": "stylable-select",
+      "title": "Stylable Select Elements",
+      "file": "stylable-select.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Full control over native select dropdowns"
     },
     {
       "id": "act2-intro",
@@ -168,11 +200,35 @@
     },
     {
       "id": "more-web-apis",
-      "title": "Even More Browser Magic",
+      "title": "Intersection Observer API",
       "file": "more-web-apis.html",
       "enabled": true,
       "section": "web-apis",
-      "description": "Intersection Observer, Web Locks, and Broadcast Channel"
+      "description": "Detect when elements enter or exit the viewport"
+    },
+    {
+      "id": "eyedropper-api",
+      "title": "EyeDropper API",
+      "file": "eyedropper-api.html",
+      "enabled": true,
+      "section": "web-apis",
+      "description": "Pick any color from anywhere on screen"
+    },
+    {
+      "id": "background-apis",
+      "title": "Background & Utility APIs",
+      "file": "background-apis.html",
+      "enabled": true,
+      "section": "web-apis",
+      "description": "Web Locks, Broadcast Channel, Background Sync, and more"
+    },
+    {
+      "id": "web-apis-new",
+      "title": "New Web APIs (2024-2026)",
+      "file": "web-apis-new.html",
+      "enabled": true,
+      "section": "web-apis",
+      "description": "URLPattern, Navigation API, scrollend, and more modern JavaScript APIs"
     },
     {
       "id": "devtools",
@@ -181,6 +237,14 @@
       "enabled": true,
       "section": "development",
       "description": "Advanced debugging and development tools"
+    },
+    {
+      "id": "act4-intro",
+      "title": "Act IV: AI-Supported Coding",
+      "file": "act4-intro.html",
+      "enabled": true,
+      "section": "ai-coding",
+      "description": "Introduction to AI-assisted development"
     },
     {
       "id": "finale",

@@ -7,32 +7,27 @@
             <span class="code-language">JavaScript</span>
             <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
         </div>
-        <pre class="code-content"><code><span class="function">function updatePage</span>() {
-    <span class="object">document</span>.<span class="method">startViewTransition</span>(<span class="function">() =></span> {
-        <span class="comment">// Update your DOM here</span>
-        <span class="object">document</span>.<span class="method">querySelector</span>(<span class="value">'.content'</span>)
-            .<span class="property">innerHTML</span> = newContent;
-    });
+        <pre class="code-content"><code><span class="function">function</span> <span class="method">switchLayout</span>() {
+    <span class="function">if</span> (<span class="object">document</span>.<span class="property">startViewTransition</span>) {
+        <span class="object">document</span>.<span class="method">startViewTransition</span>(<span class="function">() =></span> {
+            currentState.<span class="property">classList</span>.<span class="method">remove</span>(<span class="value">'active'</span>);
+            nextState.<span class="property">classList</span>.<span class="method">add</span>(<span class="value">'active'</span>);
+        });
+    }
 }</code></pre>
         <div class="code-header css-header">
-            <span class="code-language">CSS</span>
+            <span class="code-language">HTML + CSS</span>
             <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
         </div>
-        <pre class="code-content"><code><span class="selector">::view-transition-old(root)</span>,
-<span class="selector">::view-transition-new(root)</span> {
-    <span class="property">animation-duration</span>: <span class="value">0.8s</span>;
-}
+        <pre class="code-content"><code><span class="comment">&lt;!-- Give shared elements the same name --&gt;</span>
+<span class="html-tag">&lt;</span><span class="html-tag-name">div</span> <span class="html-attribute">style</span>=<span class="html-attribute-value">"view-transition-name: movie-1"</span><span class="html-tag">&gt;</span>
+    <span class="html-text">🎭 Drama</span>
+<span class="html-tag">&lt;/</span><span class="html-tag-name">div</span><span class="html-tag">&gt;</span>
 
-<span class="selector">.hero</span> {
-    <span class="property">view-transition-name</span>: <span class="value">hero-image</span>;
-}
-
-<span class="selector">::view-transition-old(hero-image)</span> {
-    <span class="property">transform</span>: <span class="value">translateX(-100%)</span>;
-}
-
-<span class="selector">::view-transition-new(hero-image)</span> {
-    <span class="property">transform</span>: <span class="value">translateX(100%)</span>;
+<span class="comment">/* Customize transition animations */</span>
+<span class="selector">::view-transition-old(movie-1)</span>,
+<span class="selector">::view-transition-new(movie-1)</span> {
+    <span class="property">animation-duration</span>: <span class="value">0.5s</span>;
 }</code></pre>
     </div>
     <div class="result-panel">
@@ -101,15 +96,15 @@
                 <!-- State 3: Profile Layout -->
                 <div class="demo-state" id="profileState">
                     <div class="demo-header" style="view-transition-name: header;">
-                        <h3 style="view-transition-name: title;">👤 User Profile</h3>
+                        <h3 style="view-transition-name: title; font-size: 1rem;">👤 User Profile</h3>
                         <div class="demo-nav" style="view-transition-name: nav;">
                             <span>⚙️ Settings</span> | <span>🚪 Logout</span>
                         </div>
                     </div>
                     <div>
                         <div class="profile-avatar" style="view-transition-name: movie-1;">👤</div>
-                        <h4>Movie Enthusiast</h4>
-                        <p>Joined January 2024</p>
+                        <h4 style="margin: 0.25rem 0; font-size: 0.9rem;">Movie Enthusiast</h4>
+                        <p style="margin: 0; font-size: 0.8rem; opacity: 0.8;">Joined January 2024</p>
                         <div class="profile-stats">
                             <div class="stat-item" style="view-transition-name: movie-2;">
                                 <div class="stat-number">127</div>

@@ -29,11 +29,13 @@
         <span class="property">cursor</span>: <span class="value">pointer</span>;
     }
 }
-<span class="comment">/* Utilities layer - highest priority */</span>
+<span class="comment">/* Utilities layer - ALWAYS wins! */</span>
 <span class="selector">@layer utilities</span> {
-    <span class="selector">.highlight</span> {
+    <span class="selector">.highlight-box</span> {
         <span class="property">background</span>: <span class="value">#ff5722</span>;
-        <span class="property">transform</span>: <span class="value">scale(1.05)</span>;
+    }
+    <span class="selector">.highlight-btn</span> {
+        <span class="property">background</span>: <span class="value">#e91e63</span>;
     }
 }</code></pre>
     </div>
@@ -64,8 +66,8 @@
                 <strong class="layers-demo-explanation-title">🚀 Layer Priority in Action:</strong><br>
                 🔸 <strong>Background:</strong> Card styling (light blue)<br>
                 🔸 <strong>Components:</strong> Button styling (green)<br>
-                🔸 <strong>Utilities:</strong> Highlight override (orange)<br>
-                <em class="layers-demo-explanation-highlight">Higher layers always win, regardless of specificity!</em>
+                🔸 <strong>Utilities:</strong> Overrides BOTH! (orange + pink)<br>
+                <em class="layers-demo-explanation-highlight">Simple utility classes beat complex selectors!</em>
             </div>
         </div>
     </div>
