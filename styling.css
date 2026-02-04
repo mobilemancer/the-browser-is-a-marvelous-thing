@@ -1013,7 +1013,7 @@ dialog::backdrop {
 
 .rune-border {
     font-family: serif;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     letter-spacing: 0.5rem;
     color: rgba(218, 165, 32, 0.6);
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
