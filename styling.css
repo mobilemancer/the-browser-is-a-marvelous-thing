@@ -2397,3 +2397,175 @@ dialog::backdrop {
     top: -8px;
     right: 1rem;
 }
+
+/* ============================================
+   Stylable Select Slide Styles
+   ============================================ */
+
+.stylable-select-demo {
+    text-align: center;
+    width: 100%;
+}
+
+.stylable-select-demo .demo-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #ffd700;
+}
+
+.select-demo-section {
+    margin: 1.25rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.select-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    min-width: 140px;
+    text-align: right;
+}
+
+/* Base select styling with appearance: base-select */
+.styled-select,
+.styled-select::picker(select) {
+    appearance: base-select;
+}
+
+.styled-select {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.65rem 1.25rem;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    cursor: pointer;
+    min-width: 180px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.styled-select:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.styled-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5);
+}
+
+.styled-select:open {
+    box-shadow: 0 0 0 3px #ffd700;
+}
+
+/* Style the dropdown picker */
+.styled-select::picker(select) {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    border: 2px solid rgba(102, 126, 234, 0.4);
+    border-radius: 12px;
+    padding: 0.5rem;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    margin-top: 0.5rem;
+}
+
+/* Style options */
+.styled-select option {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin: 0.25rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    color: #1e293b;
+}
+
+.styled-select option:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.styled-select option:checked {
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    color: #1e293b;
+}
+
+/* Style the checkmark indicator */
+.styled-select option::checkmark {
+    content: "✓ ";
+    color: #667eea;
+}
+
+/* Style optgroups */
+.styled-select optgroup {
+    font-weight: 700;
+    color: #475569;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+}
+
+/* Style hr separators */
+.styled-select hr {
+    border: none;
+    border-top: 1px solid rgba(102, 126, 234, 0.3);
+    margin: 0.5rem 0;
+}
+
+/* Country select variant */
+.country-select {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+.country-select:hover {
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+/* Theme select variants */
+.theme-select {
+    transition: all 0.4s ease;
+}
+
+.theme-select.purple-theme {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.theme-select.ocean-theme {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+}
+
+.theme-select.sunset-theme {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+}
+
+.theme-select.forest-theme {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+}
+
+.stylable-select-demo .demo-explanation {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    text-align: left;
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.stylable-select-demo .demo-explanation code {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+}

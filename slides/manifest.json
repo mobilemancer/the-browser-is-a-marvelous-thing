@@ -127,6 +127,14 @@
       "description": "Conditional styling with native CSS logic"
     },
     {
+      "id": "stylable-select",
+      "title": "Stylable Select Elements",
+      "file": "stylable-select.html",
+      "enabled": true,
+      "section": "css-features",
+      "description": "Full control over native select dropdowns"
+    },
+    {
       "id": "act2-intro",
       "title": "Act II: HTML Elements You've Been Reinventing",
       "file": "act2-intro.html",

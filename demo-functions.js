@@ -501,3 +501,28 @@ window.startAutoProgress = window.demoFunctions.startAutoProgress;
 window.stopAutoProgress = window.demoFunctions.stopAutoProgress;
 window.toggleIfTheme = window.demoFunctions.toggleIfTheme;
 window.copyCodeToClipboard = copyCodeToClipboard;
+
+// Stylable Select demo function
+window.changeSelectTheme = function (value) {
+    const selectEl = document.getElementById('themeSelect');
+    if (!selectEl) return;
+
+    // Remove existing theme classes
+    selectEl.classList.remove('purple-theme', 'ocean-theme', 'sunset-theme', 'forest-theme');
+
+    // Add new theme class
+    switch (value) {
+        case 'purple':
+            selectEl.classList.add('purple-theme');
+            break;
+        case 'ocean':
+            selectEl.classList.add('ocean-theme');
+            break;
+        case 'sunset':
+            selectEl.classList.add('sunset-theme');
+            break;
+        case 'forest':
+            selectEl.classList.add('forest-theme');
+            break;
+    }
+};
