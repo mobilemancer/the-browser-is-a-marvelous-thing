@@ -2637,3 +2637,133 @@ dialog::backdrop {
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
+
+/* ============================================
+   EyeDropper API Slide Styles
+   ============================================ */
+
+.eyedropper-demo {
+    text-align: center;
+    width: 100%;
+}
+
+.eyedropper-demo .demo-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
+.color-palette-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.palette-color {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.palette-color:hover {
+    transform: scale(1.15);
+    border-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.eyedropper-button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    margin-bottom: 1.25rem;
+}
+
+.eyedropper-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+}
+
+.eyedropper-button:active {
+    transform: translateY(-1px);
+}
+
+.picked-color-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.picked-color-swatch {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    background-color: #444;
+    transition: all 0.3s ease;
+}
+
+.picked-color-swatch.has-color {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.picked-color-info {
+    text-align: left;
+}
+
+.picked-color-label {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-bottom: 0.25rem;
+}
+
+.picked-color-value {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffd700;
+}
+
+.color-preview-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.color-preview-box {
+    width: 80px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.eyedropper-note {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin: 0;
+}

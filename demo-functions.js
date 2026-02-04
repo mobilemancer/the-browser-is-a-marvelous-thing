@@ -526,3 +526,46 @@ window.changeSelectTheme = function (value) {
             break;
     }
 };
+
+// EyeDropper API demo function
+window.openEyeDropper = async function () {
+    if (!('EyeDropper' in window)) {
+        alert('EyeDropper API is not supported in this browser. Try Chrome or Edge!');
+        return;
+    }
+
+    const eyeDropper = new EyeDropper();
+
+    try {
+        const result = await eyeDropper.open();
+        const color = result.sRGBHex;
+
+        // Update the swatch
+        const swatch = document.getElementById('pickedColorSwatch');
+        if (swatch) {
+            swatch.style.backgroundColor = color;
+            swatch.classList.add('has-color');
+        }
+
+        // Update the color value display
+        const valueEl = document.getElementById('pickedColorValue');
+        if (valueEl) {
+            valueEl.textContent = color;
+        }
+
+        // Update preview boxes
+        const box1 = document.getElementById('previewBox1');
+        const box2 = document.getElementById('previewBox2');
+        const box3 = document.getElementById('previewBox3');
+
+        if (box1) box1.style.color = color;
+        if (box2) box2.style.backgroundColor = color;
+        if (box3) {
+            box3.style.borderColor = color;
+            box3.style.borderWidth = '3px';
+        }
+    } catch (e) {
+        // User cancelled (pressed Escape)
+        console.log('EyeDropper cancelled');
+    }
+};

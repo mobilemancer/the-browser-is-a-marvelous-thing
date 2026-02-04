@@ -1,0 +1,78 @@
+<!-- Slide: EyeDropper API -->
+<h2>EyeDropper API</h2>
+<h3>"Pick any color from anywhere on screen"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre class="code-content"><code><span class="comment">// Create an EyeDropper instance</span>
+<span class="function">const</span> eyeDropper = <span class="function">new</span> <span class="object">EyeDropper</span>();
+
+<span class="comment">// Open the color picker</span>
+<span class="function">async function</span> <span class="method">pickColor</span>() {
+    <span class="function">try</span> {
+        <span class="function">const</span> result = <span class="function">await</span> eyeDropper.<span class="method">open</span>();
+        
+        <span class="comment">// Result contains sRGBHex color</span>
+        <span class="object">console</span>.<span class="method">log</span>(result.<span class="property">sRGBHex</span>);
+        <span class="comment">// → "#ff6b6b"</span>
+        
+        <span class="comment">// Use the picked color</span>
+        element.<span class="property">style</span>.<span class="property">backgroundColor</span> = result.<span class="property">sRGBHex</span>;
+    } <span class="function">catch</span> (e) {
+        <span class="comment">// User pressed Escape or cancelled</span>
+    }
+}
+
+<span class="comment">// Check for support</span>
+<span class="function">if</span> (<span class="value">'EyeDropper'</span> <span class="function">in</span> <span class="object">window</span>) {
+    <span class="comment">// API is available!</span>
+}</code></pre>
+    </div>
+    <div class="result-panel">
+        <div class="eyedropper-demo">
+            <h4 class="demo-title">🎨 EyeDropper Demo</h4>
+
+            <div class="color-palette-row">
+                <div class="palette-color" style="background: #ff6b6b;"></div>
+                <div class="palette-color" style="background: #4ecdc4;"></div>
+                <div class="palette-color" style="background: #ffe66d;"></div>
+                <div class="palette-color" style="background: #95e1d3;"></div>
+                <div class="palette-color" style="background: #f38181;"></div>
+                <div class="palette-color" style="background: #aa96da;"></div>
+                <div class="palette-color" style="background: #fcbad3;"></div>
+                <div class="palette-color" style="background: #a8d8ea;"></div>
+            </div>
+
+            <button class="eyedropper-button" onclick="openEyeDropper()">
+                💧 Pick a Color
+            </button>
+
+            <div class="picked-color-display" id="pickedColorDisplay">
+                <div class="picked-color-swatch" id="pickedColorSwatch"></div>
+                <div class="picked-color-info">
+                    <span class="picked-color-label">Picked Color:</span>
+                    <span class="picked-color-value" id="pickedColorValue">Click button to pick</span>
+                </div>
+            </div>
+
+            <div class="color-preview-boxes">
+                <div class="color-preview-box" id="previewBox1">
+                    <span>Text</span>
+                </div>
+                <div class="color-preview-box" id="previewBox2">
+                    <span>Background</span>
+                </div>
+                <div class="color-preview-box" id="previewBox3">
+                    <span>Border</span>
+                </div>
+            </div>
+
+            <p class="eyedropper-note">
+                💡 Works anywhere on screen – even outside the browser!
+            </p>
+        </div>
+    </div>
+</div>

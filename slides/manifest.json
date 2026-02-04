@@ -207,6 +207,14 @@
       "description": "Detect when elements enter or exit the viewport"
     },
     {
+      "id": "eyedropper-api",
+      "title": "EyeDropper API",
+      "file": "eyedropper-api.html",
+      "enabled": true,
+      "section": "web-apis",
+      "description": "Pick any color from anywhere on screen"
+    },
+    {
       "id": "background-apis",
       "title": "Background & Utility APIs",
       "file": "background-apis.html",
