@@ -1,0 +1,83 @@
+<!-- Slide: Background & Utility APIs -->
+<h2>Background & Utility APIs</h2>
+<h3>"Works even when you're not looking"</h3>
+<div class="demo-container">
+    <div class="code-panel">
+        <div class="code-header">
+            <span class="code-language">JavaScript</span>
+            <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
+        </div>
+        <pre
+            class="code-content"><code><span class="comment">// Web Locks API - Mutex for the browser</span>
+<span class="function">await</span> <span class="object">navigator</span>.<span class="property">locks</span>.<span class="method">request</span>(<span class="value">'db-write'</span>, <span class="function">async</span> () => {
+    <span class="comment">// Only one tab can run this at a time</span>
+    <span class="function">await</span> <span class="function">writeToIndexedDB</span>(data);
+});
+
+<span class="comment">// Broadcast Channel - Tab-to-tab messaging</span>
+<span class="function">const</span> channel = <span class="function">new</span> <span class="object">BroadcastChannel</span>(<span class="value">'app-sync'</span>);
+channel.<span class="method">postMessage</span>({ <span class="property">type</span>: <span class="value">'logout'</span> });
+channel.<span class="property">onmessage</span> = (e) => {
+    <span class="function">if</span> (e.<span class="property">data</span>.<span class="property">type</span> === <span class="value">'logout'</span>) <span class="function">handleLogout</span>();
+};
+
+<span class="comment">// Background Sync - Queue offline actions</span>
+<span class="object">navigator</span>.<span class="property">serviceWorker</span>.<span class="property">ready</span>.<span class="method">then</span>(reg => {
+    reg.<span class="property">sync</span>.<span class="method">register</span>(<span class="value">'send-messages'</span>);
+});
+
+<span class="comment">// Storage API - Persistent storage</span>
+<span class="function">const</span> persisted = <span class="function">await</span> <span class="object">navigator</span>.<span class="property">storage</span>.<span class="method">persist</span>();
+<span class="function">const</span> estimate = <span class="function">await</span> <span class="object">navigator</span>.<span class="property">storage</span>.<span class="method">estimate</span>();
+<span class="object">console</span>.<span class="method">log</span>(<span class="value">`Using ${estimate.usage} of ${estimate.quota}`</span>);</code></pre>
+    </div>
+    <div class="result-panel">
+        <div class="utility-apis-demo">
+            <h4 class="demo-title">🔧 Background & Utility APIs</h4>
+
+            <div class="api-feature-grid">
+                <div class="api-feature-card">
+                    <div class="api-icon">🔒</div>
+                    <h5>Web Locks API</h5>
+                    <p>Coordinate work across tabs. Prevent race conditions in databases.</p>
+                    <span class="api-badge">Mutex for Browser</span>
+                </div>
+
+                <div class="api-feature-card">
+                    <div class="api-icon">📡</div>
+                    <h5>Broadcast Channel</h5>
+                    <p>Instant messaging between browser tabs. Sync logout, theme, state.</p>
+                    <span class="api-badge">Tab Communication</span>
+                </div>
+
+                <div class="api-feature-card">
+                    <div class="api-icon">🔄</div>
+                    <h5>Background Sync</h5>
+                    <p>Queue actions offline, sync when back online. Never lose data.</p>
+                    <span class="api-badge">Offline First</span>
+                </div>
+
+                <div class="api-feature-card">
+                    <div class="api-icon">💾</div>
+                    <h5>Storage API</h5>
+                    <p>Request persistent storage. Check quota. Survive browser cleanup.</p>
+                    <span class="api-badge">Data Persistence</span>
+                </div>
+
+                <div class="api-feature-card">
+                    <div class="api-icon">😴</div>
+                    <h5>Idle Detection</h5>
+                    <p>Know when user is away. Auto-save, security timeouts, chat status.</p>
+                    <span class="api-badge">User Presence</span>
+                </div>
+
+                <div class="api-feature-card">
+                    <div class="api-icon">📥</div>
+                    <h5>Background Fetch</h5>
+                    <p>Download large files even if tab closes. Progress in browser UI.</p>
+                    <span class="api-badge">Resilient Downloads</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

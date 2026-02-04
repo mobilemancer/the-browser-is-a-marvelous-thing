@@ -2569,3 +2569,71 @@ dialog::backdrop {
     font-family: 'Fira Code', monospace;
     font-size: 0.8rem;
 }
+
+/* ============================================
+   Background & Utility APIs Slide Styles
+   ============================================ */
+
+.utility-apis-demo {
+    text-align: center;
+    width: 100%;
+}
+
+.utility-apis-demo .demo-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #ffd700;
+}
+
+.api-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+    padding: 0.25rem;
+}
+
+.api-feature-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.api-feature-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.api-feature-card .api-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.api-feature-card h5 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    color: #fff;
+}
+
+.api-feature-card p {
+    font-size: 0.65rem;
+    line-height: 1.3;
+    margin: 0 0 0.35rem 0;
+    opacity: 0.85;
+}
+
+.api-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-size: 0.55rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}

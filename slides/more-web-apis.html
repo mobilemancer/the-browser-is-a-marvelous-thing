@@ -1,38 +1,42 @@
-<!-- Slide 14: More Web APIs -->
-<h2>Even More Browser Magic</h2>
+<!-- Slide: Intersection Observer API -->
+<h2>Intersection Observer API</h2>
+<h3>"Lazy loading without scroll spam"</h3>
 <div class="demo-container">
     <div class="code-panel">
         <div class="code-header">
             <span class="code-language">JavaScript</span>
             <span class="code-copy" onclick="copyCodeToClipboard(this)">📋</span>
         </div>
-        <pre class="code-content"><code><span class="comment">// Intersection Observer</span>
+        <pre class="code-content"><code><span class="comment">// Create an observer with options</span>
 <span class="function">const</span> observer = <span class="function">new</span> <span class="object">IntersectionObserver</span>(
     (entries) => {
         entries.<span class="method">forEach</span>(entry => {
             <span class="function">if</span> (entry.<span class="property">isIntersecting</span>) {
                 entry.<span class="property">target</span>.<span class="property">classList</span>.<span class="method">add</span>(<span class="value">'visible'</span>);
+                <span class="comment">// Optional: stop observing after animation</span>
+                observer.<span class="method">unobserve</span>(entry.<span class="property">target</span>);
             }
         });
+    },
+    {
+        <span class="property">threshold</span>: <span class="value">0.5</span>,      <span class="comment">// 50% visible triggers</span>
+        <span class="property">rootMargin</span>: <span class="value">'50px'</span>  <span class="comment">// Trigger 50px early</span>
     }
 );
 
-observer.<span class="method">observe</span>(element);
-
-<span class="comment">// Web Locks API</span>
-<span class="function">await</span> <span class="object">navigator</span>.<span class="property">locks</span>.<span class="method">request</span>(<span class="value">'my-lock'</span>,
-    <span class="function">async</span> () => {
-        <span class="comment">// Critical section</span>
-        <span class="function">await</span> <span class="function">doImportantWork</span>();
-    }
-);
-
-<span class="comment">// Broadcast Channel</span>
-<span class="function">const</span> channel = <span class="function">new</span> <span class="object">BroadcastChannel</span>(<span class="value">'tab-sync'</span>);
-channel.<span class="method">postMessage</span>({<span class="property">type</span>: <span class="value">'update'</span>});
-channel.<span class="property">onmessage</span> = (event) => {
-    <span class="object">console</span>.<span class="method">log</span>(<span class="value">'Message from another tab:'</span>, event.<span class="property">data</span>);
-};</code></pre>
+<span class="comment">// Observe multiple elements</span>
+<span class="object">document</span>.<span class="method">querySelectorAll</span>(<span class="value">'.lazy-item'</span>)
+    .<span class="method">forEach</span>(el => observer.<span class="method">observe</span>(el));</code></pre>
+        <div class="code-header css-header">
+            <span class="code-language">Use Cases</span>
+        </div>
+        <pre class="code-content"><code><span class="comment">/* Perfect for: */</span>
+<span class="value">✓</span> Lazy loading images & videos
+<span class="value">✓</span> Infinite scroll pagination
+<span class="value">✓</span> Scroll-triggered animations
+<span class="value">✓</span> Analytics (track what users see)
+<span class="value">✓</span> Pausing off-screen videos
+<span class="value">✓</span> "Read more" content loading</code></pre>
     </div>
     <div class="result-panel">
         <div>

@@ -200,11 +200,19 @@
     },
     {
       "id": "more-web-apis",
-      "title": "Even More Browser Magic",
+      "title": "Intersection Observer API",
       "file": "more-web-apis.html",
       "enabled": true,
       "section": "web-apis",
-      "description": "Intersection Observer, Web Locks, and Broadcast Channel"
+      "description": "Detect when elements enter or exit the viewport"
+    },
+    {
+      "id": "background-apis",
+      "title": "Background & Utility APIs",
+      "file": "background-apis.html",
+      "enabled": true,
+      "section": "web-apis",
+      "description": "Web Locks, Broadcast Channel, Background Sync, and more"
     },
     {
       "id": "web-apis-new",
