@@ -2767,3 +2767,368 @@ dialog::backdrop {
     opacity: 0.8;
     margin: 0;
 }
+
+/* ============================================
+   Act IV: AI-Supported Coding - Scary Theme
+   ============================================ */
+
+.act4-intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    overflow: hidden;
+}
+
+.act4-intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 0, 0, 0.03) 2px,
+            rgba(255, 0, 0, 0.03) 4px);
+    pointer-events: none;
+    animation: scanlines 0.1s linear infinite;
+}
+
+@keyframes scanlines {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(4px);
+    }
+}
+
+.act-warning-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.3), transparent);
+    padding: 0.5rem 2rem;
+    margin-bottom: 1rem;
+    animation: warningPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes warningPulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.warning-icon {
+    font-size: 1.5rem;
+    animation: warningBlink 0.5s ease-in-out infinite;
+}
+
+@keyframes warningBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.warning-text {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #ff3333;
+    text-transform: uppercase;
+}
+
+.act4-intro .act-title {
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 900;
+    color: #ff0040;
+    text-shadow:
+        0 0 10px #ff0040,
+        0 0 20px #ff0040,
+        0 0 40px #ff0040,
+        0 0 80px #ff0040;
+    margin: 0.5rem 0;
+    position: relative;
+}
+
+.glitch-text {
+    animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+
+    0%,
+    90%,
+    100% {
+        transform: translate(0);
+        text-shadow:
+            0 0 10px #ff0040,
+            0 0 20px #ff0040,
+            0 0 40px #ff0040;
+    }
+
+    92% {
+        transform: translate(-5px, 2px);
+        text-shadow:
+            -3px 0 #00ffff,
+            3px 0 #ff00ff;
+    }
+
+    94% {
+        transform: translate(5px, -2px);
+        text-shadow:
+            3px 0 #00ffff,
+            -3px 0 #ff00ff;
+    }
+
+    96% {
+        transform: translate(-3px, 0);
+    }
+
+    98% {
+        transform: translate(3px, 0);
+    }
+}
+
+.robot-container {
+    position: relative;
+    margin: 1rem 0;
+}
+
+.robot-emoji {
+    font-size: 8rem;
+    display: block;
+    filter: drop-shadow(0 0 30px rgba(255, 0, 64, 0.8));
+    animation: robotFloat 3s ease-in-out infinite, robotGlow 2s ease-in-out infinite;
+}
+
+@keyframes robotFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes robotGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 30px rgba(255, 0, 64, 0.8));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 50px rgba(255, 0, 64, 1)) drop-shadow(0 0 80px rgba(255, 0, 64, 0.5));
+    }
+}
+
+.robot-eyes {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    pointer-events: none;
+}
+
+.robot-eyes::before,
+.robot-eyes::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ff0040;
+    border-radius: 50%;
+    animation: eyeGlow 1s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px #ff0040, 0 0 20px #ff0040;
+}
+
+.robot-eyes::before {
+    left: 8px;
+}
+
+.robot-eyes::after {
+    right: 8px;
+}
+
+@keyframes eyeGlow {
+    0% {
+        opacity: 0.6;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.act4-intro .act-subtitle {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    margin: 0.5rem 0;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.scary-text {
+    animation: textFlicker 4s linear infinite;
+}
+
+@keyframes textFlicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    92% {
+        opacity: 1;
+    }
+
+    93% {
+        opacity: 0.3;
+    }
+
+    94% {
+        opacity: 1;
+    }
+
+    96% {
+        opacity: 0.5;
+    }
+
+    97% {
+        opacity: 1;
+    }
+}
+
+.ominous-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 1rem 0;
+    max-width: 500px;
+    text-align: center;
+}
+
+.threat-level {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 0, 64, 0.3);
+    border-radius: 8px;
+}
+
+.threat-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ff3333;
+    letter-spacing: 2px;
+}
+
+.threat-bar {
+    width: 150px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 0, 64, 0.5);
+}
+
+.threat-fill {
+    height: 100%;
+    width: 75%;
+    background: linear-gradient(90deg, #00ff00, #ffff00, #ff0000);
+    border-radius: 6px;
+    animation: threatPulse 2s ease-in-out infinite;
+}
+
+@keyframes threatPulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.threat-status {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ffff00;
+    letter-spacing: 1px;
+    animation: statusBlink 1s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.binary-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ctext x='10' y='20' fill='%2300ff00' font-family='monospace' font-size='12'%3E01001%3C/text%3E%3Ctext x='50' y='40' fill='%2300ff00' font-family='monospace' font-size='12'%3E10110%3C/text%3E%3Ctext x='20' y='60' fill='%2300ff00' font-family='monospace' font-size='12'%3E11001%3C/text%3E%3Ctext x='60' y='80' fill='%2300ff00' font-family='monospace' font-size='12'%3E00101%3C/text%3E%3C/svg%3E");
+    animation: binaryScroll 20s linear infinite;
+}
+
+@keyframes binaryScroll {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 1000px;
+    }
+}

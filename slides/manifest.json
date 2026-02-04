@@ -239,6 +239,14 @@
       "description": "Advanced debugging and development tools"
     },
     {
+      "id": "act4-intro",
+      "title": "Act IV: AI-Supported Coding",
+      "file": "act4-intro.html",
+      "enabled": true,
+      "section": "ai-coding",
+      "description": "Introduction to AI-assisted development"
+    },
+    {
       "id": "finale",
       "title": "The Future is Now",
       "file": "finale.html",
