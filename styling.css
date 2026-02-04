@@ -1137,6 +1137,37 @@ dialog::backdrop {
     font-weight: 400;
 }
 
+.qr-code-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.4), rgba(184, 134, 11, 0.3));
+    border: 2px solid rgba(218, 165, 32, 0.5);
+    border-radius: 0.75rem;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(255, 215, 0, 0.15);
+}
+
+.qr-code-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 0.5rem;
+    border: 3px solid rgba(218, 165, 32, 0.6);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.qr-label {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    letter-spacing: 0.02em;
+}
+
 .transition-card {
     border-radius: 10px;
     padding: 1.5rem;
